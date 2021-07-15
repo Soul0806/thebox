@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/custom2.css' %}">
+  <title>Document</title>
+</head>
+
+<body id="bd" onLoad="">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Project</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          {% comment %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
+          </li>
+          {% endcomment %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'index' %}">Intelligence</a>
+          </li>
+          {% comment %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('tool') }}">testing</a>
+          </li>
+          {% endcomment %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="dev-mode">
+    <span>Dev Mode</span>
+    <span class="dev-mode-switch">
+      <svg height="25" width="25">
+        <circle cx="12" cy="12" r="9" stroke-width="1" fill="white" />
+      </svg>
+    </span>
+  </div>
+  <main class="p-3">
+    {% block main %}{% endblock %}
+  </main>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+
+  <script src="{% static 'js/custom.js' %}"></script>
+  <script src="{% static 'js/lib.js' %}"></script>
+  {% block scripts %}{% endblock %}
+
+</body>
+
+</html>

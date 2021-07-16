@@ -14,5 +14,6 @@ def insert_category(request):
     if(request.method == 'GET'):
       tags = json.loads(request.GET['tag'])
       for tag in tags:
-        c_instance = Category.objects.create(tag=tag)
+        print(tag)
+        # c_instance = Category.objects.create(tag=tag)
       return HttpResponse('ok')

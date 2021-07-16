@@ -36,7 +36,6 @@ $('.row').children('[class*="col"]')
       $('.test').remove();
     }
   })
-
 // $('.row, .col').hover(function (e) {
 //   // e.stopPropagation();
 //   $(this).toggleClass('border border-dark', e.type === 'mouseenter');

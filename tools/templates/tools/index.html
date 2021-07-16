@@ -1,6 +1,4 @@
-{% extends 'tools/layout.html' %}
-
-{% block main %}
+{% extends 'tools/layout.html' %} {% load static %} {% block main %}
 <div class="row m-2">
   <div class="col-2">
     <input type="text" class="form-control intell-item">
@@ -19,7 +17,7 @@
   <div class="col-2" id="center">
     <button type="button" class="btn btn-outline-danger js-term-list" data-term="default">新增主題</button>
     {% for item in items %}
-    <div class="term-list" data-term="{{ item.item }}">{{ item.tag }}</div>
+    <div class="term-list" data-term="{{ item.id }}">{{ item.tag }}</div>
     {% endfor %}
   </div>
   <div class="col">
@@ -43,7 +41,7 @@
               <div class="choose-pad">
                 <div class="row row-cols-auto m-0">
                   {% for item in items %}
-                  <div class="col align-self-center"><input type="checkbox" value="{{ item.item }}"
+                  <div class="col align-self-center"><input type="checkbox" value="{{ item.tag }}"
                       class="js-item-ckbox">
                   </div>
                   <div class="col" data-id="{{ item.id }}">{{ item.tag }}</div>
@@ -51,7 +49,7 @@
                   {% endfor %}
                 </div>
               </div>
-              <!-- <button type="button" class="btn btn-sm btn-danger js-item-submit">確定</button> -->
+              
             </div>
           </div>
           <div class="js-pad-cancel"></div>
@@ -69,25 +67,28 @@
     </div>
   </div>
 </div>
-{% endblock %}
+{% endblock %} {% block scripts %}
 
-{% block scripts %}
+<script src="{% static 'js/lib.js' %}"></script>
 <script>
-  $('.js-item-add').click(function () {
+  function padHide() {
+    $('.choose-pad-container').css({ 'z-index': '-1', 'visibility': 'hidden' });
+    $('.js-pad-cancel').css('z-index', '-1');
+  }
+
+  j.click('.js-item-add', function () {
     let val = $('.intell-item').val();
     if (isEmpty($('.intell-item').val())) return
     let itemArr = $('.intell-item').val().split(',')
     itemArr.forEach(function trm(item, index) {
       this[index] = capitalizeFirstLetter(item.trim());
     }, itemArr)
-    // data = { 'tag': 123 }
     data = { 'tag': JSON.stringify(itemArr) }
     $.ajax({
       url: "{% url 'insert_category' %}",
       method: "GET",
       data: data,
       success: (res) => {
-        log(res)
         // for (let i of res) {
         //   log(i)
         //   let inner = `<div class="col item" data-id="${i.item_no}">${i.item}</div>`
@@ -99,15 +100,18 @@
       error: (msg) => { log(msg) }
     });
   })
+  j.focus('.intellj', '.tag', function() {
+    $('.choose-pad-container').css({ 'z-index': '2', 'visibility': 'visible' });
+    $('.js-pad-cancel').css('z-index', '1');
+  })
+
+  j.click('.js-pad-cancel', padHide)
 </script>
 {% endblock %}
 {% comment %}
 {% block scripts %}
 <script>
-  function padHide() {
-    $('.choose-pad-container').css({ 'z-index': '-1', 'visibility': 'hidden' });
-    $('.js-pad-cancel').css('z-index', '-1');
-  }
+
 
   $('.js-intell-insert').click(function () {
     q = $('.question').val()
@@ -218,10 +222,7 @@
     padHide();
   })
 
-  $('.intellj').on('focus', '.tag', function () {
-    $('.choose-pad-container').css({ 'z-index': '2', 'visibility': 'visible' });
-    $('.js-pad-cancel').css('z-index', '1');
-  })
+
 
   $('.choose-pad').blur(function () {
     $('.choose-pad-container').removeClass('show');
@@ -261,9 +262,7 @@
     });
   })
 
-  $('.js-pad-cancel').click(function () {
-    padHide();
-  })
+
 
 
 </script>

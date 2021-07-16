@@ -1,3 +1,16 @@
+j = {}
+j.click = function(element, selector=null, callback) {
+		if(selector !=null )
+			$(element).on('click', selector, callback);
+		else
+    	$(element).click(callback);
+}
+
+j.focus = function(element, selector=null, callback) {
+	$(element).on('focus', selector, callback);
+}
+
+
 function log(output) {
     console.log(output)
 }
@@ -17,4 +30,3 @@ function trm(item, index) {
 function isEmpty(el) {
     return !el.trim().length;
 }
-

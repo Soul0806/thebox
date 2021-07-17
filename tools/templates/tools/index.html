@@ -18,7 +18,7 @@
   <div class="col-2" id="center">
     <button type="button" class="btn btn-outline-danger js-term-list" data-term="default">新增主題</button>
     {% for item in items %}
-    <div class="term-list" data-term="{{ item.id }}">{{ item.tag }}</div>
+    <div class="term-list" data-term="{{ item.tag }}">{{ item.tag }}</div>
     {% endfor %}
   </div>
   <div class="col">
@@ -61,7 +61,7 @@
         </div>
         <div class="row">
           <div class="col-6 offset-3 text-end">
-            <button type="button" class="btn btn-primary js-intell-insert">確定</button>
+            <button type="button" class="btn btn-primary js-intell-insert" data-target="question[.question] tag[.tag] answer[.answer]">確定</button>
           </div>
         </div>
       </div>
@@ -79,58 +79,105 @@
 
   j.click('.js-item-add', function (e) {
     let val = getTargetVal(e);
-    if (!isEmpty(val))
+    if (!isEmpty(val)) {
       let itemArr = val.split(',')
-    itemArr.forEach(function trm(item, index) {
-      this[index] = capitalizeFirstLetter(item.trim());
-    }, itemArr)
-    data = { 'tag': JSON.stringify(itemArr) }
+      itemArr.forEach(function (item, index) {
+        this[index] = capitalizeFirstLetter(item.trim());
+      }, itemArr)
+      data = { 'tag': JSON.stringify(itemArr) }
+      $.ajax({
+        url: "{% url 'insert_category' %}",
+        method: "GET",
+        data: data,
+        success: (res) => {
+          // for (let i of res) {
+          //   log(i)
+          //   let inner = `<div class="col item" data-id="${i.item_no}">${i.item}</div>`
+          //   let element = `<div class="item-row row row-cols-auto">${inner}</div>`
+          //   $('.item-list').append(element)
+          //   $('.intell-item').val(null);
+          // }
+        },
+        error: (msg) => { log(msg) }
+      });
+    }
+  })
+  
+  j.click('.term-list, .js-term-list', function (e) {
+    val = $(e.target).data('term')
+    data = { 'term': val }
     $.ajax({
-      url: "{% url 'insert_category' %}",
+      url: "{% url 'term_page' %}",
       method: "GET",
       data: data,
       success: (res) => {
+        if (res == 'default') {
+          $('.default').siblings().remove()
+          $('.default').show();
+          return
+        }
+        $('.default').hide()
+        $('.default').siblings().remove()
+        $('.intellj').append(res)
+        // if(k == 'html')
+        //   log(res[k])
+        // let test = $('.test10').html();
+        // $('.intellj').html('')
         // for (let i of res) {
-        //   log(i)
-        //   let inner = `<div class="col item" data-id="${i.item_no}">${i.item}</div>`
-        //   let element = `<div class="item-row row row-cols-auto">${inner}</div>`
-        //   $('.item-list').append(element)
-        //   $('.intell-item').val(null);
+        //   console.log(i)
+        //   $('.intellj').append(`<div class="col-12">${i['question']}</div><div class="col-12">${i['answer']}</div>`)
         // }
-      },
-      error: (msg) => { log(msg) }
-    });
-  })
-  j.focus('.intellj', '.tag', function () {
-    $('.choose-pad-container').css({ 'z-index': '2', 'visibility': 'visible' });
-    $('.js-pad-cancel').css('z-index', '1');
-  })
+        // hidden-template
+        // $('.intellj').html(res)
 
-  j.click('.js-pad-cancel', padHide)
-</script>
-{% endblock %}
-{% comment %}
-{% block scripts %}
-<script>
-
-
-  $('.js-intell-insert').click(function () {
-    q = $('.question').val()
-    tag = $('.tag').val()
-    ans = $('.answer').val()
-    args = { 'q': q, 'tag': tag, 'ans': ans }
-    $.ajax({
-      url: "{{ url_for('intelligence', path='insert') }}",
-      method: "GET",
-      data: args,
-      success: (res) => {
-        alert(res)
       },
       error: (msg) => {
         alert(msg)
       }
     });
   })
+  j.focus('.intellj', '.tag', function () {
+    $('.choose-pad-container').css({ 'z-index': '2', 'visibility': 'visible' });
+    $('.js-pad-cancel').css('z-index', '1');
+  })
+  let item_checked = []
+  j.click('.js-item-ckbox', function (e) {
+    val = $(e.target).val()
+    item_checked.includes(val)
+      ? item_checked.splice(item_checked.indexOf(val), 1)
+      : item_checked.push(val)
+
+    item_checked_str = '';
+    for (let i in item_checked) {
+      i == 0
+        ? item_checked_str += item_checked[i]
+        : item_checked_str += `, ${item_checked[i]}`
+    }
+    $('.tag').val(item_checked_str)
+  })
+
+  j.click('.js-intell-insert', function (e) {
+    data = getTargetPair(e)
+    data['csrfmiddlewaretoken'] = '{{ csrf_token }}'
+    $.ajax({
+      url: "{% url 'insert_question' %}",
+      method: "POST",
+      data: data,
+      success: (res) => {
+        log(res)
+      },
+      error: (msg) => {
+        alert(msg)
+      }
+    });
+  })
+  
+  j.click('.js-pad-cancel', padHide)
+</script>
+{% endblock %}
+{% comment %}
+{% block scripts %}
+<script>
 
   $('.js-item-add').click(function () {
     let val = $('.intell-item').val();
@@ -201,67 +248,17 @@
     $(this).remove()
   })
 
-  let item_checked = []
-  $('.js-item-ckbox').click(function () {
-    val = $(this).val()
-    item_checked.includes(val)
-      ? item_checked.splice(item_checked.indexOf(val), 1)
-      : item_checked.push(val)
-
-    item_checked_str = '';
-    for (let i in item_checked) {
-      i == 0
-        ? item_checked_str += item_checked[i]
-        : item_checked_str += `, ${item_checked[i]}`
-    }
-    $('.tag').val(item_checked_str)
-    // $(this).val()
-    // log($('input:checked').length)
-  })
   //js-item-submit
   $('.intellj').on('click', '.js-item-submit', function () {
     padHide();
   })
 
 
-
   $('.choose-pad').blur(function () {
     $('.choose-pad-container').removeClass('show');
   })
 
-  $('.term-list, .js-term-list').click(function () {
-    val = $(this).data('term')
-    data = { 'term': val }
-    $.ajax({
-      url: "{{ url_for('intelligence', path='term-list') }}",
-      method: "GET",
-      data: data,
-      success: (res) => {
-        if (res == 'default') {
-          $('.default').siblings().remove()
-          $('.default').show();
-          return
-        }
-        $('.default').hide()
-        $('.default').siblings().remove()
-        $('.intellj').append(res)
-        // if(k == 'html')
-        //   log(res[k])
-        // let test = $('.test10').html();
-        // $('.intellj').html('')
-        // for (let i of res) {
-        //   console.log(i)
-        //   $('.intellj').append(`<div class="col-12">${i['question']}</div><div class="col-12">${i['answer']}</div>`)
-        // }
-        // hidden-template
-        // $('.intellj').html(res)
-
-      },
-      error: (msg) => {
-        alert(msg)
-      }
-    });
-  })
+  $('').click()
 
 
 

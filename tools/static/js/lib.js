@@ -13,22 +13,15 @@ j.focus = function (element, selector = null, callback) {
 function getTargetVal(event) {
   return $($(event.target).data('target')).val();
 }
-function log(output) {
-  console.log(output)
+
+function getTargetPair(event) {
+  obj = {};
+  target_arr = $(event.target).data('target').split(' ');
+  for( let t of target_arr ) {
+    let re = t.match(/\[(\.(.+))\]/);
+    obj[re[2]] = $(re[1]).val(); 
+  }
+  return obj;
+  // return $(event.target).data('target')
 }
 
-function isEmpty(str) {
-  return !str.trim().length;
-}
-
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-function trm(item, index) {
-  this[index] = item.trim();
-}
-
-function isEmpty(el) {
-  return !el.trim().length;
-}

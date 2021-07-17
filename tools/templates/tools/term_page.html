@@ -1,0 +1,51 @@
+<div class="term_page">
+  <h1>{{ term }}</h1>
+  <ul>
+    <li class="row row-cols-auto qa_group">
+      <div class="col"><input type="checkbox" value=""></div>
+      <dvi class="col">
+        <div class="col-12 q">
+          <button type="button" class="btn btn-sm btn-outline-primary qa-select-btn">選擇</button>
+          <button type="button" class="btn btn-sm btn-outline-danger qa-cancel-btn">取消</button>
+        </div>
+        <div class="col-12 a"></div>
+      </dvi>
+    </li>
+    {% for i in q_collects %}
+    <li class="row row-cols-auto qa_group">
+      <div class="col"><input type="checkbox" value="{{ i.id }}"></div>
+      <dvi class="col">
+        <div class="col-12 q">{{ i.questions }}</div>
+        <div class="col-12 a">{{ i.answers }}</div>
+      </dvi>
+    </li>
+    {% endfor %}
+    <li>
+      <button type="button" class="btn btn-danger btn-block qa-delete-btn">刪除</button>
+    </li>
+  </ul>
+</div>
+
+<script>
+  
+  $('.qa-select-btn').click(function() {
+    $('.term_page ul').addClass('onselect');
+    // if(qaBtn) {
+    //   $('.qa_group [type="checkbox"]').prop("checked", true);
+    //   return;
+    // }
+    // $('.qa_group').toggleClass('selected');
+    $('.qa-select-btn').text('全選')
+    $('.qa-cancel-btn').toggleClass('show');
+    // qaBtn = true;
+  })
+
+  $('.qa-cancel-btn').click(function() {
+    $('.qa_group [type="checkbox"]').prop("checked", false)
+    $('.term_page ul').toggleClass('onselect');
+    $('.qa-select-btn').text('選擇')
+    $('.qa-cancel-btn').toggleClass('show');
+    // $('.qa-delete-btn').removeClass('visible')
+    qaBtn = false;
+  })
+</script>

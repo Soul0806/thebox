@@ -1,32 +1,34 @@
 j = {}
-j.click = function(element, selector=null, callback) {
-		if(selector !=null )
-			$(element).on('click', selector, callback);
-		else
-    	$(element).click(callback);
+j.click = function (element, selector = null, callback) {
+  if (selector != null)
+    $(element).on('click', selector, callback);
+  else
+    $(element).click(callback);
 }
 
-j.focus = function(element, selector=null, callback) {
-	$(element).on('focus', selector, callback);
+j.focus = function (element, selector = null, callback) {
+  $(element).on('focus', selector, callback);
 }
 
-
+function getTargetVal(event) {
+  return $($(event.target).data('target')).val();
+}
 function log(output) {
-    console.log(output)
+  console.log(output)
 }
 
 function isEmpty(str) {
-    return !str.trim().length;
+  return !str.trim().length;
 }
 
 function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 function trm(item, index) {
-    this[index] = item.trim();
+  this[index] = item.trim();
 }
 
 function isEmpty(el) {
-    return !el.trim().length;
+  return !el.trim().length;
 }

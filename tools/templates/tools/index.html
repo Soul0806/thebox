@@ -2,10 +2,11 @@
 <div class="row m-2">
   <div class="col-2">
     <input type="text" class="form-control intell-item">
-    <div class="d-grid mx-auto">
-      <button class="btn btn-primary btn-sm my-2 js-item-add">加入</button>
+    <div class=" d-grid mx-auto">
+      <button class="btn btn-primary btn-sm my-2 js-item-add" data-target=".intell-item">加入</button>
     </div>
-    <div class="operate"></div>
+    <div class=" operate">
+    </div>
     <div class="item-list">
       {% for item in items %}
       <div class="item-row row row-cols-auto">
@@ -49,7 +50,7 @@
                   {% endfor %}
                 </div>
               </div>
-              
+
             </div>
           </div>
           <div class="js-pad-cancel"></div>
@@ -76,10 +77,10 @@
     $('.js-pad-cancel').css('z-index', '-1');
   }
 
-  j.click('.js-item-add', function () {
-    let val = $('.intell-item').val();
-    if (isEmpty($('.intell-item').val())) return
-    let itemArr = $('.intell-item').val().split(',')
+  j.click('.js-item-add', function (e) {
+    let val = getTargetVal(e);
+    if (!isEmpty(val))
+      let itemArr = val.split(',')
     itemArr.forEach(function trm(item, index) {
       this[index] = capitalizeFirstLetter(item.trim());
     }, itemArr)
@@ -100,7 +101,7 @@
       error: (msg) => { log(msg) }
     });
   })
-  j.focus('.intellj', '.tag', function() {
+  j.focus('.intellj', '.tag', function () {
     $('.choose-pad-container').css({ 'z-index': '2', 'visibility': 'visible' });
     $('.js-pad-cancel').css('z-index', '1');
   })

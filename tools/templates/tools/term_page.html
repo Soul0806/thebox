@@ -1,6 +1,7 @@
 <div class="term_page">
   <h1>{{ term }}</h1>
   <ul>
+    {% comment %}
     <li class="row qa_group">
       <div class="col-2">
         <input type="checkbox" value="">
@@ -10,12 +11,13 @@
         <button type="button" class="btn btn-sm btn-outline-danger qa-cancel-btn">取消</button>
       </div>
     </li>
+    {% endcomment %}
     {% for i in q_collects %}
     <li class="row qa_group">
       <div class="col-2"><input type="checkbox" value="{{ i.id }}"></div>
       <dvi class="col text-start">
-        <div class=" col-12 q">{{ i.questions }}
-        </div>
+        <h5 class=" col-12 q">{{ i.questions }}
+        </h5>
         <div class="col-12 a">{{ i.answers }}</div>
       </dvi>
     </li>

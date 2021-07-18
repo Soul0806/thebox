@@ -33,8 +33,9 @@ def term_page(request):
       if(term != 'default'):
         c = Category.objects.get(tag=term)
         q_collects = c.category.all()
+        return render(request, 'tools/term_page.html', {
+          'term': term,
+          'q_collects': q_collects
+        })
 
-      return render(request, 'tools/term_page.html', {
-        'term': term,
-        'q_collects': q_collects
-      })
+      return HttpResponse('default')

@@ -12,7 +12,7 @@
    global styles
    ############# */
 ul {
-  padding: 0
+  padding: 0;
 }
 
 li {
@@ -25,7 +25,6 @@ li {
 
 .item-row {
   padding: 0.5rem 1.25rem;
-
 }
 
 .intellj .row {
@@ -134,7 +133,7 @@ li {
 }
 
 .term_page {
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .term_page ul {
@@ -145,6 +144,10 @@ li {
 
 .term_page ul.onselect {
   transform: translateX(1rem);
+}
+
+.qa_group > .col-2 {
+  width: max-content;
 }
 
 /* ############# components ############# */
@@ -176,7 +179,8 @@ li {
   z-index: -1;
 }
 
-.qa-cancel-btn, .qa-delete-btn {
+.qa-cancel-btn,
+.qa-delete-btn {
   visibility: hidden;
 }
 

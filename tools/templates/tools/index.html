@@ -61,7 +61,8 @@
         </div>
         <div class="row">
           <div class="col-6 offset-3 text-end">
-            <button type="button" class="btn btn-primary js-intell-insert" data-target="question[.question] tag[.tag] answer[.answer]">確定</button>
+            <button type="button" class="btn btn-primary js-intell-insert"
+              data-target="question[.question] tag[.tag] answer[.answer]">確定</button>
           </div>
         </div>
       </div>
@@ -102,7 +103,7 @@
       });
     }
   })
-  
+
   j.click('.term-list, .js-term-list', function (e) {
     val = $(e.target).data('term')
     data = { 'term': val }
@@ -171,7 +172,7 @@
       }
     });
   })
-  
+
   j.click('.js-pad-cancel', padHide)
 </script>
 {% endblock %}

@@ -1,19 +1,25 @@
 #tool .root-ul {
   padding: 0 20px;
-  list-style: none; }
-  #tool .root-ul ul {
-    position: relative;
-    left: -5px;
-    padding: 0 20px;
-    list-style: none; }
-  #tool .root-ul li {
-    padding: 0 0;
-    border-left: 2px solid black;
-    line-height: 30px; }
-  #tool .root-ul > li, #tool .root-ul li:last-child {
-    border-left: 2px solid white; }
-  #tool .root-ul .fa-fold {
-    cursor: pointer; }
+  list-style: none;
+}
+#tool .root-ul ul {
+  position: relative;
+  left: -5px;
+  padding: 0 20px;
+  list-style: none;
+}
+#tool .root-ul li {
+  padding: 0 0;
+  border-left: 2px solid black;
+  line-height: 30px;
+}
+#tool .root-ul > li,
+#tool .root-ul li:last-child {
+  border-left: 2px solid white;
+}
+#tool .root-ul .fa-fold {
+  cursor: pointer;
+}
 
 .branches {
   display: inline-block;
@@ -23,12 +29,19 @@
   border: 2px solid black;
   border-width: 0 0 2px 2px;
   left: -2px;
-  top: -3px; }
+  top: -3px;
+}
 
 .vision {
-  display: none; }
+  display: none;
+}
 
 .test {
   position: absolute;
   color: red;
-  /* right: 1px; */ }
+  /* right: 1px; */
+}
+
+[type="checkbox"] {
+  display: inline-block;
+}

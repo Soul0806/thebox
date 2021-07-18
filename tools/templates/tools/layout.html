@@ -31,13 +31,11 @@
           </li>
           {% endcomment %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'index' %}">Intelligence</a>
+            <a class="nav-link" href="{% url 'index' %}">Tools</a>
           </li>
-          {% comment %}
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('tool') }}">testing</a>
+            <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
           </li>
-          {% endcomment %}
         </ul>
       </div>
     </div>
@@ -60,7 +58,7 @@
     crossorigin="anonymous"></script>
   <script src="{% static 'js/base.js' %}"></script>
   <script src="{% static 'js/custom.js' %}"></script>
-  
+
   {% block scripts %}{% endblock %}
 
 </body>

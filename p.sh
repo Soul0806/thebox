@@ -10,7 +10,7 @@ else
     git push origin $2
 fi
 
-echo 'Push successfully'
+echo 'Push successfully !'
 
 # while test $# -gt 0; do
 #       case "$1" in

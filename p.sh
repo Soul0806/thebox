@@ -1,7 +1,7 @@
 #! /bin/bash
 
 git add . 
-git commit -m "commit by push.sh"
-git push origin main
+git commit -m $1
+git push origin $2
 
 echo 'Push sucessfully'

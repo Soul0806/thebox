@@ -7,3 +7,4 @@ aaa = re.sub('\d\d\d', str)
 print(aaa)
 
 # print(result)
+

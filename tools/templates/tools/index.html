@@ -16,18 +16,19 @@
     </div>
   </div>
   <div class="col-2" id="center">
-    <button type="button" class="btn btn-outline-danger js-term-list" data-term="default">新增主題</button>
+    <div class="text-center">
+      <button type="button" class="btn btn-outline-danger js-term-list" data-term="default">新增主題</button>
+    </div>
     {% for item in items %}
     <div class="term-list" data-term="{{ item.tag }}">{{ item.tag }}</div>
     {% endfor %}
+    <div class="text-center">
+      <span class="material-icons js-add-category">
+        add_circle_outline
+      </span>
+    </div>
   </div>
   <div class="col">
-    <div class="item-search-wrap">
-      <input type="text" class="item-search">
-      <div class="material-icons icons-search">
-        search
-      </div>
-    </div>
     <div class="col-12 intellj">
       <div class="default">
         <div class="row align-items-center">
@@ -50,7 +51,6 @@
                   {% endfor %}
                 </div>
               </div>
-
             </div>
           </div>
           <div class="js-pad-cancel"></div>

@@ -1,20 +1,12 @@
 <div class="term_page">
+  <div class="item-search-wrap">
+    <input type="text" class="item-search">
+    <div class="material-icons icons-search" data-target=".item-search">search</div>
+  </div>
   <h1>{{ term }}</h1>
   <ul>
-    {% comment %}
-    <li class="row qa_group">
-      <div class="col-2">
-        <input type="checkbox" value="">
-      </div>
-      <div class="col text-start">
-        <button type="button" class="btn btn-sm btn-outline-primary qa-select-btn">選擇</button>
-        <button type="button" class="btn btn-sm btn-outline-danger qa-cancel-btn">取消</button>
-      </div>
-    </li>
-    {% endcomment %}
     {% for i in q_collects %}
     <li class="row qa_group">
-      <div class="col-2"><input type="checkbox" value="{{ i.id }}"></div>
       <dvi class="col text-start">
         <h5 class=" col-12 q">{{ i.questions }}
         </h5>
@@ -22,14 +14,9 @@
       </dvi>
     </li>
     {% endfor %}
-    <li>
-      <button type="button" class="btn btn-danger btn-block qa-delete-btn">刪除</button>
-    </li>
   </ul>
 </div>
-
 <script>
-
   $('.qa-select-btn').click(function () {
     $('.term_page ul').addClass('onselect');
     // if(qaBtn) {

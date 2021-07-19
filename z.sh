@@ -27,7 +27,7 @@ case $1 in
 esac
 
 git add . 
-git commit -m "fast commit"
+git commit -m "fast commit~"
 git push origin main
 
 # if [ $# -eq 0 ]; then

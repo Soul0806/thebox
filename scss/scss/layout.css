@@ -7,6 +7,25 @@
 3. components
 
 */
+.limegreen {
+  color: limegreen; }
+
+.pt {
+  cursor: pointer; }
+
+.js-add-category + .hint {
+  margin: 0 auto;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid black;
+  font-size: 0.5rem;
+  color: white;
+  background-color: black;
+  width: max-content;
+  visibility: hidden; }
+
+.js-add-category:hover + .hint {
+  visibility: visible; }
+
 /* #############
      typography
      ############# */

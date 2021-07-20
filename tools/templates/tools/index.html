@@ -1,20 +1,5 @@
 {% extends 'tools/layout.html' %} {% load static %} {% block main %}
 <div class="row m-2">
-  <div class="col-2">
-    <input type="text" class="form-control intell-item">
-    <div class=" d-grid mx-auto">
-      <button class="btn btn-primary btn-sm my-2 js-item-add" data-target=".intell-item">加入</button>
-    </div>
-    <div class=" operate">
-    </div>
-    <div class="item-list">
-      {% for item in items %}
-      <div class="item-row row row-cols-auto">
-        <div class="col item" data-id="{{ item.id}}">{{ item.tag }}</div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
   <div class="col-2" id="center">
     <div class="text-center">
       <button type="button" class="btn btn-outline-danger js-term-list" data-term="default">新增主題</button>
@@ -23,9 +8,12 @@
     <div class="term-list" data-term="{{ item.tag }}">{{ item.tag }}</div>
     {% endfor %}
     <div class="text-center">
-      <span class="material-icons js-add-category">
+      <div class="material-icons js-add-category limegreen pt">
         add_circle_outline
-      </span>
+      </div>
+      <div class="hint">
+        新增
+      </div>
     </div>
   </div>
   <div class="col">

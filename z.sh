@@ -6,7 +6,7 @@
 # fi
 
 # if [ $1 == 'run' ]; then
-#     py manage.py runserver
+#     python3 manage.py runserver
 #     exit 1
 # fi
 case $1 in
@@ -15,7 +15,7 @@ case $1 in
             exit 1
             ;;
         run ) 
-            py manage.py runserver
+           python manage.py runserver
             exit 1
             ;;
         -m ) 

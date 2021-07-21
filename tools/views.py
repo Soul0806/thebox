@@ -5,6 +5,9 @@ from django.shortcuts import render
 from .models import Category, Question
 # Create your views here.
 
+def test(request):
+  return render(request, 'test/test.html')
+
 def index(request):
     category = Category.objects.all()
     return render(request, 'tools/index.html', {

@@ -14,9 +14,11 @@ case $1 in
             source ./venv/Scripts/activate
             exit 1
             ;;
-        run ) 
-           python manage.py runserver
-            exit 1
+        run )
+            python -m webbrowser http://127.0.0.1:8000/
+            python manage.py runserver             
+            echo 'running...'
+            exit 1 
             ;;
         -m ) 
             git add . 
@@ -24,11 +26,15 @@ case $1 in
             git push origin $3
             exit 1
             ;;
+        p )
+            git add . 
+            git commit -m "fast commit~"
+            git push origin main
+             exit 1
+            ;;
 esac
 
-git add . 
-git commit -m "fast commit~"
-git push origin main
+
 
 # if [ $# -eq 0 ]; then
 #     git add . 

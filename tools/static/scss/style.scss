@@ -8,44 +8,36 @@
 
 */
 @import "variables";
+@import "extends";
 @import "mixins";
-
 @import "globals";
 
 .term {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @extend %flex-column;
   a {
     justify-content: center;
     width: max-content;
   }
   &__form {
-    @include default-link;
+    @extend %default-link;
   }
   &__list {
     margin: 0.75rem auto;
     color: $black;
   }
-  .svg_add {
-    stroke: $limegreen;
-    stroke-width: 2;
-    fill: none;
+
+  &__add { 
+    color: $limegreen;
+    // transition: all 400ms ease-in-out;
 
     &.active {
-      & + .cross {
-        transform: rotate(45deg);
-      }
+      color: $red;
+      transform: rotate(45deg);
     }
 
-    & + text {
-      stroke: $limegreen;
-      stroke-width: 1;
-      fill: $limegreen;
-    }
     // color: $limegreen;
     & + .hint {
-      @include default-hint;
+      @extend %default-hint;
       position: absolute;
       visibility: hidden;
     }
@@ -58,15 +50,38 @@
     }
   }
 
-  &_input {
-    margin-top: 5px;
-    border-radius: 15px;
-    border: 1px solid $limegreen;
-    padding: 0.5rem 1.5rem;
-    outline: none;
-    // &:focus {
-    //   box-shadow: 0 0 0 5px hsl(108, 131, 194), 0 0 0 10px hsl(197, 71%, 73%);
-    // }
+  &__input {
+    @extend %flex-column;
+    position: relative;
+    visibility: hidden;
+    &.active {
+      visibility: visible;
+    }
+    
+    .close {
+      position: absolute;
+      right: -0.9rem;
+      top: -0.9rem;
+    }
+   
+    input {
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid $limegreen;
+      padding: 0.5rem 1.5rem;
+      outline: none;
+    }
+
+    a {
+      margin-top: 5px;
+      width: 100%;
+      color: $white;
+      background-color: $gray;
+      
+      &:hover {
+        background-color: hsl(0, 0%, 50%);
+      }
+    }
   }
 }
 

@@ -1,10 +1,15 @@
 
 console.log('hello');
 
-const svgAdd = document.querySelector('.svg_add');
-const cross = document.querySelector('.cross');
+const termAdd = document.querySelector('.term__add');
+const termInput = document.querySelector('.term__input');
+const termClose = document.querySelector('.close');
 
-cross.addEventListener('click', function (element) {
-  svgAdd.classList.add('active');
-  console.log(123)
+
+termAdd.addEventListener('click', function (element) {
+  termInput.classList.add('active');
+});
+
+termClose.addEventListener('click', function (element) {
+  termInput.classList.remove('active');
 })

@@ -12,7 +12,8 @@
 
 case $1 in
         v ) 
-            source /Users/chenchinping/codeproject/Thebox/venv/bin/activate
+            source ./venv/bin/activate
+            # source ./venv/Scripts/activate
             exit 1
             ;;
         run )
@@ -31,7 +32,7 @@ case $1 in
             git add . 
             git commit -m "fast commit~"
             git push origin main
-             exit 1
+            exit 1
             ;;
         test ) 
             echo 'test'

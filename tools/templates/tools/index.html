@@ -5,15 +5,17 @@
     {% for item in items %}
     <a href="#" class="term__list" data-term="{{ item.tag }}">{{ item.tag }}</a>
     {% endfor %}
-    <a href="#" class="term__add">add_circle_outline</a>
-    <svg height="50" width="50">
-      <circle cx="25" cy="25" r="10" class="svg_add" />
-      <text x="25" y="25" class="cross" text-anchor="middle" alignment-baseline="middle">+</text>
-    </svg>
+    <a href="#" class="material-icons term__add">add_circle_outline</a>
     <div class=" hint">
       新增
     </div>
-    <input type="text" class="term_input">
+    <div class="term__input">
+      <span class="material-icons close">
+        close
+      </span>
+       <input type="text">
+       <a href="#">新增</a>
+    </div>
   </div>
   <div class="col">
     <div class="col-12 intellj">

@@ -1,5 +1,4 @@
-j.click('.js_category_add', function (e) {
-    console.log(123)
+j.click('#js_category_add', function (e) {
     let val = getTargetVal(e);
     if (!isEmpty(val)) {
       let itemArr = val.split(',')
@@ -12,7 +11,6 @@ j.click('.js_category_add', function (e) {
         method: "GET",
         data: data,
         success: (res) => {
-            console.log(res)
           // for (let i of res) {
           //   log(i)
           //   let inner = `<div class="col item" data-id="${i.item_no}">${i.item}</div>`

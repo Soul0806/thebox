@@ -7,13 +7,69 @@
 3. components
 
 */
-@import "test";
-.limegreen {
-  color: limegreen;
+@import "variables";
+@import "mixins";
+
+@import "globals";
+
+.term {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  a {
+    justify-content: center;
+    width: max-content;
+  }
+  &__form {
+    @include default-link;
+  }
+  &__list {
+    margin: 0.75rem auto;
+    color: $black;
+  }
+  .svg_add {
+    stroke: $limegreen;
+    stroke-width: 2;
+    fill: none;
+
+    &.active {
+      & + .cross {
+        transform: rotate(45deg);
+      }
+    }
+
+    & + text {
+      stroke: $limegreen;
+      stroke-width: 1;
+      fill: $limegreen;
+    }
+    // color: $limegreen;
+    & + .hint {
+      @include default-hint;
+      position: absolute;
+      visibility: hidden;
+    }
+
+    &:hover {
+      color: $limegreen;
+      & + .hint {
+        visibility: visible;
+      }
+    }
+  }
+
+  &_input {
+    margin-top: 5px;
+    border-radius: 15px;
+    border: 1px solid $limegreen;
+    padding: 0.5rem 1.5rem;
+    outline: none;
+    // &:focus {
+    //   box-shadow: 0 0 0 5px hsl(108, 131, 194), 0 0 0 10px hsl(197, 71%, 73%);
+    // }
+  }
 }
-.pt {
-  cursor: pointer;
-}
+
 .js-add-category {
   + .hint {
     margin: 0 auto;

@@ -9,9 +9,10 @@
 #     python3 manage.py runserver
 #     exit 1
 # fi
+
 case $1 in
         v ) 
-            source ./venv/Scripts/activate
+            source /Users/chenchinping/codeproject/Thebox/venv/bin/activate
             exit 1
             ;;
         run )
@@ -32,8 +33,13 @@ case $1 in
             git push origin main
              exit 1
             ;;
+        test ) 
+            echo 'test'
+            exit 1
+            ;;
 esac
 
+ 
 
 
 # if [ $# -eq 0 ]; then

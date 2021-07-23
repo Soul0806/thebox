@@ -1,0 +1,213 @@
+/* Table of contents
+
+1. global styles
+
+2. typography
+
+3. components
+
+*/
+html {
+  box-sizing: border-box; }
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit; }
+
+a {
+  text-align: center; }
+  a:link, a:visited, a:active, a:hover {
+    text-decoration: none; }
+
+.term {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .term a {
+    justify-content: center;
+    width: max-content; }
+  .term__form {
+    padding: 0.5rem 1.5rem;
+    border: 1px solid #d92626;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #d92626; }
+    .term__form:hover {
+      color: red; }
+  .term__list {
+    margin: 0.75rem auto;
+    color: black; }
+  .term .svg_add {
+    stroke: limegreen;
+    stroke-width: 2;
+    fill: none; }
+    .term .svg_add.active + .cross {
+      transform: rotate(45deg); }
+    .term .svg_add + text {
+      stroke: limegreen;
+      stroke-width: 1;
+      fill: limegreen; }
+    .term .svg_add + .hint {
+      margin-top: 2px;
+      border-radius: 10px;
+      padding: 0.25rem 0.5rem;
+      font-size: 14px;
+      color: white;
+      background-color: black;
+      position: absolute;
+      visibility: hidden; }
+    .term .svg_add:hover {
+      color: limegreen; }
+      .term .svg_add:hover + .hint {
+        visibility: visible; }
+  .term_input {
+    margin-top: 5px;
+    border-radius: 15px;
+    border: 1px solid limegreen;
+    padding: 0.5rem 1.5rem;
+    outline: none; }
+
+.js-add-category + .hint {
+  margin: 0 auto;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid black;
+  font-size: 0.5rem;
+  color: white;
+  background-color: black;
+  width: max-content;
+  visibility: hidden; }
+
+.js-add-category:hover + .hint {
+  visibility: visible; }
+
+/* #############
+     typography
+     ############# */
+/* #############
+   global styles
+   ############# */
+ul {
+  padding: 0; }
+  ul li {
+    list-style: none; }
+
+/* #############  layout  ############# */
+.intellj .row {
+  text-align: center; }
+
+.intellj :not(:first-child) {
+  margin-top: 5px; }
+
+.term-list {
+  margin: 0.75rem;
+  line-height: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: font-size 100ms ease-in; }
+  .term-list:hover {
+    font-size: 1.4rem; }
+
+.row [class|="col"] {
+  position: relative; }
+
+.term_page h1 {
+  text-align: center; }
+
+.tag {
+  position: relative; }
+
+.qa_group > .col-2 {
+  width: max-content; }
+
+/* ############# components ############# */
+.choose-pad-container {
+  visibility: hidden;
+  position: absolute;
+  width: 200px;
+  height: 200px; }
+
+.choose-pad {
+  position: ralative;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(220, 243, 224, 0.829);
+  overflow-y: auto; }
+
+.item-search-wrap {
+  width: max-content;
+  height: 4rem; }
+
+.icons-search {
+  position: relative;
+  top: 10%;
+  left: -2rem;
+  height: 100%;
+  cursor: default; }
+
+.item-search {
+  margin: 1rem 0;
+  border: 1px solid #ccc;
+  padding: 0.2rem 0.8rem;
+  border-radius: 8px;
+  width: 10rem; }
+
+.dev-mode {
+  position: fixed;
+  right: 0.5rem; }
+
+.dev-mode-switch {
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 3rem;
+  background-color: #e6e6e6; }
+  .dev-mode-switch.limegreen {
+    background-color: limegreen; }
+  .dev-mode-switch svg.open {
+    transform: translateX(1.2rem); }
+
+.js-pad-cancel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  opacity: 0.5;
+  z-index: -1; }
+
+/* #######  Test ####### */
+.test {
+  position: absolute;
+  top: calc(-2rem - 0.5rem);
+  left: 50%;
+  padding: 0.2rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #000; }
+
+.test::after {
+  position: absolute;
+  bottom: -0.5rem;
+  left: calc(50% - 0.5rem);
+  content: "";
+  border-top: 0.5rem solid black;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  width: 0;
+  height: 0; }
+
+.choose-pad::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5; }
+
+.choose-pad::-webkit-scrollbar {
+  width: 5px;
+  background-color: #f5f5f5; }
+
+.choose-pad::-webkit-scrollbar-thumb {
+  background-color: #000000; }
+
+/*# sourceMappingURL=style.css.map */

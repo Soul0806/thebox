@@ -1,20 +1,19 @@
 {% extends 'tools/layout.html' %} {% load static %} {% block main %}
 <div class="row m-2">
-  <div class="col-2" id="center">
-    <div class="text-center">
-      <button type="button" class="btn btn-outline-danger js-term-list" data-term="default">新增主題</button>
-    </div>
+  <div class="col-3 term" id="center">
+    <a href="#" class="term__form" data-term="default">新增主題</a>
     {% for item in items %}
-    <div class="term-list" data-term="{{ item.tag }}">{{ item.tag }}</div>
+    <a href="#" class="term__list" data-term="{{ item.tag }}">{{ item.tag }}</a>
     {% endfor %}
-    <div class="text-center">
-      <div class="material-icons js-add-category limegreen pt">
-        add_circle_outline
-      </div>
-      <div class="hint">
-        新增
-      </div>
+    <a href="#" class="term__add">add_circle_outline</a>
+    <svg height="50" width="50">
+      <circle cx="25" cy="25" r="10" class="svg_add" />
+      <text x="25" y="25" class="cross" text-anchor="middle" alignment-baseline="middle">+</text>
+    </svg>
+    <div class=" hint">
+      新增
     </div>
+    <input type="text" class="term_input">
   </div>
   <div class="col">
     <div class="col-12 intellj">
@@ -91,7 +90,7 @@
     }
   })
 
-  j.click('.term-list, .js-term-list', function (e) {
+  j.click('.term__list, .term__form', function (e) {
     val = $(e.target).data('term')
     data = { 'term': val }
     $.ajax({

@@ -24,4 +24,3 @@ function getTargetPair(event) {
   return obj;
   // return $(event.target).data('target')
 }
-

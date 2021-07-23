@@ -13,8 +13,8 @@
       <span class="material-icons close">
         close
       </span>
-       <input type="text">
-       <a href="#">新增</a>
+       <input type="text" class="test">
+       <a href="#" id="js_category_add" data-target=".test">新增</a>
     </div>
   </div>
   <div class="col">
@@ -59,38 +59,19 @@
   </div>
 </div>
 {% endblock %} {% block scripts %}
+<script type="text/javascript">
+  var url_insert_category = "{% url 'insert_category' %}"
+</script>
 <script src="{% static 'js/lib.js' %}"></script>
+<script src="{% static 'js/index.js' %}"></script>
 <script>
+ 
   function padHide() {
     $('.choose-pad-container').css({ 'z-index': '-1', 'visibility': 'hidden' });
     $('.js-pad-cancel').css('z-index', '-1');
   }
 
-  j.click('.js-item-add', function (e) {
-    let val = getTargetVal(e);
-    if (!isEmpty(val)) {
-      let itemArr = val.split(',')
-      itemArr.forEach(function (item, index) {
-        this[index] = capitalizeFirstLetter(item.trim());
-      }, itemArr)
-      data = { 'tag': JSON.stringify(itemArr) }
-      $.ajax({
-        url: "{% url 'insert_category' %}",
-        method: "GET",
-        data: data,
-        success: (res) => {
-          // for (let i of res) {
-          //   log(i)
-          //   let inner = `<div class="col item" data-id="${i.item_no}">${i.item}</div>`
-          //   let element = `<div class="item-row row row-cols-auto">${inner}</div>`
-          //   $('.item-list').append(element)
-          //   $('.intell-item').val(null);
-          // }
-        },
-        error: (msg) => { log(msg) }
-      });
-    }
-  })
+
 
   j.click('.term__list, .term__form', function (e) {
     val = $(e.target).data('term')

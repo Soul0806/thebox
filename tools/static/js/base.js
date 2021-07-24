@@ -1,19 +1,29 @@
-function log(output) {
-    console.log(output)
-}
+// function log(output) {
+//     console.log(output)
+// }
 
-function isEmpty(str) {
-    return !str.trim().length;
-}
+// function isEmpty(str) {
+//     return !str.trim().length;
+// }
 
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
+// function capitalizeFirstLetter(string) {
+//     return string.charAt(0).toUpperCase() + string.slice(1);
+// }
 
-function trm(item, index) {
-    this[index] = item.trim();
-}
+// function trm(item, index) {
+//     this[index] = item.trim();
+// }
+'use strict'
 
-function isEmpty(el) {
-    return !el.trim().length;
+const lib = {
+    log: output => {
+        console.log(output)
+    },
+    isEmpty: str => {
+        return !str.trim().length;
+    },
+    capitalizeFirstLetter: string => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
 }
+export default lib;

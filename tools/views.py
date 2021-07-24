@@ -11,15 +11,14 @@ def test(request):
 def index(request):
     category = Category.objects.all()
     return render(request, 'tools/index.html', {
-      'items': category
+      'categorys': category
     })
 
 def insert_category(request):
     if(request.method == 'GET'):
-      tags = json.loads(request.GET['tag'])
-      for tag in tags:
-        c_instance = Category.objects.create(tag=tag)
-      return HttpResponse('ok')
+      term = request.GET['term']
+      c_instance = Category.objects.create(terms=term)
+      return HttpResponse(c_instance)
 
 def insert_question(request):
     if(request.method == 'POST'):
@@ -34,7 +33,7 @@ def term_page(request):
     if(request.method == 'GET'):
       term = request.GET['term']
       if(term != 'default'):
-        c = Category.objects.get(tag=term)
+        c = Category.objects.get(terms=term)
         q_collects = c.category.all()
         return render(request, 'tools/term_page.html', {
           'term': term,

@@ -1,0 +1,8 @@
+<div class="layout__padcontainer">
+
+    {% for category in categorys %}
+    <input type="checkbox" value="{{ category.terms }}" class="js-item-ckbox">
+    <div class="layout__term" data-id="{{ category.id }}">{{ category.terms }}</div>
+    {% endfor %}
+
+</div>

@@ -1,14 +1,11 @@
 {% extends 'tools/layout.html' %} {% load static %} {% block main %}
 <div class="row m-2">
-  <div class="col-3 term" id="center">
+  <div class="col-3 term">
     <a href="#" class="term__form" data-term="default">新增主題</a>
-    {% for item in items %}
-    <a href="#" class="term__list" data-term="{{ item.tag }}">{{ item.tag }}</a>
+    {% for category in categorys %}
+    <a href="#" class="term__list" data-term="{{ category.terms}}">{{ category.terms }}</a>
     {% endfor %}
     <a href="#" class="material-icons term__add">add_circle_outline</a>
-    <div class=" hint">
-      新增
-    </div>
     <div class="term__input">
       <span class="material-icons close">
         close
@@ -17,222 +14,39 @@
        <a href="#" id="js_category_add" data-target=".term__val">新增</a>
     </div>
   </div>
-  <div class="col">
-    <div class="col-12 intellj">
-      <div class="default">
-        <div class="row align-items-center">
-          <div class="col-3 fw-bold">主題</div>
-          <div class="col-6"><input type="text" class="js question form-control"></div>
-        </div>
-        <div class="row align-items-center">
-          <div class="col-3 fw-bold">HashTag</div>
-          <div class="col-6">
-            <input type="text" class="js tag form-control">
-            <div class="choose-pad-container">
-              <div class="choose-pad">
-                <div class="row row-cols-auto m-0">
-                  {% for item in items %}
-                  <div class="col align-self-center"><input type="checkbox" value="{{ item.tag }}"
-                      class="js-item-ckbox">
-                  </div>
-                  <div class="col" data-id="{{ item.id }}">{{ item.tag }}</div>
-                  <div class="w-100"></div>
-                  {% endfor %}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="js-pad-cancel"></div>
-        </div>
-        <div class="row align-items-center">
-          <div class="col-3 fw-bold">方法</div>
-          <div class="col-6"><textarea class="js answer form-control" rows="10"></textarea></div>
-        </div>
-        <div class="row">
-          <div class="col-6 offset-3 text-end">
-            <button type="button" class="btn btn-primary js-intell-insert"
-              data-target="question[.question] tag[.tag] answer[.answer]">確定</button>
-          </div>
-        </div>
+  <div class="col layout">
+
+  <div class="default">
+    <div class="row">
+      <div class="col-3">主題</div>
+      <div class="col-6"><input type="text" class="question form-control"></div>
+    </div>
+    <div class="row">
+      <div class="col-3">HashTag</div>
+      <div class="col-6">
+        <input type="text" class="js tag form-control">
+        {% include 'tools/pad.html' %}
       </div>
     </div>
+    <div class="row align-items-center">
+      <div class="col-3 fw-bold">方法</div>
+      <div class="col-6"><textarea class="js answer form-control" rows="10"></textarea></div>
+    </div>
+    <div class="row">
+      <div class="col-6 offset-3 text-end">
+        <button type="button" class="btn btn-primary js-intell-insert"
+          data-target="question[.question] tag[.tag] answer[.answer]">確定</button>
+      </div>
+    </div>
+  </div>
+
   </div>
 </div>
 {% endblock %} {% block scripts %}
 <script type="text/javascript">
   var url_insert_category = "{% url 'insert_category' %}"
+  var url_term_page       = "{% url 'term_page' %}"
+  
 </script>
-<script src="{% static 'js/lib.js' %}"></script>
-<script src="{% static 'js/index.js' %}"></script>
-<script>
- 
-  function padHide() {
-    $('.choose-pad-container').css({ 'z-index': '-1', 'visibility': 'hidden' });
-    $('.js-pad-cancel').css('z-index', '-1');
-  }
-
-
-
-  j.click('.term__list, .term__form', function (e) {
-    val = $(e.target).data('term')
-    data = { 'term': val }
-    $.ajax({
-      url: "{% url 'term_page' %}",
-      method: "GET",
-      data: data,
-      success: (res) => {
-        if (res == 'default') {
-          $('.default').siblings().remove()
-          $('.default').show();
-          return
-        }
-        $('.default').hide()
-        $('.default').siblings().remove()
-        $('.intellj').append(res)
-        // if(k == 'html')
-        //   log(res[k])
-        // let test = $('.test10').html();
-        // $('.intellj').html('')
-        // for (let i of res) {
-        //   console.log(i)
-        //   $('.intellj').append(`<div class="col-12">${i['question']}</div><div class="col-12">${i['answer']}</div>`)
-        // }
-        // hidden-template
-        // $('.intellj').html(res)
-
-      },
-      error: (msg) => {
-        alert(msg)
-      }
-    });
-  })
-  j.focus('.intellj', '.tag', function () {
-    $('.choose-pad-container').css({ 'z-index': '2', 'visibility': 'visible' });
-    $('.js-pad-cancel').css('z-index', '1');
-  })
-  let item_checked = []
-  j.click('.js-item-ckbox', function (e) {
-    val = $(e.target).val()
-    item_checked.includes(val)
-      ? item_checked.splice(item_checked.indexOf(val), 1)
-      : item_checked.push(val)
-
-    item_checked_str = '';
-    for (let i in item_checked) {
-      i == 0
-        ? item_checked_str += item_checked[i]
-        : item_checked_str += `, ${item_checked[i]}`
-    }
-    $('.tag').val(item_checked_str)
-  })
-
-  j.click('.js-intell-insert', function (e) {
-    data = getTargetPair(e)
-    data['csrfmiddlewaretoken'] = '{{ csrf_token }}'
-    $.ajax({
-      url: "{% url 'insert_question' %}",
-      method: "POST",
-      data: data,
-      success: (res) => {
-        log(res)
-      },
-      error: (msg) => {
-        alert(msg)
-      }
-    });
-  })
-
-  j.click('.js-pad-cancel', padHide)
-</script>
+<script type="module" src="{% static 'js/index.js' %}"></script>
 {% endblock %}
-{% comment %}
-{% block scripts %}
-<script>
-
-  $('.js-item-add').click(function () {
-    let val = $('.intell-item').val();
-    if (isEmpty($('.intell-item').val())) return
-    let itemArr = $('.intell-item').val().split(',')
-    itemArr.forEach(function trm(item, index) {
-      this[index] = capitalizeFirstLetter(item.trim());
-    }, itemArr)
-
-    data = { 'tag': JSON.stringify(itemArr) }
-    $.ajax({
-      url: "{% url 'insert_category' %}",
-      method: "GET",
-      data: data,
-      success: (res) => {
-        log(res)
-        // for (let i of res) {
-        //   log(i)
-        //   let inner = `<div class="col item" data-id="${i.item_no}">${i.item}</div>`
-        //   let element = `<div class="item-row row row-cols-auto">${inner}</div>`
-        //   $('.item-list').append(element)
-        //   $('.intell-item').val(null);
-        // }
-      },
-      error: (msg) => { log(msg) }
-    });
-  })
-
-  let delItem = []
-  $('.item-list').on('click', '.item', function () {
-    $(this).toggleClass('isSelected')
-    if ($("[class~='isSelected']").length == 0) {
-      $('.js-remove-btn').remove()
-    }
-    id = $(this).data('id')
-    delItem.includes(id)
-      ? delItem.splice(delItem.indexOf(id), 1)
-      : delItem.push($(this).data('id'))
-    $('.operate')
-      .html($('.item-row:first').clone()
-        .html('<button type="button" class="btn btn-sm btn-outline-danger js-remove-btn">remove</button>\
-               <button type="button" class="btn btn-sm btn-outline-warning js-cancel-btn mx-2">cancel</button>\
-              '))
-    //  $('.item-row').clone().html('<button tpye="button" class="btn btn-sm btn-outline-danger js-remove-btn">remove</button>')
-  })
-
-  $('.operate').on('click', '.js-remove-btn', function () {
-    data = { 'item': JSON.stringify(delItem) }
-    $.ajax({
-      url: "{{ url_for('intelligence', path='item-delete') }}",
-      method: "GET",
-      data: data,
-      success: (res) => {
-        $.map(delItem, function (i) {
-          $("[data-id=" + i + "]").parent().remove()
-          $('.js-remove-btn').remove()
-        });
-      },
-      error: (msg) => {
-        log(msg)
-      }
-    });
-  })
-
-  $('.operate').on('click', '.js-cancel-btn', function () {
-    $('.js-remove-btn').remove()
-    $('.item').removeClass('isSelected')
-    $(this).remove()
-  })
-
-  //js-item-submit
-  $('.intellj').on('click', '.js-item-submit', function () {
-    padHide();
-  })
-
-
-  $('.choose-pad').blur(function () {
-    $('.choose-pad-container').removeClass('show');
-  })
-
-  $('').click()
-
-
-
-
-</script>
-{% endblock %}
-{% endcomment %}

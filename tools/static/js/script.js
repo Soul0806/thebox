@@ -5,6 +5,10 @@ const termClose = document.querySelector('.close');
 
 const devMode = document.querySelector('.dev__mode');
 const devCircle = document.querySelector('.js-dev-circle');
+const layoutTag = document.querySelector('.layout__tag');
+
+const mask = document.querySelector('.mask');
+const outerwrap = document.querySelector('.outerwrap');
 
 termAdd.addEventListener('click',  (element) => {
   termInput.classList.add('active');
@@ -19,5 +23,16 @@ devCircle.addEventListener('click', (element) => {
     ?  devMode.classList.remove('active')
     :  devMode.classList.add('active');
 })
+
+layoutTag.addEventListener('focus', (element) => {
+  mask.classList.add('show');
+  outerwrap.classList.add('show');
+})
+
+mask.addEventListener('click', (element) => {
+  mask.classList.remove('show');
+  outerwrap.classList.remove('show');
+})
+
 
 

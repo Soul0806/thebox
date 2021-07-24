@@ -1,7 +1,46 @@
 .layout {
   @extend %container;
 
-  &__padcontainer {
+  &__pad {
+    .mask {
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: $gray;
+      height: 100vh;
+      width: 100vw;
+      opacity: 0.5;
+
+      &.show {
+        visibility: visible;
+      }
+    }
     
+    .outerwrap {
+      visibility: hidden;
+      position: absolute;
+      width: 15rem;
+      background-color: $white;
+
+      &.show {
+        visibility: visible;
+      }
+      .wrap {
+        width: 100%;
+        margin-left: 0.5rem;
+        margin-bottom: 0.5rem;
+        input {
+          width: max-content;
+        }
+        .list {
+          display: inline-block;
+        }
+      }
+
+      &.show {
+        visibility: visible;
+      }
+    }
   }
 }

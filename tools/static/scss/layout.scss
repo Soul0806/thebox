@@ -1,6 +1,11 @@
 .layout {
   @extend %container;
-
+  .title {
+    @extend %flex-row;
+  }
+  .row {
+    margin-bottom: 5px;
+  }
   &__pad {
     .mask {
       visibility: hidden;

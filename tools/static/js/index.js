@@ -27,8 +27,17 @@ j.click('.term__list, .term__form', e => {
     }
     $('.default').hide()
     $('.default').siblings().remove()
-    $('.intellj').append(res)
+    $('.layout').append(res)
   })
 })
+
+j.click('.js_question_add', e => {
+	let data = j.getTargetPair(e);
+  ajax.post(url_insert_question, data, res => {
+    lib.log(res)
+  })
+})
+
+
 
   

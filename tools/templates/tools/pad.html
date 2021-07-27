@@ -1,11 +1,11 @@
 <div class="layout__pad">
-    <div class="mask"></div>
-    <div class="outerwrap">
-        {% for category in categorys %}
-            <div class="wrap">
-                <input type="checkbox" value="{{ category.terms }}" class="js-item-ckbox">
-                <div class="list" data-id="{{ category.id }}">{{ category.terms }}</div>
-            </div>
-        {% endfor %}
+  <div class="mask"></div>
+  <div class="outerwrap">
+    {% for category in categorys %}
+    <div class="wrap">
+        <input type="checkbox" value="{{ category.terms }}" class="js_term_ckbox">
+        <div class="list" data-id="{{ category.id }}">{{ category.terms }}</div>
     </div>
+    {% endfor %}
+  </div>
 </div>

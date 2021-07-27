@@ -22,8 +22,8 @@ def insert_category(request):
 
 def insert_question(request):
     if(request.method == 'POST'):
-      q = Question.objects.create(questions=request.POST['question'], answers=request.POST['answer'].replace('\n', '<br>'))
-      tags = request.POST['tag'].split(',')
+      q = Question.objects.create(questions=request.POST['questions'], answers=request.POST['answers'].replace('\n', '<br>'))
+      tags = request.POST['tags'].split(',')
       for t in tags: 
         c = Category.objects.get(tag=t.strip())
         q.categorys.add(c.id)

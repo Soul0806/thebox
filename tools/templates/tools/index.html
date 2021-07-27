@@ -16,29 +16,29 @@
   </div>
   <div class="col layout">
 
-  <div class="default">
-    <div class="row">
-      <div class="col-3">主題</div>
-      <div class="col-6"><input type="text" class="question form-control"></div>
-    </div>
-    <div class="row">
-      <div class="col-3">HashTag</div>
-      <div class="col-6">
-        <input type="text" class="layout__tag form-control">
-        {% include 'tools/pad.html' %}
+    <div class="default">
+      <div class="row">
+        <div class="col-3 title">HashTag</div>
+        <div class="col-6">
+          <input type="text" class="layout__tag form-control">
+          {% include 'tools/pad.html' %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3 title">主題</div>
+        <div class="col-6"><input type="text" class="layout__question form-control"></div>
+      </div>
+      <div class="row">
+        <div class="col-3 title">方法</div>
+        <div class="col-6"><textarea class="layout__answer form-control" rows="10"></textarea></div>
+      </div>
+      <div class="row">
+        <div class="col-6 offset-3 text-end">
+          <a href="#" class="js_question_add"
+            data-target="[.layout__question] [.layout__tag] [.layout__answer]">確定</a>
+        </div>
       </div>
     </div>
-    <div class="row align-items-center">
-      <div class="col-3 fw-bold">方法</div>
-      <div class="col-6"><textarea class="answer form-control" rows="10"></textarea></div>
-    </div>
-    <div class="row">
-      <div class="col-6 offset-3 text-end">
-        <button type="button" class="btn btn-primary js-intell-insert"
-          data-target="question[.question] tag[.tag] answer[.answer]">確定</button>
-      </div>
-    </div>
-  </div>
 
   </div>
 </div>
@@ -46,7 +46,7 @@
 <script type="text/javascript">
   var url_insert_category = "{% url 'insert_category' %}"
   var url_term_page       = "{% url 'term_page' %}"
-  
+  var url_insert_question = "{% url 'insert_question' %}"
 </script>
 <script type="module" src="{% static 'js/index.js' %}"></script>
 {% endblock %}

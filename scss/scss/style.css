@@ -29,6 +29,12 @@
   flex-direction: column;
   align-items: center; }
 
+.layout .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+
 .layout, .term {
   padding: 2rem 2rem; }
 
@@ -102,6 +108,9 @@ a {
 
 .js-add-category:hover + .hint {
   visibility: visible; }
+
+.layout .row {
+  margin-bottom: 5px; }
 
 .layout__pad .mask {
   visibility: hidden;

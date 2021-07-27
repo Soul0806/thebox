@@ -15,11 +15,12 @@ const j = {
     },
 
     getTargetPair: (event) => {
-        obj = {};
-        target_arr = $(event.target).data('target').split(' ');
+        let obj = {};
+        let target_arr = $(event.target).data('target').split(' ');
         for( let t of target_arr ) {
           let re = t.match(/\[(\.(.+))\]/);
-          obj[re[2]] = $(re[1]).val(); 
+          let key = re[2].match(/__(.+)/)[1] + 's'
+          obj[key] = $(re[1]).val(); 
         }
         return obj;
     }

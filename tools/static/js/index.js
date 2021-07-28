@@ -4,21 +4,21 @@ import ajax from './ajax.js'
 
 
 j.click('#js_category_add', e => {
-	let term = j.getTargetVal(e);
-	if (!lib.isEmpty(term)) {
-	  let data = { 'term': term}
-	  ajax.get(url_insert_category, data, (res) => {
+  let term = j.getTargetVal(e);
+  if (!lib.isEmpty(term)) {
+    let data = { 'term': term }
+    ajax.get(url_insert_category, data, (res) => {
       var target = [...document.querySelectorAll('.term__list')].pop()
       let clone = target.cloneNode();
-      clone.innerHTML = res; 
+      clone.innerHTML = res;
       target.parentNode.insertBefore(clone, target.nextSibling);
-	  });
-	}
+    });
+  }
 })
 
 j.click('.term__list, .term__form', e => {
-	let term = $(e.target).data('term');
-	let data = { 'term': term }
+  let term = $(e.target).data('term');
+  let data = { 'term': term }
   ajax.get(url_term_page, data, res => {
     if (res == 'default') {
       $('.default').siblings().remove()
@@ -32,12 +32,11 @@ j.click('.term__list, .term__form', e => {
 })
 
 j.click('.js_question_add', e => {
-	let data = j.getTargetPair(e);
+  let data = j.getTargetPair(e, csrf);
   ajax.post(url_insert_question, data, res => {
-    lib.log(res)
+    console.log(res)
   })
 })
 
 
 
-  

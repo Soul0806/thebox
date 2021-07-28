@@ -7,14 +7,15 @@
 3. components
 
 */
+
 @import "variables";
 @import "extends";
 @import "mixins";
 @import "globals";
-@import 'term';
-@import 'layout';
+@import "term";
+@import "layout";
+@import "page";
 
- 
 .dev {
   position: fixed;
   right: 0.5rem;
@@ -25,13 +26,13 @@
     border-radius: 10px;
     width: 3rem;
     background-color: $gray;
-    
-    &.active { 
+
+    &.active {
       background-color: limegreen;
 
       svg {
-         transform: translateX(1.2rem);
-      }   
+        transform: translateX(1.2rem);
+      }
     }
   }
 }

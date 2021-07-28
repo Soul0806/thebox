@@ -141,6 +141,9 @@ a {
   .layout__pad .outerwrap.show {
     visibility: visible; }
 
+* {
+  color: blue; }
+
 .dev {
   position: fixed;
   right: 0.5rem; }

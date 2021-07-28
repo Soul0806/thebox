@@ -5,8 +5,8 @@ const ajax = {
       method: "GET",
       data: data,
       success: callback,
-      error: (msg) => { lib.log(msg) }
-      });
+      error: (msg) => { console.log(msg) }
+    });
   },
   post: (url, data, callback) => {
     $.ajax({
@@ -14,8 +14,8 @@ const ajax = {
       method: "POST",
       data: data,
       success: callback,
-      error: (msg) => { lib.log(msg) }
-      });
+      error: (msg) => { console.log(msg) }
+    });
   }
 }
 

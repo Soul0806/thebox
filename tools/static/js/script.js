@@ -14,8 +14,7 @@ const outerwrap = document.querySelector('.outerwrap');
 const termCheck = document.querySelectorAll('.js_term_ckbox');
 
 
-
-termAdd.addEventListener('click',  (element) => {
+termAdd.addEventListener('click', (element) => {
   termInput.classList.add('active');
 });
 
@@ -24,9 +23,9 @@ termClose.addEventListener('click', (element) => {
 })
 
 devCircle.addEventListener('click', (element) => {
-  devMode.classList.contains('active') 
-    ?  devMode.classList.remove('active')
-    :  devMode.classList.add('active');
+  devMode.classList.contains('active')
+    ? devMode.classList.remove('active')
+    : devMode.classList.add('active');
 })
 
 layoutTag.addEventListener('focus', (element) => {
@@ -47,9 +46,9 @@ mask.addEventListener('click', (element) => {
 let arr = [];
 let str = '';
 termCheck.forEach(item => {
- item.addEventListener('click', e => {
-   let val = e.target.value;
-   arr.includes(val) ? arr.splice(arr.indexOf(val), 1) : arr.push(val)
-   layoutTag.value = arr.join(', ');
- })
+  item.addEventListener('click', e => {
+    let val = e.target.value;
+    arr.includes(val) ? arr.splice(arr.indexOf(val), 1) : arr.push(val)
+    layoutTag.value = arr.join(',');
+  })
 })

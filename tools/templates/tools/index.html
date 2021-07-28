@@ -10,8 +10,8 @@
       <span class="material-icons close">
         close
       </span>
-       <input type="text" class="term__val">
-       <a href="#" id="js_category_add" data-target=".term__val">新增</a>
+      <input type="text" class="term__val">
+      <a href="#" id="js_category_add" data-target=".term__val">新增</a>
     </div>
   </div>
   <div class="col layout">
@@ -34,19 +34,18 @@
       </div>
       <div class="row">
         <div class="col-6 offset-3 text-end">
-          <a href="#" class="js_question_add"
-            data-target="[.layout__question] [.layout__tag] [.layout__answer]">確定</a>
+          <a href="#" class="js_question_add" data-target="[.layout__question] [.layout__tag] [.layout__answer]">確定</a>
         </div>
       </div>
     </div>
-
   </div>
 </div>
 {% endblock %} {% block scripts %}
 <script type="text/javascript">
   var url_insert_category = "{% url 'insert_category' %}"
-  var url_term_page       = "{% url 'term_page' %}"
+  var url_term_page = "{% url 'term_page' %}"
   var url_insert_question = "{% url 'insert_question' %}"
+  var csrf = "{{ csrf_token }}"
 </script>
 <script type="module" src="{% static 'js/index.js' %}"></script>
 {% endblock %}

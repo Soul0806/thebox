@@ -24,6 +24,12 @@
   color: white;
   background-color: black; }
 
+.page__serachwrap input {
+  border-radius: 8px;
+  border: 1px solid black;
+  padding: 0.25rem 0.75rem;
+  outline: none; }
+
 .term__input, .term {
   display: flex;
   flex-direction: column;
@@ -141,8 +147,15 @@ a {
   .layout__pad .outerwrap.show {
     visibility: visible; }
 
-* {
-  color: blue; }
+.page {
+  position: relative;
+  display: inline-block; }
+  .page__serachwrap {
+    margin-bottom: 1.25rem; }
+    .page__serachwrap .js_icons_search {
+      position: absolute;
+      top: .4rem;
+      right: .4rem; }
 
 .dev {
   position: fixed;

@@ -1,3 +1,16 @@
 .page {
-  
+  position: relative;
+  display: inline-block;
+  &__serachwrap {
+    margin-bottom: 1.25rem;
+    input {
+      @extend %default-input;
+     
+    }
+    .js_icons_search {
+      position: absolute;
+      top: .4rem;
+      right: .4rem;
+    }
+  }
 }

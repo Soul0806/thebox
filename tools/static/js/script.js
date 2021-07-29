@@ -11,7 +11,10 @@ const layoutTag = document.querySelector('.layout__tag');
 
 const mask = document.querySelector('.mask');
 const outerwrap = document.querySelector('.outerwrap');
+const layout = document.querySelector('.layout');
+
 const termCheck = document.querySelectorAll('.js_term_ckbox');
+// const pageSearch = document.querySelector('.js_page_search');
 
 
 termAdd.addEventListener('click', (element) => {
@@ -38,10 +41,6 @@ mask.addEventListener('click', (element) => {
   outerwrap.classList.remove('show');
 })
 
-mask.addEventListener('click', (element) => {
-  mask.classList.remove('show');
-  outerwrap.classList.remove('show');
-})
 
 let arr = [];
 let str = '';
@@ -52,3 +51,5 @@ termCheck.forEach(item => {
     layoutTag.value = arr.join(',');
   })
 })
+
+

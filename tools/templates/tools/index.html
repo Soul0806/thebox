@@ -3,38 +3,46 @@
   <div class="col-3 term">
     <a href="#" class="term__form" data-term="default">新增主題</a>
     {% for category in categorys %}
-    <a href="#" class="term__list" data-term="{{ category.terms}}">{{ category.terms }}</a>
+    <a href="#" class="term__list" data-term="{{ category.terms}}"
+      >{{ category.terms }}</a
+    >
     {% endfor %}
     <a href="#" class="material-icons term__add">add_circle_outline</a>
     <div class="term__input">
-      <span class="material-icons close">
-        close
-      </span>
-      <input type="text" class="term__val">
+      <span class="material-icons close"> close </span>
+      <input type="text" class="term__val" />
       <a href="#" id="js_category_add" data-target=".term__val">新增</a>
     </div>
   </div>
   <div class="col layout">
-
     <div class="default">
       <div class="row">
         <div class="col-3 title">HashTag</div>
         <div class="col-6">
-          <input type="text" class="layout__tag form-control">
+          <input type="text" class="layout__tag form-control" />
           {% include 'tools/pad.html' %}
         </div>
       </div>
       <div class="row">
         <div class="col-3 title">主題</div>
-        <div class="col-6"><input type="text" class="layout__question form-control"></div>
+        <div class="col-6">
+          <input type="text" class="layout__question form-control" />
+        </div>
       </div>
       <div class="row">
         <div class="col-3 title">方法</div>
-        <div class="col-6"><textarea class="layout__answer form-control" rows="10"></textarea></div>
+        <div class="col-6">
+          <textarea class="layout__answer form-control" rows="10"></textarea>
+        </div>
       </div>
       <div class="row">
         <div class="col-6 offset-3 text-end">
-          <a href="#" class="js_question_add" data-target="[.layout__question] [.layout__tag] [.layout__answer]">確定</a>
+          <a
+            href="#"
+            class="js_question_add"
+            data-target="[.layout__question] [.layout__tag] [.layout__answer]"
+            >確定</a
+          >
         </div>
       </div>
     </div>
@@ -42,10 +50,11 @@
 </div>
 {% endblock %} {% block scripts %}
 <script type="text/javascript">
-  var url_insert_category = "{% url 'insert_category' %}"
-  var url_term_page = "{% url 'term_page' %}"
-  var url_insert_question = "{% url 'insert_question' %}"
-  var csrf = "{{ csrf_token }}"
+  var url_insert_category = "{% url 'insert_category' %}";
+  var url_term_page = "{% url 'term_page' %}";
+  var url_insert_question = "{% url 'insert_question' %}";
+  var url_select_question = "{% url 'select_question' %}";
+  var csrf = "{{ csrf_token }}";
 </script>
 <script type="module" src="{% static 'js/index.js' %}"></script>
 {% endblock %}

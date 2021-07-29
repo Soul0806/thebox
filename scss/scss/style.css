@@ -147,15 +147,19 @@ a {
   .layout__pad .outerwrap.show {
     visibility: visible; }
 
-.page {
+.page__serachwrap {
+  margin-bottom: 1.25rem;
   position: relative;
   display: inline-block; }
-  .page__serachwrap {
-    margin-bottom: 1.25rem; }
-    .page__serachwrap .js_icons_search {
-      position: absolute;
-      top: .4rem;
-      right: .4rem; }
+  .page__serachwrap .js_icons_search {
+    position: absolute;
+    top: .4rem;
+    right: .5rem; }
+
+.page__caption {
+  color: white;
+  background-color: #3969c0;
+  padding: 2px 10px; }
 
 .dev {
   position: fixed;

@@ -1,18 +1,19 @@
 <div class="page">
   <div class="page__serachwrap">
-    <input type="text" class="page__search">
-    <div class="material-icons js_icons_search" data-target="[.term-search]">search</div>
+    <input type="text" class="page__search js_page_search" />
+    <div class="material-icons js_icons_search" data-target="[.term-search]">
+      search
+    </div>
   </div>
-  <h3>{{ term }}</h3>
-  <ul>
-    {% for i in q_collects %}
-    <li class="row qa_group">
-      <dvi class="col text-start">
-        <h5 class=" col-12 q">{{ i.questions }}
-        </h5>
-        <div class="col-12 a">{{ i.answers }}</div>
-      </dvi>
-    </li>
-    {% endfor %}
-  </ul>
+  <div class="search__page">
+    <h3 class="page__caption">{{ term }}</h3>
+    <ul>
+      {% for i in q_collects %}
+      <li class="">
+        <h5 class="col-12 page__q">{{ i.questions }}</h5>
+        <div class="col-12 page__a">{{ i.answers }}</div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
 </div>

@@ -2,6 +2,7 @@ import json
 from typing import AnyStr
 from django.http.response import HttpResponse
 from django.shortcuts import render
+from django.db.models import Q
 from .models import Category, Question
 # Create your views here.
 
@@ -41,3 +42,13 @@ def term_page(request):
         })
 
       return HttpResponse('default')
+
+def select_question(request):
+  if(request.method == 'GET'):
+    search = request.GET['search'];
+    q_collects = \
+      Question.objects.filter(Q(questions__contains=search) | Q(answers__contains=search))
+    return render(request, 'tools/search_page.html', {
+          "term": "Search",
+          "q_collects": q_collects
+    })

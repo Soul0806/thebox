@@ -41,7 +41,8 @@ j.click('.js_question_add', e => {
 
 const layout = document.querySelector('.layout');
 layout.addEventListener('input', (e) => {
-  if (!e.target.matches('.js_page_search')) return;
+  if(!e.target.matches('.js_page_search')) return;
+  if(e.target.value.length == 0) return;
   let search = { "search": e.target.value}
   ajax.get(url_select_question, search, res => {
     $('.search__page').html(res)

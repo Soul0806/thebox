@@ -1,5 +1,5 @@
 import json
-from typing import AnyStr
+from typing import AnyStr, KeysView
 from django.http.response import HttpResponse
 from django.shortcuts import render
 from django.db.models import Q
@@ -45,6 +45,7 @@ def term_page(request):
 
 def select_question(request):
   if(request.method == 'GET'):
+  
     search = request.GET['search'];
     q_collects = \
       Question.objects.filter(Q(questions__contains=search) | Q(answers__contains=search))
@@ -55,8 +56,8 @@ def select_question(request):
           collects[term] = [q]
         else:
           collects[term] = collects[term].append(q)
-
+    for k,v in collects.items():
+      print(k)
     return render(request, 'tools/search_page.html', {
-          "term": "Search",
-          "q_collects": collects
+      "collects": collects.items()
     })

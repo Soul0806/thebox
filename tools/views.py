@@ -48,7 +48,15 @@ def select_question(request):
     search = request.GET['search'];
     q_collects = \
       Question.objects.filter(Q(questions__contains=search) | Q(answers__contains=search))
+    collects = {}
+    for q in q_collects: 
+      for term in q.categorys.all():
+        if term not in collects:
+          collects[term] = [q]
+        else:
+          collects[term] = collects[term].append(q)
+
     return render(request, 'tools/search_page.html', {
           "term": "Search",
-          "q_collects": q_collects
+          "q_collects": collects
     })

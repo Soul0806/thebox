@@ -33,6 +33,7 @@ j.click('.term__list, .term__form', e => {
 
 j.click('.js_question_add', e => {
   let data = j.getTargetPair(e, csrf);
+  console.log(data);
   ajax.post(url_insert_question, data, res => {
     console.log(res)
   })

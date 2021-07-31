@@ -17,12 +17,13 @@ def index(request):
 
 def insert_category(request):
     if(request.method == 'GET'):
-      term = request.GET['term']
+      term = request.GET['term'].strip()
       c_instance = Category.objects.create(terms=term)
       return HttpResponse(c_instance)
 
 def insert_question(request):
     if(request.method == 'POST'):
+      print(request.POST)
       q = Question.objects.create(questions=request.POST['questions'], answers=request.POST['answers'].replace('\n', '<br>'))
       tags = request.POST['tags'].split(',')
       for t in tags: 

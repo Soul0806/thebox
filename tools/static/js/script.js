@@ -2,6 +2,8 @@
 // import lib from "./base";
 
 const termAdd = document.querySelector('.term__add');
+const termVal = document.querySelector('.term__val');
+
 const termInput = document.querySelector('.term__input');
 const termClose = document.querySelector('.close');
 
@@ -17,8 +19,9 @@ const termCheck = document.querySelectorAll('.js_term_ckbox');
 // const pageSearch = document.querySelector('.js_page_search');
 
 
-termAdd.addEventListener('click', (element) => {
+termAdd.addEventListener('click', (element) => { 
   termInput.classList.add('active');
+  termVal.focus();
 });
 
 termClose.addEventListener('click', (element) => {

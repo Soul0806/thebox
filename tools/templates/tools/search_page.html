@@ -4,7 +4,7 @@
   {% for i in vals %}
   <li class="">
     <h5 class="col-12 page__q">{{ i.questions }}</h5>
-    <div class="col-12 page__a">{{ i.answers }}</div>
+    <div class="col-12 page__a">{{ i.answers|safe }}</div>
   </li>
   {% endfor %}
 </ul>

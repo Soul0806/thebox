@@ -18,3 +18,6 @@ class Question(models.Model):
     categorys = ManyToManyField(Category, related_name='category')
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+      return f'{self.questions}  - ({self.categorys.all()[0]})'

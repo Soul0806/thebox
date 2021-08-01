@@ -10,10 +10,10 @@ from .models import Category, Question
   
 def test(request):
   def repl(m): 
-    match = m.group(1)
-    return f'<a href="{match}">{match}</a><br>'
+    match = m.group(0)
+    return f'<a href="{match}">{match}</a>'
   str = 'https://localhost:8000/test<br>123'
-  result = re.sub(r'((http|https)://.+)<br>', repl, str)
+  result = re.sub(r'(http|https)://.+(?=<br>)', repl, str)
   # result = 123
   return render(request, 'test/test.html', {
     "aaa": result
@@ -56,8 +56,8 @@ def term_page(request):
 
 def select_question(request):
   def repl(m): 
-    match = m.group(1)
-    return f'<a href="{match}">{match}</a><br>'
+    match = m.group(0)
+    return f'<a href="{match}">{match}</a>'
 
   if(request.method == 'GET'):  
     search = request.GET['search'];
@@ -65,7 +65,7 @@ def select_question(request):
       Question.objects.filter(Q(questions__contains=search) | Q(answers__contains=search))
     collects = {}
     for q in q_collects: 
-      q.answers = re.sub(r'((http|https)://.+)', repl, q.answers)
+      q.answers = re.sub(r'(http|https)://.+(?=<br>)?', repl, q.answers)
       for term in q.categorys.all():
         if term not in collects:
           collects[term] = [q]

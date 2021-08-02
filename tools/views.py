@@ -7,11 +7,16 @@ from django.db.models import Q
 from .models import Category, Question
 # Create your views here.
 
-  
+def link_repl(obj):
+  aaa = 'answers'
+  for q in obj: 
+    q.answers = re.sub(r'(http|https)://.+(?=<br>)?', repl, q.answers)    
+
+def repl(m): 
+  match = m.group(0)
+  return f'<a href="{match}">{match}</a>'
+
 def test(request):
-  def repl(m): 
-    match = m.group(0)
-    return f'<a href="{match}">{match}</a>'
   str = 'https://localhost:8000/test<br>123'
   result = re.sub(r'(http|https)://.+(?=<br>)', repl, str)
   # result = 123
@@ -47,6 +52,7 @@ def term_page(request):
       if(term != 'default'):
         c = Category.objects.get(terms=term)
         q_collects = c.category.all()
+        link_repl(q_collects)
         return render(request, 'tools/term_page.html', {
           'term': term,
           'q_collects': q_collects
@@ -55,10 +61,6 @@ def term_page(request):
       return HttpResponse('default')
 
 def select_question(request):
-  def repl(m): 
-    match = m.group(0)
-    return f'<a href="{match}">{match}</a>'
-
   if(request.method == 'GET'):  
     search = request.GET['search'];
     q_collects = \

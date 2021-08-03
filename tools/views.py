@@ -7,6 +7,10 @@ from django.db.models import Q
 from .models import Category, Question
 # Create your views here.
 
+def list_append(list, val):
+  list.append(val)
+  return list
+
 def link_repl(obj):
   aaa = 'answers'
   for q in obj: 
@@ -69,10 +73,7 @@ def select_question(request):
     for q in q_collects: 
       q.answers = re.sub(r'(http|https)://.+(?=<br>)?', repl, q.answers)
       for term in q.categorys.all():
-        if term not in collects:
-          collects[term] = [q]
-        else:
-          collects[term] = collects[term].append(q)
+        collects[term] = [q] if term not in collects else list_append(collects[term], q)
     return render(request, 'tools/search_page.html', {
       "collects": collects.items()
     })

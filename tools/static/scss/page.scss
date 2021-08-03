@@ -21,4 +21,12 @@
     background-color: $blue;
     padding: 2px 10px;
   }
+
+  &__a {
+    display: none;
+
+    &.show {
+      display: block;
+    }
+  }
 }

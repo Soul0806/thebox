@@ -49,5 +49,13 @@ layout.addEventListener('input', (e) => {
   })
 })
 
+layout.addEventListener('click', (e) => {
+  if(!e.target.matches('.page__q')) return;
+  const pageA = document.querySelectorAll('.page__a');
+  pageA.forEach(e => e.classList.remove('show'))
+  e.target.nextElementSibling.classList.add('show');  
+})
+
+
 
 

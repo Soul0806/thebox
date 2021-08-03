@@ -2,6 +2,7 @@ import lib from './base.js'
 import j from './jquery.lib.js'
 import ajax from './ajax.js'
 
+const layout = document.querySelector('.layout');
 
 j.click('#js_category_add', e => {
   let term = j.getTargetVal(e);
@@ -38,8 +39,6 @@ j.click('.js_question_add', e => {
   })
 })
 
-
-const layout = document.querySelector('.layout');
 layout.addEventListener('input', (e) => {
   if(!e.target.matches('.js_page_search')) return;
   if(e.target.value.length == 0) return;
@@ -53,7 +52,7 @@ layout.addEventListener('click', (e) => {
   if(!e.target.matches('.page__q')) return;
   const pageA = document.querySelectorAll('.page__a');
   pageA.forEach(e => e.classList.remove('show'))
-  e.target.nextElementSibling.classList.add('show');  
+  e.target.nextElementSibling.classList.add('show');
 })
 
 

@@ -6,7 +6,7 @@
     </div>
   </div>
   <div class="search__page">
-    <h3 class="page__caption">{{ term }}</h3>
+    <h3 class="page__caption">{{ term|capfirst }}</h3>
     <ul>
       {% for i in q_collects %}
       <li class="">

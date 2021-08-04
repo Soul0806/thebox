@@ -2,10 +2,20 @@
 <h3 class="page__caption">{{ keys.terms }}</h3>
 <ul>
   {% for i in vals %}
-  <li class="">
+  <li>
     <h5 class="col-12 page__q">{{ i.questions }}</h5>
     <div class="col-12 page__a">{{ i.answers|safe }}</div>
   </li>
   {% endfor %}
 </ul>
-{% endfor %}
+{% endfor %} {% if not collects %}
+<h3 class="page__caption">{{ term|capfirst }}</h3>
+<ul>
+  {% for i in q_collects %}
+  <li>
+    <h5 class="col-12 page__q">{{ i.questions }}</h5>
+    <div class="col-12 page__a">{{ i.answers|safe }}</div>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}

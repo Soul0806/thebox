@@ -1,5 +1,8 @@
 .layout {
   @extend %container;
+  height: 90vh;
+  overflow: scroll;
+  
   .title {
     @extend %flex-row;
   }

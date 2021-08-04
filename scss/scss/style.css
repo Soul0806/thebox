@@ -115,37 +115,38 @@ a {
 .js-add-category:hover + .hint {
   visibility: visible; }
 
-.layout .row {
-  margin-bottom: 5px; }
-
-.layout__pad .mask {
-  visibility: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  opacity: 0.5; }
-  .layout__pad .mask.show {
-    visibility: visible; }
-
-.layout__pad .outerwrap {
-  visibility: hidden;
-  position: absolute;
-  width: 15rem;
-  background-color: #b3b3b3; }
-  .layout__pad .outerwrap.show {
-    visibility: visible; }
-  .layout__pad .outerwrap .wrap {
-    width: 100%;
-    margin-left: 0.5rem;
-    margin-bottom: 0.5rem; }
-    .layout__pad .outerwrap .wrap input {
-      width: max-content; }
-    .layout__pad .outerwrap .wrap .list {
-      display: inline-block; }
-  .layout__pad .outerwrap.show {
-    visibility: visible; }
+.layout {
+  height: 90vh;
+  overflow: scroll; }
+  .layout .row {
+    margin-bottom: 5px; }
+  .layout__pad .mask {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0.5; }
+    .layout__pad .mask.show {
+      visibility: visible; }
+  .layout__pad .outerwrap {
+    visibility: hidden;
+    position: absolute;
+    width: 15rem;
+    background-color: #b3b3b3; }
+    .layout__pad .outerwrap.show {
+      visibility: visible; }
+    .layout__pad .outerwrap .wrap {
+      width: 100%;
+      margin-left: 0.5rem;
+      margin-bottom: 0.5rem; }
+      .layout__pad .outerwrap .wrap input {
+        width: max-content; }
+      .layout__pad .outerwrap .wrap .list {
+        display: inline-block; }
+    .layout__pad .outerwrap.show {
+      visibility: visible; }
 
 .page__serachwrap {
   margin-bottom: 1.25rem;

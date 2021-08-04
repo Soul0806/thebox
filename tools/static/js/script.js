@@ -16,8 +16,8 @@ const outerwrap = document.querySelector('.outerwrap');
 const layout = document.querySelector('.layout');
 
 // const pageQ = document.querySelector('.page__q');
-// const termCheck = document.querySelectorAll('.js_term_ckbox');
 // const pageSearch = document.querySelector('.js_page_search');
+const termCheck = document.querySelectorAll('.js_term_ckbox');
 
 
 termAdd.addEventListener('click', (element) => { 
@@ -45,14 +45,14 @@ mask.addEventListener('click', (element) => {
   outerwrap.classList.remove('show');
 })
 
-// let arr = [];
-// let str = '';
-// termCheck.forEach(item => {
-//   item.addEventListener('click', e => {
-//     let val = e.target.value;
-//     arr.includes(val) ? arr.splice(arr.indexOf(val), 1) : arr.push(val)
-//     layoutTag.value = arr.join(',');
-//   })
-// })
+let arr = [];
+let str = '';
+termCheck.forEach(item => {
+  item.addEventListener('click', e => {
+    let val = e.target.value;
+    arr.includes(val) ? arr.splice(arr.indexOf(val), 1) : arr.push(val)
+    layoutTag.value = arr.join(',');
+  })
+})
 
 

@@ -178,12 +178,13 @@ nav {
   .page::-webkit-scrollbar-thumb {
     background: #3969c0; }
   .page__serachwrap {
-    position: sticky;
-    top: 0;
-    left: 50%;
+    position: relative;
     margin-bottom: 1.25rem;
     width: max-content;
-    transform: translateX(-50%); }
+    margin: 5px auto; }
+    .page__serachwrap input {
+      position: sticky;
+      top: 0; }
     .page__serachwrap .js_icons_search {
       position: absolute;
       top: .4rem;

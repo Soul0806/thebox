@@ -57,6 +57,10 @@ a {
   a:link, a:visited, a:active, a:hover {
     text-decoration: none; }
 
+nav {
+  position: fixed;
+  color: red; }
+
 .term a {
   justify-content: center;
   width: max-content;

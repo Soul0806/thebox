@@ -1,7 +1,7 @@
 .layout {
   @extend %container;
-  height: 90vh;
-  overflow: scroll;
+  height: 100vh;
+  
   
   .title {
     @extend %flex-row;

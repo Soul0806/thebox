@@ -1,9 +1,10 @@
 {% extends 'tools/layout.html' %} {% load static %} {% block main %}
-<div class="row m-2">
-  <div class="col-3 term">
+
+<main>
+  <div class="term">
     <a href="#" class="term__form" data-term="default">新增主題</a>
     {% for category in categorys %}
-    <a href="#" class="term__list" data-term="{{ category.terms}}"
+    <a href="#" class="term__list" data-term="{{ category.terms }}"
       >{{ category.terms|capfirst }}</a
     >
     {% endfor %}
@@ -14,7 +15,7 @@
       <a href="#" id="js_category_add" data-target=".term__val">新增</a>
     </div>
   </div>
-  <div class="col layout">
+  <div class="layout">
     <div class="default">
       <div class="row">
         <div class="col-3 title">HashTag</div>
@@ -47,7 +48,8 @@
       </div>
     </div>
   </div>
-</div>
+</main>
+
 {% endblock %} {% block scripts %}
 <script type="text/javascript">
   var url_insert_category = "{% url 'insert_category' %}";

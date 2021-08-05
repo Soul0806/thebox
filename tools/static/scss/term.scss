@@ -1,6 +1,12 @@
+main {
+  display: flex;
+  width: 100vw;
+}
+
 .term {
-    @extend %flex-column;
+    @extend %flex-column;    
     @extend %container;
+ 
     a {
       justify-content: center;
       width: max-content;

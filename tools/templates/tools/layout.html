@@ -27,43 +27,11 @@
   </head>
 
   <body id="bd" onLoad="">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Project</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            {% comment %}
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="{{ url_for('home') }}"
-                >Home</a
-              >
-            </li>
-            {% endcomment %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'index' %}">Tools</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <nav>
+      <a href="{% url 'index' %}">Project</a>
+      <a href="{% url 'index' %}">Project</a>
     </nav>
-    <div class="dev">
+    <!-- <div class="dev">
       <span>Dev Mode</span>
       <span class="dev__mode">
         <svg height="25" width="25">
@@ -77,8 +45,8 @@
           />
         </svg>
       </span>
-    </div>
-    <main class="p-3">{% block main %}{% endblock %}</main>
+    </div> -->
+    {% block main %}{% endblock %}
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="

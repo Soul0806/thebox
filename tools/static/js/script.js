@@ -29,11 +29,11 @@ termClose.addEventListener('click', (element) => {
   termInput.classList.remove('active');
 })
 
-devCircle.addEventListener('click', (element) => {
-  devMode.classList.contains('active')
-    ? devMode.classList.remove('active')
-    : devMode.classList.add('active');
-})
+// devCircle.addEventListener('click', (element) => {
+//   devMode.classList.contains('active')
+//     ? devMode.classList.remove('active')
+//     : devMode.classList.add('active');
+// })
 
 layoutTag.addEventListener('focus', (element) => {
   mask.classList.add('show');

@@ -1,4 +1,7 @@
 nav {
-  position: fixed;  
-  color: red;
+  @extend %flex-sb;
+  padding: 1rem 1rem;
+  a {
+   color: $black;
+  }
 }

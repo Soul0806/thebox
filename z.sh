@@ -32,10 +32,6 @@ case $1 in
             git add . 
             git commit -m "fast commit~"
             git push origin main
-            echo $?
-            if [ $? ]
-                then echo $?
-            fi
             exit 1
             ;;
         test ) 

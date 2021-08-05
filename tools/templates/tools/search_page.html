@@ -14,7 +14,12 @@
 <ul>
   {% for i in q_collects %}
   <li>
-    <h5 class="col-12 page__q">{{ i.questions }}</h5>
+
+      <h5 class="col-12 page__q">{{ i.questions }}</h5>
+      <!-- <span class="material-icons page__edit">
+        edit_note
+      </span> -->
+
     <div class="col-12 page__a">{{ i.answers|safe }}</div>
   </li>
   {% endfor %}

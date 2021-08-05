@@ -2,6 +2,8 @@ nav {
   @extend %flex-sb;
   padding: 1rem 1rem;
   a {
-   color: $black;
+    font-size: 36px;
+    font-weight: 600;
+    color: $black;
   }
 }

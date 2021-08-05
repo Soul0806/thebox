@@ -80,53 +80,53 @@ nav {
     color: black; }
 
 main {
-  display: flex;
-  width: 100vw; }
+  display: flex; }
 
-.term a {
-  justify-content: center;
-  width: max-content;
-  margin-bottom: 1.25rem; }
-
-.term__list {
-  color: black; }
-
-.term__add {
-  position: relative;
-  color: limegreen; }
-  .term__add.active {
-    color: red;
-    transform: rotate(45deg); }
-  .term__add + .hint {
-    position: absolute;
-    visibility: hidden; }
-  .term__add:hover {
+.term {
+  position: sticky;
+  top: 3rem;
+  height: 100%; }
+  .term a {
+    justify-content: center;
+    width: max-content;
+    margin-bottom: 1.25rem; }
+  .term__list {
+    color: black; }
+  .term__add {
+    position: relative;
     color: limegreen; }
-    .term__add:hover + .hint {
+    .term__add.active {
+      color: red;
+      transform: rotate(45deg); }
+    .term__add + .hint {
+      position: absolute;
+      visibility: hidden; }
+    .term__add:hover {
+      color: limegreen; }
+      .term__add:hover + .hint {
+        visibility: visible; }
+  .term__input {
+    position: relative;
+    visibility: hidden; }
+    .term__input.active {
       visibility: visible; }
-
-.term__input {
-  position: relative;
-  visibility: hidden; }
-  .term__input.active {
-    visibility: visible; }
-  .term__input .close {
-    position: absolute;
-    right: -0.9rem;
-    top: -0.9rem; }
-  .term__input input {
-    margin-top: 5px;
-    border-radius: 8px;
-    border: 1px solid limegreen;
-    padding: 0.5rem 1.5rem;
-    outline: none; }
-  .term__input a {
-    margin-top: 5px;
-    width: 100%;
-    color: white;
-    background-color: #b3b3b3; }
-    .term__input a:hover {
-      background-color: gray; }
+    .term__input .close {
+      position: absolute;
+      right: -0.9rem;
+      top: -0.9rem; }
+    .term__input input {
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid limegreen;
+      padding: 0.5rem 1.5rem;
+      outline: none; }
+    .term__input a {
+      margin-top: 5px;
+      width: 100%;
+      color: white;
+      background-color: #b3b3b3; }
+      .term__input a:hover {
+        background-color: gray; }
 
 .js-add-category + .hint {
   margin: 0 auto;

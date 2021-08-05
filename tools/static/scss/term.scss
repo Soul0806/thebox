@@ -1,12 +1,14 @@
 main {
+  // position: relative;
   display: flex;
-  width: 100vw;
+  // width: 100vw;
 }
-
 .term {
     @extend %flex-column;    
-    @extend %container;
- 
+    @extend %container; 
+    position: sticky;
+    top: 3rem;
+    height: 100%;
     a {
       justify-content: center;
       width: max-content;

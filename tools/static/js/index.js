@@ -1,7 +1,6 @@
 import lib from './base.js'
 import j from './jquery.lib.js'
 import ajax from './ajax.js'
-
 const layout = document.querySelector('.layout');
 
 j.click('#js_category_add', e => {
@@ -48,12 +47,6 @@ layout.addEventListener('input', (e) => {
   })
 })
 
-layout.addEventListener('click', (e) => {
-  if(!e.target.matches('.page__q')) return;
-  const pageA = document.querySelectorAll('.page__a');
-  pageA.forEach(e => e.classList.remove('show'))
-  e.target.nextElementSibling.classList.add('show');
-})
 
 
 

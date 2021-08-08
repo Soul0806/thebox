@@ -72,6 +72,7 @@ layout.addEventListener('click', (e) => {
   e.target.previousElementSibling.remove();
   let textarea = document.createElement('textarea');
   textarea.value = val;
+  // textarea.setAttribute('style',`width:${width}px`);
   textarea.setAttribute('style',`height:${height}px;width:${width}px`);
   e.target.parentElement.prepend(textarea)
 })

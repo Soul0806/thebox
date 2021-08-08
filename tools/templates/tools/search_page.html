@@ -1,15 +1,12 @@
-
 {% for keys, vals in collects %}
 <h3 class="page__caption">{{ keys.terms|capfirst }}</h3>
 <ul>
   {% for i in vals %}
   <li>
-    <span class="page__q">{{ i.questions }}</span> 
+    <div class="page__q">{{ i.questions }}</div>
     <div class="page__qwrap">
       <div class="page__a">{{ i.answers|safe }}</div>
-      <span class="material-icons edit">
-        edit
-      </span>
+      <span class="material-icons edit"> edit </span>
     </div>
   </li>
   {% endfor %}
@@ -19,12 +16,10 @@
 <ul>
   {% for i in q_collects %}
   <li>
-    <span class="page__q">{{ i.questions }}</span> 
+    <div class="page__q">{{ i.questions }}</div>
     <div class="page__qwrap">
       <div class="page__a">{{ i.answers|safe }}</div>
-      <span class="material-icons edit">
-        edit
-      </span>
+      <span class="material-icons edit"> edit </span>
     </div>
   </li>
   {% endfor %}

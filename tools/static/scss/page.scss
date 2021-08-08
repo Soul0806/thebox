@@ -18,9 +18,9 @@
     width: max-content;
     margin: 5px auto;
     input {
-      @extend %default-input;
-      // position: sticky;
-      // top: 0;
+      border: 0;
+      border-bottom: 1px solid $black;
+      outline: 0;  
     }
     
     .js_icons_search {
@@ -43,13 +43,18 @@
   li {
     padding: .25rem .75rem;
     &:hover {
-      background-color: $gray;
+      background-color: $light-gray;
     }
   }
 
   &__qwrap {
     position: relative;
     padding: .25rem .75rem;
+    // textarea {
+    //   border : 0;
+    //   overflow-y : auto; /* IE */
+    //   resize : none; /* Firefox, Chrome */
+    // }
     .edit{
       visibility: hidden;
       opacity: 0;

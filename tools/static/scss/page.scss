@@ -15,20 +15,29 @@
   &__serachwrap {
     position: relative;
     margin-bottom: 1.25rem;
-    width: max-content;
     margin: 5px auto;
+    text-align: center;
     input {
       border: 0;
       border-bottom: 1px solid $black;
       outline: 0;  
     }
     
-    .js_icons_search {
+    // .js_icons_search {
+    //   position: absolute;
+    //   top: .4rem;
+    //   right: .5rem;
+    // }
+
+    
+    .add {
       position: absolute;
-      top: .4rem;
-      right: .5rem;
+      top: 0;
+      right: calc(2px + 0.6rem);
+      cursor: pointer;
     }
   }
+
 
   &__caption {
     color: white;
@@ -83,7 +92,7 @@
     }
   }
 
-  .search__page {
+  &__layout {
     margin: 0 10px;
   }
 }

@@ -7,28 +7,6 @@
 3. components
 
 */
-.material-icons-outlined, .material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-  /* Support for IE. */
-  font-feature-settings: 'liga'; }
-
 .term__form {
   padding: 0.5rem 1.5rem;
   border: 1px solid #d92626;
@@ -99,14 +77,6 @@ a {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555; }
-
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://example.com/MaterialIcons-Regular.eot);
-  /* For IE6-8 */
-  src: local("Material Icons"), local("MaterialIcons-Regular"), url(https://example.com/MaterialIcons-Regular.woff2) format("woff2"), url(https://example.com/MaterialIcons-Regular.woff) format("woff"), url(https://example.com/MaterialIcons-Regular.ttf) format("truetype"); }
 
 /* Rules for sizing the icon. */
 .material-icons.md-18 {
@@ -242,16 +212,17 @@ main {
 .page__serachwrap {
   position: relative;
   margin-bottom: 1.25rem;
-  width: max-content;
-  margin: 5px auto; }
+  margin: 5px auto;
+  text-align: center; }
   .page__serachwrap input {
     border: 0;
     border-bottom: 1px solid black;
     outline: 0; }
-  .page__serachwrap .js_icons_search {
+  .page__serachwrap .add {
     position: absolute;
-    top: .4rem;
-    right: .5rem; }
+    top: 0;
+    right: calc(2px + 0.6rem);
+    cursor: pointer; }
 
 .page__caption {
   color: white;
@@ -287,7 +258,7 @@ main {
   .page__qwrap.show {
     display: block; }
 
-.page .search__page {
+.page__layout {
   margin: 0 10px; }
 
 .dev {

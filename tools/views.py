@@ -28,10 +28,21 @@ def test(request):
     "aaa": result
   })
 
+# def index(request):
+#     category = Category.objects.all()
+#     return render(request, 'tools/index.html', {
+#       'categorys': category
+#     })
+
 def index(request):
-    category = Category.objects.all()
+    q_collects = Question.objects.all()
+    collects = {}
+    for q in q_collects: 
+      q.answers = re.sub(r'(http|https)://.+(?=<br>)?', repl, q.answers)
+      for term in q.categorys.all():
+        collects[term] = [q] if term not in collects else list_append(collects[term], q)
     return render(request, 'tools/index.html', {
-      'categorys': category
+      "collects": collects.items()
     })
 
 def insert_category(request):

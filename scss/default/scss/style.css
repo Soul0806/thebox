@@ -12,6 +12,12 @@ nav {
   justify-content: space-between;
   align-items: center; }
 
+.knowledge__form .tagwrap, .knowledge__form .qwrap, .knowledge__form .awrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+
 @keyframes fade-in {
   from {
     opacity: 0; }
@@ -81,57 +87,81 @@ nav {
     font-weight: 600;
     color: black; }
 
-.default {
+.knowledge {
+  position: relative;
   max-width: 80%;
   margin: 0 auto; }
-  .default::-webkit-scrollbar-thumb {
+  .knowledge::-webkit-scrollbar-thumb {
     background: #3969c0; }
-  .default__wrap {
+  .knowledge__search {
     position: relative;
     margin-bottom: 1.25rem;
     margin: 5px auto;
     text-align: center; }
-    .default__wrap input {
+    .knowledge__search input {
       border: 0;
       border-bottom: 1px solid black;
       outline: 0; }
-    .default__wrap .add {
+    .knowledge__search .add {
       position: absolute;
       top: 0;
       right: calc(2px + 0.6rem);
       cursor: pointer; }
-  .default__main {
+      .knowledge__search .add.open {
+        transform: rotate(45deg); }
+  .knowledge__main {
     margin-top: 1rem; }
-    .default__main .caption {
+    .knowledge__main .caption {
       color: white;
       background-color: #3969c0;
       padding: 2px 10px; }
-    .default__main .q {
+    .knowledge__main .q {
       cursor: pointer; }
-    .default__main li {
+    .knowledge__main li {
       padding: .25rem .75rem; }
-      .default__main li:hover {
+      .knowledge__main li:hover {
         background-color: #f5f0f0; }
-    .default__main .awrap {
+    .knowledge__main .awrap {
       display: none;
       position: relative;
       padding: .25rem .75rem; }
-      .default__main .awrap .a {
+      .knowledge__main .awrap .a {
         max-width: fit-content; }
-      .default__main .awrap.show {
+      .knowledge__main .awrap.show {
         display: block; }
-      .default__main .awrap .edit {
+      .knowledge__main .awrap .edit {
         visibility: hidden;
         opacity: 0;
         position: absolute;
         top: .5rem;
         right: 0;
         cursor: pointer; }
-      .default__main .awrap:hover .edit {
+      .knowledge__main .awrap:hover .edit {
         visibility: visible;
         animation: fade-in 600ms ease-in-out forwards; }
-    .default__main .qwrap {
+    .knowledge__main .qwrap {
       display: none; }
+  .knowledge__form {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%); }
+    .knowledge__form .tagwrap, .knowledge__form .qwrap, .knowledge__form .awrap {
+      margin-bottom: 10px; }
+      .knowledge__form .tagwrap label, .knowledge__form .qwrap label, .knowledge__form .awrap label {
+        min-width: 5rem;
+        text-align: center; }
+      .knowledge__form .tagwrap input, .knowledge__form .tagwrap textarea, .knowledge__form .qwrap input, .knowledge__form .qwrap textarea, .knowledge__form .awrap input, .knowledge__form .awrap textarea {
+        width: 64rem;
+        border: none;
+        border-bottom: 1px solid #b3b3b3;
+        background: transparent;
+        outline: none; }
+    .knowledge__form .insertbtn {
+      text-align: right; }
+    .knowledge__form.show {
+      display: block; }
 
 .dev {
   position: fixed;

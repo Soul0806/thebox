@@ -1,0 +1,31 @@
+&__form {
+  display: none;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  .tagwrap, .qwrap, .awrap {
+    @extend %flex-row;
+    margin-bottom: 10px;
+    label {
+      min-width: 5rem;
+      text-align: center;
+    }
+    input, textarea {
+      width: 64rem;
+      border: none;
+      border-bottom: 1px solid $gray;
+      background: transparent;
+      outline: none;
+    }
+  }
+
+
+  .insertbtn {
+    text-align: right;
+  }
+
+  &.show {
+    display: block;
+  }
+}

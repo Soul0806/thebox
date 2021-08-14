@@ -1,4 +1,5 @@
-.default {  
+.knowledge {  
+  position: relative;
   max-width: 80%;
   margin: 0 auto;
   // &__shade {
@@ -13,7 +14,7 @@
     background: $blue; 
   }
 
-  &__wrap {
+  &__search {
     position: relative;
     margin-bottom: 1.25rem;
     margin: 5px auto;
@@ -29,9 +30,12 @@
       top: 0;
       right: calc(2px + 0.6rem);
       cursor: pointer;
+      &.open {
+        transform: rotate(45deg);
+      }
     }
   }
 
-  @import "index_main";
-  @import "index_form";
+  @import "knowledge_main";
+  @import "knowledge_form";
 }

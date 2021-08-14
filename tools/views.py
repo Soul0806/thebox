@@ -85,6 +85,6 @@ def select_question(request):
       q.answers = re.sub(r'(http|https)://.+(?=<br>)?', repl, q.answers)
       for term in q.categorys.all():
         collects[term] = [q] if term not in collects else list_append(collects[term], q)
-    return render(request, 'tools/search_page.html', {
+    return render(request, 'tools/default/knowledge_main.html', {
       "collects": collects.items()
     })

@@ -43,7 +43,7 @@ layout.addEventListener('input', (e) => {
   if(e.target.value.length == 0) return;
   let search = { "search": e.target.value}
   ajax.get(url_select_question, search, res => {
-    $('.search__page').html(res)
+    $('.page__layout').html(res)
   })
 })
 

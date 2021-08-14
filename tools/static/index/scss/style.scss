@@ -1,0 +1,49 @@
+/* Table of contents
+
+1. global styles
+
+2. typography
+
+3. components
+
+*/
+
+@import "variables";
+@import "extends";
+@import "mixins";
+@import "animations";
+
+@import "globals";
+@import "icons";
+@import "nav";
+@import "term";
+@import "layout";
+@import "default";
+
+.dev {
+  position: fixed;
+  right: 0.5rem;
+
+  &__mode {
+    display: inline-block;
+    border: 1px solid $gray;
+    border-radius: 10px;
+    width: 3rem;
+    background-color: $gray;
+
+    &.active {
+      background-color: limegreen;
+
+      svg {
+        transform: translateX(1.2rem);
+      }
+    }
+  }
+}
+/* #############
+     typography
+     ############# */
+
+/* #############
+   global styles
+   ############# */

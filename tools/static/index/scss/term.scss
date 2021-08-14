@@ -1,0 +1,100 @@
+main {
+  // position: relative;
+  display: flex;
+  // width: 100vw;
+}
+.term {
+    @extend %flex-column;    
+    @extend %container; 
+    position: sticky;
+    top: 3rem;
+    height: 100%;
+    a {
+      justify-content: center;
+      width: max-content;
+      margin-bottom: 1.25rem;
+    }
+    &__form {
+      @extend %default-link;
+    }
+    &__list {
+      color: $black;
+    }
+  
+    &__add { 
+      position: relative;
+      color: $limegreen;
+      
+      // transition: all 400ms ease-in-out;
+  
+      &.active {
+        color: $red;
+        transform: rotate(45deg);
+      }
+  
+      // color: $limegreen;
+      & + .hint {
+        @extend %default-hint;
+        position: absolute;
+        visibility: hidden;
+      }
+  
+      &:hover {
+        color: $limegreen;
+        & + .hint {
+          visibility: visible;
+        }
+      }
+    }
+  
+    &__input {
+      @extend %flex-column;
+      position: relative;
+      visibility: hidden;
+      &.active {
+        visibility: visible;
+      }
+      
+      .close {
+        position: absolute;
+        right: -0.9rem;
+        top: -0.9rem;
+      }
+     
+      input {
+        margin-top: 5px;
+        border-radius: 8px;
+        border: 1px solid $limegreen;
+        padding: 0.5rem 1.5rem;
+        outline: none;
+      }
+  
+      a {
+        margin-top: 5px;
+        width: 100%;
+        color: $white;
+        background-color: $gray;
+        
+        &:hover {
+          background-color: hsl(0, 0%, 50%);
+        }
+      }
+    }
+  }
+  
+  .js-add-category {
+    + .hint {
+      margin: 0 auto;
+      padding: 0.25rem 0.5rem;
+      border: 1px solid hsl(0, 0, 0);
+      font-size: 0.5rem;
+      color: white;
+      background-color: hsl(0, 0, 0);
+      width: max-content;
+      visibility: hidden;
+    }
+    &:hover + .hint {
+      visibility: visible;
+    }
+  }
+

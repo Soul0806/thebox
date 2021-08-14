@@ -1,0 +1,75 @@
+%icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+%default-link {
+    padding: 0.5rem 1.5rem;
+    border: 1px solid hsl(0, 70%, 50%);
+    border-radius: 50px;
+    text-decoration: none;
+    color: hsl(0, 70%, 50%);
+
+    &:hover {
+        color: hsl(0, 100%, 50%);
+    }
+}
+
+%default-hint {
+	margin-top: 2px;
+	border-radius: 10px;
+	padding: 0.25rem 0.5rem;
+	font-size: 14px;
+	color: $white;
+	background-color: $black;
+}
+
+%default-input {
+	border-radius: 8px;
+	border: 1px solid black;
+	padding: 0.25rem 0.75rem;
+	outline: none;
+}
+
+%flex-column {
+	display: flex;
+	flex-direction: column;
+	align-items: center; 
+}
+
+%flex-sb {
+	display: flex;
+    justify-content: space-between;
+	align-items: center; 
+}
+
+%flex-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center; 
+}
+
+%container {
+	padding: 2rem 2rem;
+}

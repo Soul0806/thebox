@@ -14,7 +14,10 @@
 // const mask = document.querySelector('.mask');
 // const outerwrap = document.querySelector('.outerwrap');
 
-const layout = document.querySelector('.layout');
+const main = document.querySelector('.default__main');
+const mainQs = main.querySelectorAll('.q');
+
+
 
 // const pageQ = document.querySelector('.page__q');
 // const pageSearch = document.querySelector('.js_page_search');
@@ -55,25 +58,28 @@ const layout = document.querySelector('.layout');
 //     layoutTag.value = arr.join(',');
 //   })
 // })
-
-
-layout.addEventListener('click', (e) => {
-  if(!e.target.matches('.page__q')) return;
-  // const pageA = document.querySelectorAll('.page__a');
-  // pageA.forEach(e => e.classList.remove('show'))
-  // console.log(e.target.nextElementSibling.querySelector('.page__a'))
+mainQs.forEach(e => e.addEventListener('click', e => {
+  const mainAs = main.querySelectorAll('.awrap');
+  mainAs.forEach(e => e.classList.remove('show'))
   e.target.nextElementSibling.classList.add('show');
-})
+}))
 
-layout.addEventListener('click', (e) => {
-  if(!e.target.matches('.edit')) return;
-  let val = e.target.previousElementSibling.innerHTML;
-  let height = e.target.previousElementSibling.offsetHeight;
-  let width = e.target.previousElementSibling.offsetWidth ;
-  e.target.previousElementSibling.remove();
-  let textarea = document.createElement('textarea');
-  textarea.value = val;
-  // textarea.setAttribute('style',`width:${width}px`);
-  textarea.setAttribute('style',`height:${height}px;width:${width}px`);
-  e.target.parentElement.prepend(textarea)
-})
+// mainQ.addEventListener('click', (e) => {
+//   // if(!e.target.matches('.q')) return;
+//   const mainAs = main.querySelectorAll('.awrap');
+//   mainAs.forEach(e => e.classList.remove('show'))
+//   e.target.nextElementSibling.classList.add('show');
+// })
+
+// layout.addEventListener('click', (e) => {
+//   if(!e.target.matches('.edit')) return;
+//   let val = e.target.previousElementSibling.innerHTML;
+//   let height = e.target.previousElementSibling.offsetHeight;
+//   let width = e.target.previousElementSibling.offsetWidth ;
+//   e.target.previousElementSibling.remove();
+//   let textarea = document.createElement('textarea');
+//   textarea.value = val;
+//   // textarea.setAttribute('style',`width:${width}px`);
+//   textarea.setAttribute('style',`height:${height}px;width:${width}px`);
+//   e.target.parentElement.prepend(textarea)
+// })

@@ -1,4 +1,5 @@
 &__main {
+  position: relative;
   margin-top: 1rem;
   .caption {
     color: white;
@@ -46,9 +47,20 @@
     
   .qwrap {
     display: none;
+  }
 
-
-
+  .overlay {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $light-gray;
+    opacity: .5;
+    &.show {
+      visibility: visible;
+    }
   }
 
   // &__layout {

@@ -19,14 +19,17 @@ const form = document.querySelector('.knowledge__form');
 
 const searchAdd  = search.querySelector('.add');
 const mainQs = main.querySelectorAll('.q');
+const overlay = main.querySelector('.overlay');
 
 searchAdd.addEventListener('click', e => { 
   if(e.target.classList.contains('open')) {
-    e.target.classList.remove('open')
+    e.target.classList.remove('open');
     form.classList.remove('show');
+    overlay.classList.remove('show');
   } else {
     e.target.classList.add('open')
     form.classList.add('show');
+    overlay.classList.add('show');
   }
 })
 

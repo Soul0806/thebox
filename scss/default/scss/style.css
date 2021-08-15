@@ -110,6 +110,7 @@ nav {
       .knowledge__search .add.open {
         transform: rotate(45deg); }
   .knowledge__main {
+    position: relative;
     margin-top: 1rem; }
     .knowledge__main .caption {
       color: white;
@@ -141,14 +142,31 @@ nav {
         animation: fade-in 600ms ease-in-out forwards; }
     .knowledge__main .qwrap {
       display: none; }
+    .knowledge__main .overlay {
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #f5f0f0;
+      opacity: .5; }
+      .knowledge__main .overlay.show {
+        visibility: visible; }
   .knowledge__form {
     display: none;
     position: absolute;
     top: 10%;
     left: 50%;
-    transform: translateX(-50%); }
+    transform: translateX(-50%);
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 80%;
+    background-color: white; }
     .knowledge__form .tagwrap, .knowledge__form .qwrap, .knowledge__form .awrap {
-      margin-bottom: 10px; }
+      margin-bottom: 10px;
+      max-width: 90%;
+      margin: 0 auto; }
       .knowledge__form .tagwrap label, .knowledge__form .qwrap label, .knowledge__form .awrap label {
         min-width: 5rem;
         text-align: center; }

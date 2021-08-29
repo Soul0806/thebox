@@ -20,17 +20,18 @@ const form = document.querySelector('.knowledge__form');
 const searchAdd  = search.querySelector('.add');
 const mainQs = main.querySelectorAll('.q');
 const overlay = main.querySelector('.overlay');
+const closeform = form.querySelector('.close');
 
 searchAdd.addEventListener('click', e => { 
-  if(e.target.classList.contains('open')) {
-    e.target.classList.remove('open');
-    form.classList.remove('show');
-    overlay.classList.remove('show');
-  } else {
-    e.target.classList.add('open')
-    form.classList.add('show');
-    overlay.classList.add('show');
-  }
+  e.target.classList.add('open')
+  form.classList.add('show');
+  overlay.classList.add('show');
+})
+
+closeform.addEventListener('click', e => {
+  searchAdd.classList.remove('open');
+  form.classList.remove('show');
+  overlay.classList.remove('show');
 })
 
 

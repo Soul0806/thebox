@@ -31,7 +31,8 @@
       right: calc(2px + 0.6rem);
       cursor: pointer;
       &.open {
-        transform: rotate(45deg);
+        // transform: rotate(45deg);
+        visibility: hidden;
       }
     }
   }

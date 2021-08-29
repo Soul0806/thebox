@@ -108,7 +108,7 @@ nav {
       right: calc(2px + 0.6rem);
       cursor: pointer; }
       .knowledge__search .add.open {
-        transform: rotate(45deg); }
+        visibility: hidden; }
   .knowledge__main {
     position: relative;
     margin-top: 1rem; }
@@ -163,6 +163,8 @@ nav {
     padding: 20px;
     max-width: 80%;
     background-color: white; }
+    .knowledge__form .close {
+      text-align: right; }
     .knowledge__form .tagwrap, .knowledge__form .qwrap, .knowledge__form .awrap {
       margin-bottom: 10px;
       max-width: 90%;
@@ -177,7 +179,10 @@ nav {
         background: transparent;
         outline: none; }
     .knowledge__form .insertbtn {
-      text-align: right; }
+      max-width: 90%;
+      margin: 0 auto;
+      text-align: right;
+      margin-top: 5px; }
     .knowledge__form.show {
       display: block; }
 

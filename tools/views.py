@@ -36,13 +36,15 @@ def test(request):
 
 def index(request):
     q_collects = Question.objects.all()
+    c_collects = Category.objects.all()
     collects = {}
     for q in q_collects: 
       q.answers = re.sub(r'(http|https)://.+(?=<br>)?', repl, q.answers)
       for term in q.categorys.all():
         collects[term] = [q] if term not in collects else list_append(collects[term], q)
     return render(request, 'tools/index.html', {
-      "collects": collects.items()
+      "collects": collects.items(),
+      "categorys": c_collects
     })
 
 def insert_category(request):

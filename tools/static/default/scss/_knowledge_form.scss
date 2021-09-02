@@ -12,11 +12,35 @@
   .close {
     text-align: right;
   }
+  
+
   .tagwrap, .qwrap, .awrap {
+    position: relative;
     @extend %flex-row;
     margin-bottom: 10px;
     max-width: 90%;
     margin: 0 auto;
+
+    .pad {
+      position: absolute;
+      top: 1.5rem;
+      left: 5rem;
+      visibility: hidden;
+      border-radius: 5px;
+      padding: 5px;
+      color: $white;
+      background-color: $gray;
+      &.show {
+        visibility: visible;
+        z-index: 1;
+      }
+
+      .term {
+        &.selected {
+          color: red;
+        }
+      }
+    }
     label {
       min-width: 5rem;
       text-align: center;
@@ -29,6 +53,16 @@
       outline: none;
     }
   }
+
+  // .outwrap {
+  //   position: relative;
+
+  //   .pad {
+  //     position: absolute;
+  //     top: 0;
+  //     left: 0;
+  //   }
+  // }
 
   .insertbtn {
     max-width: 90%;

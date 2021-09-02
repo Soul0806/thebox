@@ -166,9 +166,24 @@ nav {
     .knowledge__form .close {
       text-align: right; }
     .knowledge__form .tagwrap, .knowledge__form .qwrap, .knowledge__form .awrap {
+      position: relative;
       margin-bottom: 10px;
       max-width: 90%;
       margin: 0 auto; }
+      .knowledge__form .tagwrap .pad, .knowledge__form .qwrap .pad, .knowledge__form .awrap .pad {
+        position: absolute;
+        top: 1.5rem;
+        left: 5rem;
+        visibility: hidden;
+        border-radius: 5px;
+        padding: 5px;
+        color: white;
+        background-color: #b3b3b3; }
+        .knowledge__form .tagwrap .pad.show, .knowledge__form .qwrap .pad.show, .knowledge__form .awrap .pad.show {
+          visibility: visible;
+          z-index: 1; }
+        .knowledge__form .tagwrap .pad .term.selected, .knowledge__form .qwrap .pad .term.selected, .knowledge__form .awrap .pad .term.selected {
+          color: red; }
       .knowledge__form .tagwrap label, .knowledge__form .qwrap label, .knowledge__form .awrap label {
         min-width: 5rem;
         text-align: center; }

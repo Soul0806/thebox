@@ -13,6 +13,7 @@
 
 // const mask = document.querySelector('.mask');
 // const outerwrap = document.querySelector('.outerwrap');
+const html = document.querySelector('html')
 const search = document.querySelector('.knowledge__search')
 const main = document.querySelector('.knowledge__main');
 const form = document.querySelector('.knowledge__form');
@@ -21,6 +22,9 @@ const searchAdd  = search.querySelector('.add');
 const mainQs = main.querySelectorAll('.q');
 const overlay = main.querySelector('.overlay');
 const closeform = form.querySelector('.close');
+const tag = form.querySelector('.tag');
+const pad = form.querySelector('.pad');
+// const item = form.querySelector('.item');
 
 searchAdd.addEventListener('click', e => { 
   e.target.classList.add('open')
@@ -33,6 +37,32 @@ closeform.addEventListener('click', e => {
   form.classList.remove('show');
   overlay.classList.remove('show');
 })
+
+tag.addEventListener('focus', e => {
+  pad.classList.add('show');
+})
+
+let arr_terms = []
+pad.addEventListener('click', e => {
+  if(!e.target.matches('.term')) return;
+  let item = e.target.dataset.item
+  if(arr_terms.includes(item)) {
+    arr_terms.splice(arr_terms.indexOf(item), 1)
+    e.target.classList.remove('selected')
+  }    
+  else {
+    arr_terms.push(item)
+    e.target.classList.add('selected')
+  }
+
+  let str_terms = arr_terms.join()
+  tag.value = str_terms
+  // console.log(str_terms)
+})
+
+overlay.addEventListener('click', e => {
+})
+
 
 
 // const pageQ = document.querySelector('.p age__q');

@@ -19,13 +19,15 @@ const main = document.querySelector('.knowledge__main');
 const form = document.querySelector('.knowledge__form');
 
 const searchAdd  = search.querySelector('.add');
+
 const mainQs = main.querySelectorAll('.q');
 const overlay = main.querySelector('.overlay');
+
 const closeform = form.querySelector('.close-icon');
 const tag = form.querySelector('.tag');
 const pad = form.querySelector('.pad');
 const mask = form.querySelector('.mask');
-// const item = form.querySelector('.item');
+const term = form.querySelectorAll('.term');
 
 searchAdd.addEventListener('click', e => { 
   e.target.classList.add('open')
@@ -38,9 +40,7 @@ closeform.addEventListener('click', e => {
   searchAdd.classList.remove('open');
   form.classList.remove('show');
   overlay.classList.remove('show');
-  arr_terms.forEach(e => {
-    console.log(e)
-  })
+  term.forEach(e => { e.classList.remove('selected')} )
   tag.value = '';  
 })
 
@@ -71,6 +71,8 @@ mask.addEventListener('click', e => {
   pad.classList.remove('show');
   mask.classList.remove('show');
 })
+
+
 
 
 

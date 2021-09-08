@@ -2,7 +2,10 @@ import lib from './base.js'
 import j from './jquery.lib.js'
 import ajax from './ajax.js'
 const search = document.querySelector('.knowledge__search');
+const form = document.querySelector('.knowledge__form');
+
 const searchInput = search.querySelector('.search');
+
 
 // j.click('#js_category_add', e => {
 //   let term = j.getTargetVal(e);
@@ -32,12 +35,18 @@ const searchInput = search.querySelector('.search');
 //   })
 // })
 
-// j.click('.js_question_add', e => {
+// j.click('.insertbtn', e => {
 //   let data = j.getTargetPair(e, csrf);
 //   ajax.post(url_insert_question, data, res => {
 //     console.log(res)
 //   })
 // })
+
+form.addEventListener('click', e => {
+  if(!e.target.matches('.insertbtn')) return;
+  let data = j.getTargetPair(e, csrf);
+  console.log(data);
+})  
 
 searchInput.addEventListener('input', (e) => {
   // if(!e.target.matches('.js_page_search')) return;

@@ -163,6 +163,16 @@ nav {
     padding: 20px;
     max-width: 80%;
     background-color: white; }
+    .knowledge__form .mask {
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1; }
+      .knowledge__form .mask.show {
+        visibility: visible; }
     .knowledge__form .close {
       text-align: right; }
     .knowledge__form .tagwrap, .knowledge__form .qwrap, .knowledge__form .awrap {

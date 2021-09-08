@@ -21,9 +21,10 @@ const form = document.querySelector('.knowledge__form');
 const searchAdd  = search.querySelector('.add');
 const mainQs = main.querySelectorAll('.q');
 const overlay = main.querySelector('.overlay');
-const closeform = form.querySelector('.close');
+const closeform = form.querySelector('.close-icon');
 const tag = form.querySelector('.tag');
 const pad = form.querySelector('.pad');
+const mask = form.querySelector('.mask');
 // const item = form.querySelector('.item');
 
 searchAdd.addEventListener('click', e => { 
@@ -40,6 +41,7 @@ closeform.addEventListener('click', e => {
 
 tag.addEventListener('focus', e => {
   pad.classList.add('show');
+  mask.classList.add('show');
 })
 
 let arr_terms = []
@@ -60,7 +62,9 @@ pad.addEventListener('click', e => {
   // console.log(str_terms)
 })
 
-overlay.addEventListener('click', e => {
+mask.addEventListener('click', e => {
+  pad.classList.remove('show');
+  mask.classList.remove('show');
 })
 
 

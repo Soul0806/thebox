@@ -1,6 +1,8 @@
 <div class="mask"></div>
 <div class="cwrap">
   {% for category in categorys %}
-  <div class="term" data-item="{{ category.terms }}">{{ category.terms }}</div>
+  <div class="term" data-item="{{ category.terms|capfirst }}">
+    {{ category.terms|capfirst }}
+  </div>
   {% endfor %}
 </div>

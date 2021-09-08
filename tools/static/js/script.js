@@ -33,10 +33,15 @@ searchAdd.addEventListener('click', e => {
   overlay.classList.add('show');
 })
 
+let test = 0;
 closeform.addEventListener('click', e => {
   searchAdd.classList.remove('open');
   form.classList.remove('show');
   overlay.classList.remove('show');
+  arr_terms.forEach(e => {
+    console.log(e)
+  })
+  tag.value = '';  
 })
 
 tag.addEventListener('focus', e => {

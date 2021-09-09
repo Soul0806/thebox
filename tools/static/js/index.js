@@ -37,15 +37,15 @@ const searchInput = search.querySelector('.search');
 
 // j.click('.insertbtn', e => {
 //   let data = j.getTargetPair(e, csrf);
-//   ajax.post(url_insert_question, data, res => {
-//     console.log(res)
-//   })
+
 // })
 
 form.addEventListener('click', e => {
   if(!e.target.matches('.insertbtn')) return;
   let data = j.getTargetPair(e, csrf);
-  console.log(data);
+  ajax.post(url_insert_question, data, res => {
+    console.log(res)
+  })
 })  
 
 searchInput.addEventListener('input', (e) => {

@@ -20,11 +20,11 @@ const j = {
     for (let t of target_arr) {
       let re = t.match(/\[(\.(.+))\]/);
       // let key = re[2].match(/__(.+)/)[1] + 's'
-      let key = re[1] + 's'
+      let key = re[2] + 's';
       obj[key] = $(re[1]).val();
-      if (csrf) {
-        obj['csrfmiddlewaretoken'] = csrf;
-      }
+    }
+    if (csrf) {
+      obj['csrfmiddlewaretoken'] = csrf;
     }
     return obj;
   }

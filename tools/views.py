@@ -55,7 +55,6 @@ def insert_category(request):
 
 def insert_question(request):
     if(request.method == 'POST'):
-      print(request.POST)
       q = Question.objects.create(questions=request.POST['questions'], answers=request.POST['answers'].replace('\n', '<br>'))
       tags = request.POST['tags'].split(',')
       for t in tags: 

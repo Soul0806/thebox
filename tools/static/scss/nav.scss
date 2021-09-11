@@ -1,6 +1,9 @@
 nav {
   @extend %flex-sb;
-  padding: 1rem 1rem;
+  padding: 1rem 2rem;
+  .pad {
+    
+  }
   a {
     font-size: 36px;
     font-weight: 600;

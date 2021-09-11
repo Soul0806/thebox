@@ -1,7 +1,7 @@
-{% extends 'tools/layout.html' %} {% load static %} {% block main %}
-
+{% extends 'tools/layout.html' %} {% load static %} {% block nav %}
+<nav>{% include 'tools/nav.html' %}</nav>
+{% endblock %} {% block main %}
 <main>{% include 'tools/default/knowledge.html' %}</main>
-
 {% endblock %} {% block scripts %}
 <script type="text/javascript">
   var url_insert_category = "{% url 'insert_category' %}";

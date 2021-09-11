@@ -13,12 +13,16 @@
 
 // const mask = document.querySelector('.mask');
 // const outerwrap = document.querySelector('.outerwrap');
-const html = document.querySelector('html')
+const html = document.querySelector('html');
+const nav = document.querySelector('nav');
 const search = document.querySelector('.knowledge__search')
 const main = document.querySelector('.knowledge__main');
 const form = document.querySelector('.knowledge__form');
 
 const searchAdd  = search.querySelector('.add');
+
+const circle = nav.querySelector('.circle');
+const navPad = nav.querySelector('.pad');
 
 const mainQs = main.querySelectorAll('.q');
 const overlay = main.querySelector('.overlay');
@@ -29,24 +33,29 @@ const pad = form.querySelector('.pad');
 const mask = form.querySelector('.mask');
 const term = form.querySelectorAll('.term');
 
-searchAdd.addEventListener('click', e => { 
-  e.target.classList.add('open')
-  form.classList.add('show');
-  overlay.classList.add('show');
-})
+
+circle.onclick = () => {
+  navPad.classList.toggle('visible');
+}
+
+searchAdd.onclick = e => {
+  e.target.classList.toggle('hidden')
+  form.classList.toggle('visible');
+  overlay.classList.toggle('visible');
+}
 
 let test = 0;
 closeform.addEventListener('click', e => {
-  searchAdd.classList.remove('open');
-  form.classList.remove('show');
-  overlay.classList.remove('show');
+  searchAdd.classList.toggle('hidden');
+  form.classList.toggle('visible');
+  overlay.classList.toggle('visible');
   term.forEach(e => { e.classList.remove('selected')} )
   tag.value = '';  
 })
 
 tag.addEventListener('focus', e => {
-  pad.classList.add('show');
-  mask.classList.add('show');
+  pad.classList.toggle('visible');
+  mask.classList.toggle('visible');
 })
 
 let arr_terms = []
@@ -55,11 +64,11 @@ pad.addEventListener('click', e => {
   let item = e.target.dataset.item
   if(arr_terms.includes(item)) {
     arr_terms.splice(arr_terms.indexOf(item), 1)
-    e.target.classList.remove('selected')
+    e.target.classList.toggle('selected')
   }    
   else {
     arr_terms.push(item)
-    e.target.classList.add('selected')
+    e.target.classList.toggle('selected')
   }
 
   let str_terms = arr_terms.join()
@@ -68,9 +77,11 @@ pad.addEventListener('click', e => {
 })
 
 mask.addEventListener('click', e => {
-  pad.classList.remove('show');
-  mask.classList.remove('show');
+  pad.classList.toggle('visible');
+  e.target.classList.toggle('visible');
 })
+
+
 
 
 

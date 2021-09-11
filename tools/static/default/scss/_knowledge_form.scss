@@ -1,5 +1,5 @@
 &__form {
-  display: none;
+  visibility: hidden;
   position: absolute;
   top: 0;
   left: 50%;
@@ -36,18 +36,20 @@
     margin: 0 auto;
 
     .pad {
+      display: block;
       position: absolute;
       top: 1.5rem;
       left: 5rem;
+      // pointer-events: auto; 
       visibility: hidden;
       border-radius: 5px;
       padding: 5px;
       color: $white;
       background-color: $gray;
-      &.show {
-        visibility: visible;
-        z-index: 1;
-      }
+      // &.show {
+      //   visibility: visible;
+      //   z-index: 1;
+      // }
 
       .term {
         &.selected {
@@ -83,9 +85,5 @@
     margin: 0 auto;
     text-align: right;
     margin-top: 5px;
-  }
-
-  &.show {
-    display: block;
   }
 }

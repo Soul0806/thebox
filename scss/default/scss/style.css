@@ -7,6 +7,11 @@
 3. components
 
 */
+nav .profile .pad {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -81,11 +86,17 @@ a {
   color: rgba(255, 255, 255, 0.3); }
 
 nav {
-  padding: 1rem 1rem; }
-  nav a {
+  padding: 1rem 2rem; }
+  nav .title, nav .circle {
     font-size: 36px;
     font-weight: 600;
     color: black; }
+  nav .profile {
+    display: flex; }
+    nav .profile .pad {
+      visibility: hidden;
+      font-size: 20px;
+      margin-right: 5px; }
 
 .knowledge {
   position: relative;
@@ -107,8 +118,6 @@ nav {
       top: 0;
       right: calc(2px + 0.6rem);
       cursor: pointer; }
-      .knowledge__search .add.open {
-        visibility: hidden; }
   .knowledge__main {
     position: relative;
     margin-top: 1rem; }
@@ -154,7 +163,7 @@ nav {
       .knowledge__main .overlay.show {
         visibility: visible; }
   .knowledge__form {
-    display: none;
+    visibility: hidden;
     position: absolute;
     top: 0;
     left: 50%;
@@ -181,6 +190,7 @@ nav {
       max-width: 90%;
       margin: 0 auto; }
       .knowledge__form .tagwrap .pad, .knowledge__form .qwrap .pad, .knowledge__form .awrap .pad {
+        display: block;
         position: absolute;
         top: 1.5rem;
         left: 5rem;
@@ -189,9 +199,6 @@ nav {
         padding: 5px;
         color: white;
         background-color: #b3b3b3; }
-        .knowledge__form .tagwrap .pad.show, .knowledge__form .qwrap .pad.show, .knowledge__form .awrap .pad.show {
-          visibility: visible;
-          z-index: 1; }
         .knowledge__form .tagwrap .pad .term.selected, .knowledge__form .qwrap .pad .term.selected, .knowledge__form .awrap .pad .term.selected {
           color: red; }
       .knowledge__form .tagwrap label, .knowledge__form .qwrap label, .knowledge__form .awrap label {
@@ -208,8 +215,13 @@ nav {
       margin: 0 auto;
       text-align: right;
       margin-top: 5px; }
-    .knowledge__form.show {
-      display: block; }
+
+.hidden {
+  visibility: hidden; }
+
+.visible {
+  visibility: visible;
+  z-index: 1; }
 
 .dev {
   position: fixed;

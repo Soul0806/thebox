@@ -1,7 +1,7 @@
 nav {
   @extend %flex-sb;
   padding: 1rem 2rem;
-  .title, .circle {
+  .title {
     font-size: 36px;
     font-weight: 600;
     color: $black;
@@ -9,11 +9,16 @@ nav {
 
   .profile {
     display: flex;
+    font-size: 24px;
+    .circle {
+      color: $black;
+    }
+   
     .pad {
       @extend %flex-column;
-      visibility: hidden;
-      font-size: 20px;
+      visibility: hidden;      
       margin-right: 5px;
+      font-size: 20px;
     }
   }
 }

@@ -87,16 +87,19 @@ a {
 
 nav {
   padding: 1rem 2rem; }
-  nav .title, nav .circle {
+  nav .title {
     font-size: 36px;
     font-weight: 600;
     color: black; }
   nav .profile {
-    display: flex; }
+    display: flex;
+    font-size: 24px; }
+    nav .profile .circle {
+      color: black; }
     nav .profile .pad {
       visibility: hidden;
-      font-size: 20px;
-      margin-right: 5px; }
+      margin-right: 5px;
+      font-size: 20px; }
 
 .knowledge {
   position: relative;

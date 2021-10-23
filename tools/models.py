@@ -20,4 +20,4 @@ class Question(models.Model):
     modified_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-      return f'{self.questions}  - ({self.categorys.all()[0]})'
+      return f'{self.questions} - ({self.categorys.all().first()})'

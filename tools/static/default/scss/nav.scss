@@ -1,5 +1,6 @@
 nav {
   @extend %flex-sb;
+  position: relative;
   padding: 1rem 2rem;
   .title {
     font-size: 36px;
@@ -20,5 +21,15 @@ nav {
       margin-right: 5px;
       font-size: 20px;
     }
+  }
+
+  .tips {
+    position: absolute;
+    color: $red;
+    left: 50%;
+    top: -30px;
+    animation-name: show;
+    animation-duration: 2s;
+    // animation-direction: alternate;
   }
 }

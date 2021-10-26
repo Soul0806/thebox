@@ -23,6 +23,16 @@ nav {
   justify-content: center;
   align-items: center; }
 
+@keyframes show {
+  0% {
+    top: px; }
+  50% {
+    top: 30px; }
+  75% {
+    top: 30px; }
+  100% {
+    top: -30px; } }
+
 @keyframes fade-in {
   from {
     opacity: 0; }
@@ -86,6 +96,7 @@ a {
   color: rgba(255, 255, 255, 0.3); }
 
 nav {
+  position: relative;
   padding: 1rem 2rem; }
   nav .title {
     font-size: 36px;
@@ -100,6 +111,13 @@ nav {
       visibility: hidden;
       margin-right: 5px;
       font-size: 20px; }
+  nav .tips {
+    position: absolute;
+    color: red;
+    left: 50%;
+    top: -30px;
+    animation-name: show;
+    animation-duration: 2s; }
 
 .knowledge {
   position: relative;
@@ -171,6 +189,7 @@ nav {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    border: 1px solid #b3b3b3;
     border-radius: 20px;
     padding: 20px;
     max-width: 80%;

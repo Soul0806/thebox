@@ -81,7 +81,11 @@ mask.addEventListener('click', e => {
   e.target.classList.toggle('visible');
 })
 
-
+// document.querySelector('.tips').animate([
+//   { transform: 'translateY(30px)' },
+// ], {
+//   duration: 3000,
+// });
 
 
 

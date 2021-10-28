@@ -3,9 +3,11 @@ import j from './jquery.lib.js'
 import ajax from './ajax.js'
 const search = document.querySelector('.knowledge__search');
 const form = document.querySelector('.knowledge__form');
+const nav = document.querySelector('nav');
 
 const searchInput = search.querySelector('.search');
-
+const navTip = nav.querySelector('.tip');
+const formTip = form.querySelector('.tip');
 
 // j.click('#js_category_add', e => {
 //   let term = j.getTargetVal(e);
@@ -43,10 +45,20 @@ const searchInput = search.querySelector('.search');
 form.addEventListener('click', e => {
   if(!e.target.matches('.insertbtn')) return;
   let data = j.getTargetPair(e, csrf);
-  ajax.post(url_insert_question, data, res => {
-    console.log(res)
-  })
-})  
+  if(!data) {
+    formTip.classList.add('show')
+  } else {
+    ajax.post(url_insert_question, data, res => {
+      navTip.animate([
+        {top: '0px'},
+        {top: '30px'},
+        {top: '-20px'}
+      ], 2000);  
+    });    
+  }
+})
+  
+
 
 searchInput.addEventListener('input', (e) => {
   // if(!e.target.matches('.js_page_search')) return;

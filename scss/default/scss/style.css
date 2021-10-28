@@ -111,13 +111,14 @@ nav {
       visibility: hidden;
       margin-right: 5px;
       font-size: 20px; }
-  nav .tips {
+  nav .tip {
     position: absolute;
     color: red;
     left: 50%;
-    top: -30px;
-    animation-name: show;
-    animation-duration: 2s; }
+    top: -20px; }
+    nav .tip.run {
+      animation-name: show;
+      animation-duration: 2s; }
 
 .knowledge {
   position: relative;
@@ -204,8 +205,18 @@ nav {
       z-index: 1; }
       .knowledge__form .mask.show {
         visibility: visible; }
+    .knowledge__form .tip {
+      color: red;
+      text-align: center;
+      visibility: hidden; }
+      .knowledge__form .tip.show {
+        visibility: visible; }
     .knowledge__form .close {
-      text-align: right; }
+      position: absolute;
+      top: 1rem;
+      right: 1rem; }
+      .knowledge__form .close .close-icon {
+        cursor: pointer; }
     .knowledge__form .tagwrap, .knowledge__form .qwrap, .knowledge__form .awrap {
       position: relative;
       margin-bottom: 10px;
@@ -232,7 +243,7 @@ nav {
         border-bottom: 1px solid #b3b3b3;
         background: transparent;
         outline: none; }
-    .knowledge__form .insertbtn {
+    .knowledge__form .insertbtnwrap {
       max-width: 90%;
       margin: 0 auto;
       text-align: right;

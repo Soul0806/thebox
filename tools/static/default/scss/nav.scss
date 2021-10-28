@@ -23,13 +23,17 @@ nav {
     }
   }
 
-  .tips {
+  .tip {
     position: absolute;
     color: $red;
     left: 50%;
-    top: -30px;
-    animation-name: show;
-    animation-duration: 2s;
+    top: -20px;
+ 
     // animation-direction: alternate;
+
+    &.run {
+      animation-name: show;
+      animation-duration: 2s;
+    }
   }
 }

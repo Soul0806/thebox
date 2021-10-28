@@ -19,9 +19,11 @@ const j = {
     let target_arr = $(event.target).data('target').split(' ');
     for (let t of target_arr) {
       let re = t.match(/\[(\.(.+))\]/);
-      // let key = re[2].match(/__(.+)/)[1] + 's'
+      let val = $(re[1]).val();
+      if(!val) return false;
       let key = re[2] + 's';
-      obj[key] = $(re[1]).val();
+      obj[key] = val;
+      // let key = re[2].match(/__(.+)/)[1] + 's'
     }
     if (csrf) {
       obj['csrfmiddlewaretoken'] = csrf;

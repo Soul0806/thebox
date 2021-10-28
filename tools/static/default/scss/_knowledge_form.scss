@@ -24,8 +24,23 @@
     }
   }
 
+  .tip {    
+    color: $red;
+    text-align: center;
+    visibility: hidden;
+    &.show {
+      visibility: visible;
+    }
+  }
+
   .close {
-    text-align: right;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
+    .close-icon {
+      cursor: pointer;
+    }
   }
   
 
@@ -81,7 +96,7 @@
   //   }
   // }
 
-  .insertbtn {
+  .insertbtnwrap {
     max-width: 90%;
     margin: 0 auto;
     text-align: right;

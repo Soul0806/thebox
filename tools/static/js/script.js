@@ -1,18 +1,5 @@
 'use strict'
-// import lib from "./base";
 
-// const termAdd = document.querySelector('.term__add');
-// const termVal = document.querySelector('.term__val');
-
-// const termInput = document.querySelector('.term__input');
-// const termClose = document.querySelector('.close');
-
-// const devMode = document.querySelector('.dev__mode');
-// const devCircle = document.querySelector('.js-dev-circle');
-// const layoutTag = document.querySelector('.layout__tag');
-
-// const mask = document.querySelector('.mask');
-// const outerwrap = document.querySelector('.outerwrap');
 const html = document.querySelector('html');
 const nav = document.querySelector('nav');
 const search = document.querySelector('.knowledge__search')
@@ -20,9 +7,11 @@ const main = document.querySelector('.knowledge__main');
 const form = document.querySelector('.knowledge__form');
 
 const searchAdd  = search.querySelector('.add');
+const searchInput = search.querySelector('.search');
 
 const circle = nav.querySelector('.circle');
 const navPad = nav.querySelector('.pad');
+const navTip = nav.querySelector('.tip');
 
 const mainQs = main.querySelectorAll('.q');
 const overlay = main.querySelector('.overlay');
@@ -32,7 +21,7 @@ const tag = form.querySelector('.tag');
 const pad = form.querySelector('.pad');
 const mask = form.querySelector('.mask');
 const term = form.querySelectorAll('.term');
-
+const formTip = form.querySelector('.tip');
 
 circle.onclick = () => {
   navPad.classList.toggle('visible');
@@ -45,13 +34,7 @@ searchAdd.onclick = e => {
 }
 
 let test = 0;
-closeform.addEventListener('click', e => {
-  searchAdd.classList.toggle('hidden');
-  form.classList.toggle('visible');
-  overlay.classList.toggle('visible');
-  term.forEach(e => { e.classList.remove('selected')} )
-  tag.value = '';  
-})
+closeform.addEventListener('click', cleanForm);
 
 tag.addEventListener('focus', e => {
   pad.classList.toggle('visible');
@@ -80,6 +63,8 @@ mask.addEventListener('click', e => {
   pad.classList.toggle('visible');
   e.target.classList.toggle('visible');
 })
+
+export {circle}
 
 // document.querySelector('.tips').animate([
 //   { transform: 'translateY(30px)' },

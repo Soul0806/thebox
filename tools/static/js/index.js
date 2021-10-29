@@ -81,12 +81,17 @@ searchAdd.onclick = e => {
   overlay.classList.toggle('visible');
 }
 
-closeform.onclick = cleanForm
+closeform.onclick = cleanForm;
 
-tag.addEventListener('focus', e => {
+tag.onfocus = () => {
   pad.classList.toggle('visible');
   mask.classList.toggle('visible');
-})
+}
+
+mask.onclick = e => {
+  pad.classList.toggle('visible');
+  e.target.classList.toggle('visible');
+}
 
 let arr_terms = []
 pad.addEventListener('click', e => {
@@ -104,11 +109,6 @@ pad.addEventListener('click', e => {
   let str_terms = arr_terms.join()
   tag.value = str_terms
   // console.log(str_terms)
-})
-
-mask.addEventListener('click', e => {
-  pad.classList.toggle('visible');
-  e.target.classList.toggle('visible');
 })
 
 main.addEventListener('click', (e) => {

@@ -4,7 +4,6 @@ import lib from './base.js'
 import j from './jquery.lib.js'
 import ajax from './ajax.js'
 
-
 const html = document.querySelector('html');
 const nav = document.querySelector('nav');
 const search = document.querySelector('.knowledge__search')
@@ -20,6 +19,7 @@ const navTip = nav.querySelector('.tip');
 
 const mainQs = main.querySelectorAll('.q');
 const overlay = main.querySelector('.overlay');
+const mainAs = main.querySelectorAll('.awrap');
 
 const closeform = form.querySelector('.close-icon');
 const tag = form.querySelector('.tag');
@@ -27,6 +27,7 @@ const pad = form.querySelector('.pad');
 const mask = form.querySelector('.mask');
 const term = form.querySelectorAll('.term');
 const formTip = form.querySelector('.tip');
+
 
 function toggle(obj) {
   Object.entries(obj).forEach(
@@ -61,14 +62,18 @@ function cleanInput(obj) {
 }
 
 function manipulate(obj) {
-  toggle(obj.toggle);
-  remove(obj.remove)
+  return; 
 }
 
 function cleanForm() {
-  const toggle = {hidden: searchAdd, visible: [form, overlay]};
-  const remove = {selected: term, show: formTip};
-  manipulate({ toggle, remove });
+  const toggleElem = {hidden: searchAdd, visible: [form, overlay]};
+  const removeElem = {selected: term, show: formTip};
+  toggle(toggleElem);
+  remove(removeElem);
+}
+
+function hasClass(elem, className) {
+  return elem.classList.contains(className);
 }
 
 circle.onclick = () => {
@@ -93,58 +98,57 @@ mask.onclick = e => {
   e.target.classList.toggle('visible');
 }
 
-let arr_terms = []
-pad.addEventListener('click', e => {
-  if(!e.target.matches('.term')) return;
-  let item = e.target.dataset.item
-  if(arr_terms.includes(item)) {
-    arr_terms.splice(arr_terms.indexOf(item), 1)
-    e.target.classList.toggle('selected')
-  }    
-  else {
-    arr_terms.push(item)
-    e.target.classList.toggle('selected')
-  }
-
-  let str_terms = arr_terms.join()
-  tag.value = str_terms
-  // console.log(str_terms)
-})
-
-main.addEventListener('click', (e) => {
-  if(!e.target.matches('.q')) return;
-  const mainAs = main.querySelectorAll('.awrap');
-  mainAs.forEach(e => e.classList.remove('show'))
-  e.target.nextElementSibling.classList.add('show');
-})
-
-
-form.addEventListener('click', e => {
-  if(!e.target.matches('.insertbtn')) return;
-  let data = j.getTargetPair(e, csrf);
-  if(!data) {
-    formTip.classList.toggle('show')
-  } else {
-    ajax.post(url_insert_question, data, res => {
-      navTip.animate([
-        {top: '0px'},
-        {top: '30px'},
-        {top: '-20px'}
-      ], 2000);  
-    });
-    cleanForm();    
-  }
-})
+let arrTerms = []
+pad.onclick = e => {
+  if(hasClass(e.target, 'term')) {
+    const item = e.target.dataset.item
+    if(arrTerms.includes(item)) {
+      arrTerms.splice(arrTerms.indexOf(item), 1)
+      e.target.classList.toggle('selected')
+    }    
+    else {
+      arrTerms.push(item)
+      e.target.classList.toggle('selected')
+    }
   
-searchInput.addEventListener('input', (e) => {
-  // if(!e.target.matches('.js_page_search')) return;
-  if(e.target.value.length == 0) return;
-  let search = { "search": e.target.value}
-  ajax.get(url_select_question, search, res => {
-    $('.knowledge__main').html(res)
-  })
-})
+    let strTerms = arrTerms.join()
+    tag.value = strTerms
+  }
+}
+main.onclick = e => {
+  if(hasClass(e.target, 'q')) {
+    remove({ show: mainAs});
+    e.target.nextElementSibling.classList.add('show');
+  }
+}
 
+form.onclick = e => {
+  if(hasClass(e.target, 'insertbtn')) {
+    let data = j.getTargetPair(e, csrf);
+    if(!data) {
+      // formTip.classList.toggle('show')
+      toggle({show:formTip})
+    } else {
+      ajax.post(url_insert_question, data, res => {
+        navTip.animate([
+          {top: '0px'},
+          {top: '30px'},
+          {top: '-20px'} 
+        ], 2000);  
+      });
+      cleanForm();    
+    }
+  }
+}
+
+searchInput.oninput = e => {
+  if(e.target.value.length) {
+    let search = { "search": e.target.value}
+    ajax.get(url_select_question, search, res => {
+      $('.knowledge__main').html(res)
+    })
+  }
+}
 
 // j.click('#js_category_add', e => {
 //   let term = j.getTargetVal(e);

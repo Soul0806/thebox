@@ -256,6 +256,9 @@ nav {
   visibility: visible;
   z-index: 1; }
 
+.block {
+  display: block; }
+
 .dev {
   position: fixed;
   right: 0.5rem; }

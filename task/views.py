@@ -14,11 +14,10 @@ def index(request):
     form = SortModelForm(request.POST)
     if form.is_valid():
       form.save()
-      return HttpResponseRedirect(reserve='task:index')
+      return HttpResponseRedirect(reverse('task:index'))
       
   
   return render(request, 'task/index.html', {
     'form' : form,
     'sort' : sort
-
   })

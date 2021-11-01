@@ -17,7 +17,7 @@ case $1 in
             exit 1
             ;;
         run )
-            python -m webbrowser http://127.0.0.1:8000/
+            python -m webbrowser http://127.0.0.1:8000/task
             python manage.py runserver             
             echo 'running...'
             exit 1 

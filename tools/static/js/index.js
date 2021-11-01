@@ -3,19 +3,16 @@
 import lib from './base.js'
 import j from './jquery.lib.js'
 import ajax from './ajax.js'
+import './nav.js'
+
 
 const html = document.querySelector('html');
-const nav = document.querySelector('nav');
 const search = document.querySelector('.knowledge__search')
 const main = document.querySelector('.knowledge__main');
 const form = document.querySelector('.knowledge__form');
 
-const searchAdd  = search.querySelector('.add');
+const searchAdd = search.querySelector('.add');
 const searchInput = search.querySelector('.search');
-
-const circle = nav.querySelector('.circle');
-const navPad = nav.querySelector('.pad');
-const navTip = nav.querySelector('.tip');
 
 const mainQs = main.querySelectorAll('.q');
 const overlay = main.querySelector('.overlay');
@@ -28,16 +25,15 @@ const mask = form.querySelector('.mask');
 const term = form.querySelectorAll('.term');
 const formTip = form.querySelector('.tip');
 
-
 function toggle(obj) {
   Object.entries(obj).forEach(
     ([key, value]) => {
-      if(value.length> 1) {
+      if (value.length > 1) {
         value.forEach(elem => {
           elem.classList.toggle(key);
         })
       } else {
-         value.classList.toggle(key);
+        value.classList.toggle(key);
       }
     }
   );
@@ -46,38 +42,34 @@ function toggle(obj) {
 function remove(obj) {
   Object.entries(obj).forEach(
     ([key, value]) => {
-      if(value.length> 1) {
+      if (value.length > 1) {
         value.forEach(elem => {
           elem.classList.remove(key);
         })
       } else {
-         value.classList.remove(key);
+        value.classList.remove(key);
       }
     }
   );
 }
 
 function cleanInput(obj) {
-  return; 
+  return;
 }
 
 function manipulate(obj) {
-  return; 
+  return;
 }
 
 function cleanForm() {
-  const toggleElem = {hidden: searchAdd, visible: [form, overlay]};
-  const removeElem = {selected: term, show: formTip};
+  const toggleElem = { hidden: searchAdd, visible: [form, overlay] };
+  const removeElem = { selected: term, show: formTip };
   toggle(toggleElem);
   remove(removeElem);
 }
 
 function hasClass(elem, className) {
   return elem.classList.contains(className);
-}
-
-circle.onclick = () => {
-  navPad.classList.toggle('visible');
 }
 
 searchAdd.onclick = e => {
@@ -100,51 +92,51 @@ mask.onclick = e => {
 
 let arrTerms = []
 pad.onclick = e => {
-  if(hasClass(e.target, 'term')) {
+  if (hasClass(e.target, 'term')) {
     const item = e.target.dataset.item
-    if(arrTerms.includes(item)) {
+    if (arrTerms.includes(item)) {
       arrTerms.splice(arrTerms.indexOf(item), 1)
       e.target.classList.toggle('selected')
-    }    
+    }
     else {
       arrTerms.push(item)
       e.target.classList.toggle('selected')
     }
-  
+
     let strTerms = arrTerms.join()
     tag.value = strTerms
   }
 }
 main.onclick = e => {
-  if(hasClass(e.target, 'q')) {
-    remove({ show: mainAs});
+  if (hasClass(e.target, 'q')) {
+    remove({ show: mainAs });
     e.target.nextElementSibling.classList.add('show');
   }
 }
 
 form.onclick = e => {
-  if(hasClass(e.target, 'insertbtn')) {
+  if (hasClass(e.target, 'insertbtn')) {
     let data = j.getTargetPair(e, csrf);
-    if(!data) {
+    if (!data) {
       // formTip.classList.toggle('show')
-      toggle({show:formTip})
+      toggle({ show: formTip })
     } else {
       ajax.post(url_insert_question, data, res => {
         navTip.animate([
-          {top: '0px'},
-          {top: '30px'},
-          {top: '-20px'} 
-        ], 2000);  
+          { top: '0px' },
+          { top: '30px' },
+          { top: '-20px' }
+        ], 2000);
       });
-      cleanForm();    
+      cleanForm();
     }
   }
 }
 
 searchInput.oninput = e => {
-  if(e.target.value.length) {
-    let search = { "search": e.target.value}
-    ajax.get(url_select_question, search, res => {
+  const val = e.target.value;
+  if (val.length > 0) {
+    ajax.get(url_select_question, { search: val }, res => {
       $('.knowledge__main').html(res)
     })
   }

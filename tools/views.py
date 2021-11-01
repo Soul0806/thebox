@@ -12,13 +12,12 @@ def list_append(list, val):
   return list
 
 def link_repl(obj):
-  aaa = 'answers'
   for q in obj: 
     q.answers = re.sub(r'(http|https)://.+(?=<br>)?', repl, q.answers)    
 
 def repl(m): 
   match = m.group(0)
-  return f'<a href="{match}">{match}</a>'
+  return f'<a href="{match}" target="_blank">{match}</a>'
 
 def test(request):
   str = 'https://localhost:8000/test<br>123'
@@ -35,16 +34,16 @@ def test(request):
 #     })
 
 def index(request):
-    q_collects = Question.objects.all()
-    c_collects = Category.objects.all()
-    collects = {}
-    for q in q_collects: 
+    questions = Question.objects.all()
+    categorys = Category.objects.all()
+    colles = {}
+    for q in questions: 
       q.answers = re.sub(r'(http|https)://.+(?=<br>)?', repl, q.answers)
       for term in q.categorys.all():
-        collects[term] = [q] if term not in collects else list_append(collects[term], q)
-    return render(request, 'tools/index.html', {
-      "collects": collects.items(),
-      "categorys": c_collects
+        colles[term] = [q] if term not in colles else list_append(colles[term], q)
+    return render(request, 'tools/index.html', { 
+      "colles": colles.items(),
+      "categorys": categorys
     })
 
 def insert_category(request):
@@ -79,13 +78,15 @@ def term_page(request):
 def select_question(request):
   if(request.method == 'GET'):  
     search = request.GET['search'];
-    q_collects = \
+    questions = \
       Question.objects.filter(Q(questions__contains=search) | Q(answers__contains=search))
-    collects = {}
-    for q in q_collects: 
+    if not questions:
+      return HttpResponse('No results')
+    colles = {}
+    for q in questions: 
       q.answers = re.sub(r'(http|https)://.+(?=<br>)?', repl, q.answers)
       for term in q.categorys.all():
-        collects[term] = [q] if term not in collects else list_append(collects[term], q)
+        colles[term] = [q] if term not in colles else list_append(colles[term], q)
     return render(request, 'tools/default/knowledge_main.html', {
-      "collects": collects.items()
+      "colles": colles.items()
     })

@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'tools',
+    'task',
     'sass_processor',
     'django.contrib.admin',
     'django.contrib.auth',

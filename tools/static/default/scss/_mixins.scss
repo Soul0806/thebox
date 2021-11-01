@@ -4,3 +4,18 @@
   75%  {top: 30px;}
   100% {top: -30px;}
 }
+
+// 640px, 1024px, 1400px
+$breakpoint-up: ('medium': '40rem', 'large': '64rem', 'xlarge': '87.5rem');
+
+@mixin breakpoint-up($size) {
+  @media (min-width: map-get($breakpoint-up, $size)) {
+    @content;
+  }  
+}
+
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoint-up, $size)) {
+    @content;
+  }  
+}

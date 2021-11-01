@@ -1,8 +1,14 @@
-{% extends 'tools/layout.html' %} {% load static %} {% block nav %}
-<nav>{% include 'tools/nav.html' %}</nav>
-{% endblock %} {% block main %}
-<main>{% include 'tools/default/knowledge.html' %}</main>
-{% endblock %} {% block scripts %}
+{% extends 'tools/layout.html' %} {% load static %} 
+
+{% block nav %}
+{% include 'tools/nav.html' %}
+{% endblock %}
+
+{% block main %}
+{% include 'tools/default/knowledge.html' %}
+{% endblock %}
+
+{% block scripts %}
 <script type="text/javascript">
   const url_insert_category = "{% url 'insert_category' %}";
   const url_term_page = "{% url 'term_page' %}";
@@ -10,5 +16,5 @@
   const url_select_question = "{% url 'select_question' %}";
   const csrf = "{{ csrf_token }}";
 </script>
-<!-- <script type="module" src="{% static 'js/index.js' %}"></script> -->
+<script type="module" src="{% static 'js/index.js' %}"></script>
 {% endblock %}

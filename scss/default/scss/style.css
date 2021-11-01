@@ -119,7 +119,9 @@ nav {
     nav .tip.run {
       animation-name: show;
       animation-duration: 2s; }
-
+  @media (max-width: 40rem) {
+    nav .hide-for-mobile {
+      display: none; } }
 .knowledge {
   position: relative;
   max-width: 80%;

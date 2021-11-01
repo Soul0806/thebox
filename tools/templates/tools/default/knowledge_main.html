@@ -1,7 +1,7 @@
-{% for keys, vals in collects %}
-<h3 class="caption">{{ keys.terms|capfirst }}</h3>
+{% for key, val in colles %}
+<h3 class="caption">{{ key.terms|capfirst }}</h3>
 <ul>
-  {% for i in vals %}
+  {% for i in val %}
   <li>
     <div class="q">{{ i.questions }}</div>
     <div class="awrap">
@@ -12,17 +12,3 @@
   {% endfor %}
 </ul>
 {% endfor %}
-<!-- {% if not collects %}
-<h3 class="page__caption">{{ term|capfirst }}</h3>
-<ul>
-  {% for i in q_collects %}
-  <li>
-    <div class="page__q">{{ i.questions }}</div>
-    <div class="page__qwrap">
-      <div class="page__a">{{ i.answers|safe }}</div>
-      <span class="material-icons edit"> edit </span>
-    </div>
-  </li>
-  {% endfor %}
-</ul>
-{% endif %} -->

@@ -36,4 +36,10 @@ nav {
       animation-duration: 2s;
     }
   }
+
+  .hide-for-mobile {
+    @include breakpoint-down(medium) {
+      display: none;
+    }
+  }
 }

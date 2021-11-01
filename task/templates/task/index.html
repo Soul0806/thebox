@@ -7,6 +7,16 @@
   <title>Task</title>
 </head>
 <body>
-  
+  <form action="{% url 'task:index' %}" method="POST">
+    {% csrf_token %}
+    {{ form.name }}
+    <input type="submit" value="送出">
+
+    <div>
+      {% for s in sort %}
+        {{ s.name }}
+      {% endfor %}
+    </div>
+  </form>
 </body>
 </html>

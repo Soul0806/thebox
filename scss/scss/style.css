@@ -1,7 +1,6 @@
-html ol {
-  list-style: none; }
-
-div {
-  color: red; }
+html {
+  box-sizing: border-box; }
+  html ol {
+    list-style: none; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,5 +1,6 @@
-@import 'global.scss';
+@import 'variables.scss';
+@import 'extends.scss';
+@import 'mixins.scss';
+@import 'animations.scss';
 
-div {
-    color: red;
-}
+@import 'global.scss';

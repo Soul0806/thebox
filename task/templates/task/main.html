@@ -1,0 +1,15 @@
+<main>
+  <form action="{% url 'task:index' %}" method="POST">
+    {% csrf_token %}
+    {{ form.name }}
+    <input type="submit" value="送出">
+  </form>
+  
+  <div class="sort">
+    <ol>
+      {% for s in sort %}
+        <li>{{ s.name }}</li>
+      {% endfor %}
+    </ol>
+  </div>
+</main>

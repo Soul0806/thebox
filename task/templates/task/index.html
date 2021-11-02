@@ -1,28 +1,15 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="zh-tw">
-<head>
-  {% load sass_tags %}
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task</title>
-  <link rel="stylesheet" href="{% sass_src 'scss/style.scss' %}"  type="text/css">
-</head>
-<body>
-  <form action="{% url 'task:index' %}" method="POST">
-    {% csrf_token %}
-    {{ form.name }}
-    <input type="submit" value="送出">
-  </form>
+{% extends 'task/layout.html' %}
+{% load static %} {% load sass_tags %}
 
-  <div class="sort">
-    <ol>
-      {% for s in sort %}
-        <li>{{ s.name }}</li>
-      {% endfor %}
-    </ol>
-  </div>
-  </form>
-</body>
-</html>
+{% block css %}
+<link rel="stylesheet" href="{% sass_src 'scss/nav.scss' %}"  type="text/css">
+<link rel="stylesheet" href="{% sass_src 'scss/main.scss' %}"  type="text/css">
+{% endblock %}
+
+{% block nav %}
+{% include 'task/nav.html' %}
+{% endblock %}
+
+{% block main %}
+{% include 'task/main.html' %}
+{% endblock %}

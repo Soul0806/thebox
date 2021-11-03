@@ -1,0 +1,13 @@
+main {
+  @extend %layout-padding;
+  
+  .sidebar {
+    flex-grow: 1;
+    flex-shrink: 3;    
+  }
+
+  .right-page {
+    flex-grow: 3;
+    flex-shrink: 1;
+  }
+}

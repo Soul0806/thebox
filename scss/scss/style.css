@@ -1,6 +1,29 @@
+main, nav {
+  padding: 1rem 1rem; }
+
 html {
   box-sizing: border-box; }
   html ol {
     list-style: none; }
+
+.flex {
+  display: flex; }
+
+.flex-col-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+nav {
+  text-align: right; }
+
+main .sidebar {
+  flex-grow: 1;
+  flex-shrink: 3; }
+
+main .right-page {
+  flex-grow: 3;
+  flex-shrink: 1; }
 
 /*# sourceMappingURL=style.css.map */

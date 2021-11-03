@@ -1,5 +1,4 @@
 nav {
   text-align: right;
-
-  padding: 1rem 1rem;
+  @extend %layout-padding;
 }

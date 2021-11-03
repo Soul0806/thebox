@@ -6,5 +6,5 @@ from .models import Sort
 class SortModelForm(forms.ModelForm):
   class Meta:
     model = Sort
-    fields = ('name',)
-    widgets = { 'name': forms.TextInput(attrs={ 'class': 'sort'})}
+    fields = ('item',)
+    widgets = { 'item': forms.TextInput(attrs={ 'class': 'input-item'})}

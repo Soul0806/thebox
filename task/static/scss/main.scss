@@ -3,7 +3,28 @@ main {
   
   .sidebar {
     flex-grow: 1;
-    flex-shrink: 3;    
+    flex-shrink: 3;
+    
+    .input-item {
+      @extend %input-search
+    }
+    .sort {
+      li {
+        margin: 1rem 0;
+        padding: 0.5rem;
+        cursor: pointer;
+        .material-icons {
+          visibility: hidden;
+          margin-left: 5px;
+        }
+        &:hover {
+          .material-icons {
+            visibility: visible;
+          }
+        }
+      }
+    }
+
   }
 
   .right-page {

@@ -1,0 +1,72 @@
+.material-icons.md-18 {
+  font-size: 16px; }
+
+main, nav {
+  padding: 1rem 1rem; }
+
+main .sidebar .input-item {
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 8px;
+  font-size: 24px; }
+
+html {
+  box-sizing: border-box;
+  font-size: 20px;
+  line-height: 1 !important; }
+  html ol {
+    list-style: none; }
+
+.flex {
+  display: flex; }
+
+.flex-col-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.flex-row-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+
+[draggable="true"] {
+  /*
+	 To prevent user selecting inside the drag source
+	*/
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none; }
+
+nav {
+  text-align: right; }
+
+main .sidebar {
+  flex-grow: 1;
+  flex-shrink: 3; }
+  main .sidebar .sort li {
+    position: relative;
+    margin: 1rem;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 0.8rem 1.6rem;
+    cursor: pointer;
+    text-align: center; }
+    main .sidebar .sort li .material-icons {
+      position: absolute;
+      right: 0;
+      visibility: hidden;
+      margin-left: 5px; }
+    main .sidebar .sort li:hover .material-icons {
+      visibility: visible; }
+
+main .right-page {
+  flex-grow: 3;
+  flex-shrink: 1; }
+  main .right-page .mydiv {
+    position: absolute; }
+
+/*# sourceMappingURL=style.css.map */

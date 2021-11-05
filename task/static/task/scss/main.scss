@@ -2,6 +2,7 @@ main {
   @extend %layout-padding;
   
   .sidebar {
+   
     flex-grow: 1;
     flex-shrink: 3;
     
@@ -9,11 +10,18 @@ main {
       @extend %input-search
     }
     .sort {
+   
       li {
-        margin: 1rem 0;
-        padding: 0.5rem;
-        cursor: pointer;
+        position: relative;
+        margin: 1rem;
+        border: 1px solid $black;
+        border-radius: 10px;
+        padding: 0.8rem 1.6rem;        
+        cursor: pointer; 
+        text-align: center;      
         .material-icons {
+          position: absolute;
+          right: 0;
           visibility: hidden;
           margin-left: 5px;
         }
@@ -23,12 +31,15 @@ main {
           }
         }
       }
-    }
 
+    }
   }
 
   .right-page {
     flex-grow: 3;
     flex-shrink: 1;
+    .mydiv {
+      position: absolute;
+    }
   }
 }

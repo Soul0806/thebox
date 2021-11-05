@@ -5,16 +5,20 @@
       {{ form.item }}
       <input type="submit" value="送出">
     </form>
-    
+
     <div class="sort">
       <ol>
         {% for s in sort %}
-          <li class="flex-row-center">{{ s.item }} <span class="material-icons md-18">edit</span></li>
+          <li class="sort__li">
+            <div id="sort_{{ s.id }}" class="sort__item flex-row-center" draggable="true">{{ s.item }}
+            <span class="material-icons md-16">edit</span>
+            </div>    
+          </li>
         {% endfor %}
       </ol>
-    </div>    
+    </div>   
   </div>
+  
   <div class="right-page">
-    
   </div>
 </main>

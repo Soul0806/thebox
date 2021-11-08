@@ -1,4 +1,5 @@
 import './drap.js';
+import './test.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   const sort = document.querySelector('main');

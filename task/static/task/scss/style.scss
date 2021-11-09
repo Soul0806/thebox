@@ -8,3 +8,10 @@
 @import 'global.scss';
 @import 'nav.scss';
 @import 'main.scss';
+
+.drag {
+  position: absolute;
+  border: 1px solid black;
+  padding: 1rem;
+  // padding: 1rem;
+}

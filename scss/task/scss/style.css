@@ -69,4 +69,9 @@ main .right-page {
   main .right-page .mydiv {
     position: absolute; }
 
+.drag {
+  position: absolute;
+  border: 1px solid black;
+  padding: 1rem; }
+
 /*# sourceMappingURL=style.css.map */

@@ -47,23 +47,18 @@ nav {
 main .sidebar {
   flex-grow: 1;
   flex-shrink: 3; }
-  main .sidebar .sort li {
+  main .sidebar .sort {
     position: relative;
-    margin: 1rem;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 0.8rem 1.6rem;
-    cursor: pointer;
-    text-align: center; }
-    main .sidebar .sort li .material-icons {
+    margin-top: 1rem;
+    width: 100%; }
+    main .sidebar .sort__item {
       position: absolute;
-      right: 0;
-      visibility: hidden;
-      margin-left: 5px; }
-    main .sidebar .sort li:hover .material-icons {
-      visibility: visible; }
+      border: 1px solid black;
+      padding: 0.8rem 1.2rem;
+      min-width: 8rem; }
 
 main .right-page {
+  position: relative;
   flex-grow: 3;
   flex-shrink: 1; }
   main .right-page .mydiv {

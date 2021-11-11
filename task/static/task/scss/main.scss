@@ -9,33 +9,41 @@ main {
     .input-item {
       @extend %input-search
     }
-    .sort {
-   
-      li {
-        position: relative;
-        margin: 1rem;
+    .sort {   
+      position: relative;
+      margin-top: 1rem;
+      width: 100%;
+      // li {
+      //   position: relative;
+      //   margin: 1rem;
+      //   border: 1px solid $black;
+      //   border-radius: 10px;
+      //   padding: 0.8rem 1.6rem;        
+      //   cursor: pointer; 
+      //   text-align: center;      
+      //   .material-icons {
+      //     position: absolute;
+      //     right: 0;
+      //     visibility: hidden;
+      //     margin-left: 5px;
+      //   }
+      //   &:hover {
+      //     .material-icons {
+      //       visibility: visible;
+      //     }
+      //   }
+      // }
+      &__item {
+        position: absolute;
         border: 1px solid $black;
-        border-radius: 10px;
-        padding: 0.8rem 1.6rem;        
-        cursor: pointer; 
-        text-align: center;      
-        .material-icons {
-          position: absolute;
-          right: 0;
-          visibility: hidden;
-          margin-left: 5px;
-        }
-        &:hover {
-          .material-icons {
-            visibility: visible;
-          }
-        }
+        padding: 0.8rem 1.2rem;
+        min-width: 8rem;
       }
-
     }
   }
 
   .right-page {
+    position: relative;
     flex-grow: 3;
     flex-shrink: 1;
     .mydiv {

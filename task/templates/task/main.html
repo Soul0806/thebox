@@ -6,32 +6,37 @@
       <input type="submit" value="送出">
     </form>
 
-    <div class="sort">
-      <ol>
+    <div class="sort flex-row-center">
+      <!-- <ol>
         {% for s in sort %}
-          <li class="sort__li">
-            <div id="sort_{{ s.id }}" class="sort__item flex-row-center" draggable="true">{{ s.item }}
-            <span class="material-icons md-16">edit</span>
-            </div>    
+          <li class="sort__li">               
           </li>
+          <div id="div{{ s.id }}" data-sort="{{ s.order }}" class="sort__item flex-row-center" draggable="true">{{ s.item }}
+            <span class="material-icons md-16">edit</span>
+            </div> 
         {% endfor %}
-      </ol>
+      </ol> -->
+      {% for s in sort %}
+        <div id="div{{ s.id }}" data-sort="{{ s.order }}" class="sort__item flex-row-center">{{ s.item }}
+          <span class="material-icons md-16">edit</span>
+        </div> 
+      {% endfor %}
     </div>   
   </div>
   
   <div class="right-page">
-
-      <div class="drag" id="div1" data-sort="1">
+<!-- 
+      <div class="drag" id="div0" data-sort="0">
         div_1
       </div>
 
-      <div class="drag" id="div2" data-sort="2">
+      <div class="drag" id="div1" data-sort="1">
         div_2
       </div>
 
-      <div class="drag" id="div3" data-sort="3">
+      <div class="drag" id="div2" data-sort="2">
         div_3
-      </div>
+      </div> -->
 
   </div>
 </main>

@@ -36,11 +36,11 @@ function dragElement(elmnt) {
     e.preventDefault();
     // console.log(e.target.style.top, e.target.offsetTop);
 
-    e.target.style['z-index'] = '9999';
+    e.target.style['z-index'] = '1';
 
     // calculate the new cursor position:
-    // pos1 = pos3 - e.clientX;
-    // pos3 = e.clientX;
+    pos1 = pos3 - e.clientX;
+    pos3 = e.clientX;
     pos2 = pos4 - e.clientY;
     pos4 = e.clientY;
     let sort = parseInt(e.target.dataset.sort, 10);
@@ -70,11 +70,12 @@ function dragElement(elmnt) {
     }
     // console.log(`#div${parseInt(sort + 1)}`, nextElmnt);
     if (nextElmnt != null) {
+
       // const previousCritial = previousElmnt.offsetTop + previousElmnt.offsetHeight;
       const nextCtitical = nextElmnt.offsetTop;
-      if (e.target.offsetTop >= nextCtitical) {
-        // console.log(previousElmnt.offsetTop + '100px');
-        console.log(e.target.offsetTop, nextCtitical);
+      if (e.target.offsetTop > nextCtitical) {
+        console.log('active');
+        // console.log(e.target.offsetTop, nextCtitical);
         nextElmnt.style.top = (nextElmnt.offsetTop - 100) + 'px';
         nextElmnt.dataset.sort--;
         e.target.dataset.sort++;
@@ -105,12 +106,9 @@ function dragElement(elmnt) {
     // let rect = e.target.getBoundingClientRect();
     // console.log(rect.top + window.scrollY) 
     // set the element's new position:
-    if (e.target.offsetTop > 210) {
-
-    }
     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
 
-    // elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
   }
 
   function closeDragElement(e) {

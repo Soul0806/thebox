@@ -49,13 +49,14 @@ main .sidebar {
   flex-shrink: 3; }
   main .sidebar .sort {
     position: relative;
-    margin-top: 1rem;
     width: 100%; }
     main .sidebar .sort__item {
       position: absolute;
       border: 1px solid black;
       padding: 0.8rem 1.2rem;
       min-width: 8rem; }
+      main .sidebar .sort__item:hover {
+        cursor: move; }
 
 main .right-page {
   position: relative;

@@ -38,6 +38,9 @@ main {
         border: 1px solid $black;
         padding: 0.8rem 1.2rem;
         min-width: 8rem;
+        &:hover {
+          cursor: move;
+        }
       }
     }
   }

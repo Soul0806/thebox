@@ -49,7 +49,9 @@ main .sidebar {
   flex-shrink: 3; }
   main .sidebar .sort {
     position: relative;
-    width: 100%; }
+    margin-top: 1rem;
+    width: 100%;
+    height: 100%; }
     main .sidebar .sort__item {
       position: absolute;
       border: 1px solid black;

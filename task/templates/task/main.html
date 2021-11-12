@@ -7,36 +7,18 @@
     </form>
 
     <div class="sort flex-row-center">
-      <!-- <ol>
+      <ol>
         {% for s in sort %}
-          <li class="sort__li">               
-          </li>
-          <div id="div{{ s.id }}" data-sort="{{ s.order }}" class="sort__item flex-row-center" draggable="true">{{ s.item }}
-            <span class="material-icons md-16">edit</span>
+        <li class="sort__li">               
+            <div id="div{{ s.id }}" data-sort="{{ s.order }}" class="sort__item flex-row-center" draggable="true">{{ s.item }}
+              <span class="material-icons md-16">edit</span>
             </div> 
+          </li>
         {% endfor %}
-      </ol> -->
-      {% for s in sort %}
-        <div id="div{{ s.id }}" data-sort="{{ s.order }}" class="sort__item flex-row-center">{{ s.item }}
-          <!-- <span class="material-icons md-16">edit</span> -->
-        </div> 
-      {% endfor %}
+      </ol>
     </div>   
   </div>
-  
   <div class="right-page">
-<!-- 
-      <div class="drag" id="div0" data-sort="0">
-        div_1
-      </div>
-
-      <div class="drag" id="div1" data-sort="1">
-        div_2
-      </div>
-
-      <div class="drag" id="div2" data-sort="2">
-        div_3
-      </div> -->
-
+    
   </div>
 </main>

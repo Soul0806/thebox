@@ -1,13 +1,33 @@
 import './drap.js';
 import './test.js';
 
-document.addEventListener("DOMContentLoaded", () => {
-  const sort = document.querySelector('main');
-  const sortLi = sort.querySelectorAll('li');
+import j from './ajax.js';
 
-  sortLi.forEach((elmnt, index) => {
-    // if(index > 0) {
-    //   elmnt.style.top = (elmnt.offsetTop + index * 36) + 'px'
-    // }
-  })
+const main = document.querySelector('main');
+
+const sortLi = main.querySelectorAll('li');
+const sortItem = main.querySelectorAll('.sort__item');
+const section = main.querySelector('section');
+
+window.onpopstate = e => {
+  const item = e.state.item;
+  showItem(item);
+}
+
+function showItem(item) {
+  fetch(`show/${item}`)
+    .then(response => response.text())
+    .then(text => { section.innerHTML = text });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  sortItem.forEach((elmnt, index) => {
+    elmnt.onclick = e => {
+      const item = e.target.dataset.item;
+
+      // history.pushState({ item: item }, '', `item-${item}`)
+      showItem(item);
+    };
+  });
 });

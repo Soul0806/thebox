@@ -7,9 +7,9 @@
     </form>
 
     <div class="sort">
-      <ol class="flex flex-col-center">
+      <ol>
         {% for s in sort %}
-          <li id="div{{ s.id }}" data-item="{{ s.item }}" data-sort="{{ s.order }}" class="sort__item flex-row-center">{{ s.item }}
+          <li id="div{{ s.id }}" data-item="{{ s.item }}" data-sort="{{ s.order }}" class="sort__item">{{ s.item }}
             <!-- <span class="material-icons md-16">edit</span> -->
           </li>
         {% endfor %}

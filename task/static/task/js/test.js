@@ -13,7 +13,13 @@ function dragElement(elmnt) {
     // get the mouse cursor position at startup:
     // pos3 = e.clientX;
     pos4 = e.clientY;
-    e.target.style.position = 'absolute';
+    
+    sortElmnts.forEach((e, index) => {
+      // console.log(e, 123);
+      let top = e.offsetTop;
+      e.style.position = 'relative';
+    })
+    
     document.onmouseup = closeDragElement;
     // call a function whenever the cursor moves:
     document.onmousemove = elementDrag;
@@ -29,12 +35,36 @@ function dragElement(elmnt) {
     // pos3 = e.clientX;
     pos2 = pos4 - e.clientY;
     pos4 = e.clientY;
-    console.log(e.target.offsetTop);
-    // let sort = parseInt(e.target.dataset.sort, 10);
-    // let prvs = sort - 1;
-    // let next = sort + 1;
-    // const previousElmnt = document.querySelector(`[data-sort="${prvs}"]`);
-    // const nextElmnt = document.querySelector(`[data-sort="${next}"]`);
+    let sort = parseInt(e.target.dataset.sort, 10);
+    let prvs = sort - 1;
+    let next = sort + 1;
+    const previousElmnt = document.querySelector(`[data-sort="${prvs}"]`);
+    const nextElmnt = document.querySelector(`[data-sort="${next}"]`);
+
+    if (nextElmnt != null) {
+ 
+      if (e.target.offsetTop >= nextElmnt.offsetTop) {
+        nextElmnt.style.position = 'relative';
+        nextElmnt.style.top = '-52px';
+  
+        nextElmnt.dataset.sort--;
+        e.target.dataset.sort++;
+  
+      }
+    }
+
+
+    if (previousElmnt != null) {
+      if (e.target.offsetTop <= previousElmnt.offsetTop) {
+
+        previousElmnt.style.position = 'relative';
+        previousElmnt.style.top = '+52px';
+
+        previousElmnt.dataset.sort++;
+        e.target.dataset.sort--;
+      }      
+    }
+
 
     // if (previousElmnt != null) {
     //   const previousCritial = previousElmnt.offsetTop + previousElmnt.offsetHeight;

@@ -51,11 +51,11 @@ main .sidebar {
   flex-shrink: 3; }
   main .sidebar .sort {
     position: relative;
-    margin-top: 1rem; }
+    margin-top: 1rem;
+    width: 250px; }
     main .sidebar .sort__item {
       border: 1px solid black;
-      padding: 0.8rem 1.2rem;
-      min-width: 8rem; }
+      padding: 0.8rem 1.2rem; }
 
 main section {
   position: relative;

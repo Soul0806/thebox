@@ -2,17 +2,14 @@ main {
   @extend %layout-padding;
   
   .sidebar {
-   
     flex-grow: 1;
     flex-shrink: 3;
-    
     .input-item {
       @extend %input-search
     }
     .sort {   
       position: relative;
       margin-top: 1rem;
-      width: 100%;
       // li {
       //   position: relative;
       //   margin: 1rem;
@@ -34,7 +31,6 @@ main {
       //   }
       // }
       &__item {
-        position: absolute;
         border: 1px solid $black;
         padding: 0.8rem 1.2rem;
         min-width: 8rem;

@@ -10,9 +10,11 @@ from .models import Sort
 def index(request, item = ''):
   sort = Sort.objects.all()
   form = SortModelForm()
-
   if request.method == 'POST':
-    form = SortModelForm(request.POST)
+    # request.POST['order'] = 5;
+    next_order = len(Sort.objects.all()) + 1
+    sort = Sort(order = next_order)
+    form = SortModelForm(request.POST, instance=sort)
     if form.is_valid():
       form.save()
       return HttpResponseRedirect(reverse('task:index'))

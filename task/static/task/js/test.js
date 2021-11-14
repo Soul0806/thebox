@@ -1,7 +1,6 @@
 let sortElmnts = document.querySelectorAll('.sort__item');
 sortElmnts.forEach((elmnt, index) => {
   dragElement(elmnt);
-  elmnt.style.top = (index * 100) + 'px';
 })
 
 function dragElement(elmnt) {
@@ -14,6 +13,7 @@ function dragElement(elmnt) {
     // get the mouse cursor position at startup:
     // pos3 = e.clientX;
     pos4 = e.clientY;
+    e.target.style.position = 'absolute';
     document.onmouseup = closeDragElement;
     // call a function whenever the cursor moves:
     document.onmousemove = elementDrag;
@@ -23,39 +23,40 @@ function dragElement(elmnt) {
   function elementDrag(e) {
     e = e || window.event;
     e.preventDefault();
-    e.target.style['z-index'] = '1';
+    e.target.style['z-index'] = '1000';
     // calculate the new cursor position:
     // pos1 = pos3 - e.clientX;
     // pos3 = e.clientX;
     pos2 = pos4 - e.clientY;
     pos4 = e.clientY;
-    let sort = parseInt(e.target.dataset.sort, 10);
-    let prvs = sort - 1;
-    let next = sort + 1;
-    const previousElmnt = document.querySelector(`[data-sort="${prvs}"]`);
-    const nextElmnt = document.querySelector(`[data-sort="${next}"]`);
+    console.log(e.target.offsetTop);
+    // let sort = parseInt(e.target.dataset.sort, 10);
+    // let prvs = sort - 1;
+    // let next = sort + 1;
+    // const previousElmnt = document.querySelector(`[data-sort="${prvs}"]`);
+    // const nextElmnt = document.querySelector(`[data-sort="${next}"]`);
 
-    if (previousElmnt != null) {
-      const previousCritial = previousElmnt.offsetTop + previousElmnt.offsetHeight;
-      if (e.target.offsetTop <= previousCritial) {
-        let move = (previousElmnt.offsetTop + 100) + 'px';
-        previousElmnt.style.top = move;
-        previousElmnt.dataset.sort++;
-        e.target.dataset.sort--;
-        sort--;
-      }
-    }
-    if (nextElmnt != null) {
-      console.log(e.target.offsetTop);
-      const nextCtitical = nextElmnt.offsetTop;
-      if (e.target.offsetTop > nextCtitical) {
-        let move = (nextElmnt.offsetTop - 100) + 'px';
-        nextElmnt.style.top = move;
-        nextElmnt.dataset.sort--;
-        e.target.dataset.sort++;
-        sort++;
-      }
-    }
+    // if (previousElmnt != null) {
+    //   const previousCritial = previousElmnt.offsetTop + previousElmnt.offsetHeight;
+    //   if (e.target.offsetTop <= previousCritial) {
+    //     let move = (previousElmnt.offsetTop + 100) + 'px';
+    //     previousElmnt.style.top = move;
+    //     previousElmnt.dataset.sort++;
+    //     e.target.dataset.sort--;
+    //     sort--;
+    //   }
+    // }
+    // if (nextElmnt != null) {
+    //   console.log(e.target.offsetTop);
+    //   const nextCtitical = nextElmnt.offsetTop;
+    //   if (e.target.offsetTop > nextCtitical) {
+    //     let move = (nextElmnt.offsetTop - 100) + 'px';
+    //     nextElmnt.style.top = move;
+    //     nextElmnt.dataset.sort--;
+    //     e.target.dataset.sort++;
+    //     sort++;
+    //   }
+    // }
 
     // console.log(previousCritial);
 
@@ -87,7 +88,6 @@ function dragElement(elmnt) {
     // stop moving when mouse button is released:
     e.target.style['z-index'] = 'initial';
     let sort = e.target.dataset.sort;
-    e.target.style.top = (sort - 1) * 100 + 'px';
     document.onmouseup = null;
     document.onmousemove = null;
   }

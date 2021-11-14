@@ -7,3 +7,6 @@ class Sort(models.Model):
   order = models.IntegerField()
   created_at = models.DateTimeField(auto_now_add=True)
   modified_at = models.DateTimeField(auto_now=True)
+
+  def __str__(self):
+    return f'{self.item}({self.order})'

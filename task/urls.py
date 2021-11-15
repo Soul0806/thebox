@@ -5,5 +5,6 @@ app_name = 'task'
 urlpatterns = [
   path('', views.index, name='index'),
   path('show/<str:item>', views.show_item, name='show_item'),
+  path('delete_item', views.delete_item, name='delete_item'),
   # path('item/<str:item>', views.to_index, name='to_index'),
 ]

@@ -2,6 +2,7 @@ import './drap.js';
 import './test.js';
 
 import j from './ajax.js';
+import './dom.js';
 
 const main = document.querySelector('main');
 
@@ -21,11 +22,9 @@ function showItem(item) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-
   sortItem.forEach((elmnt, index) => {
     elmnt.onclick = e => {
       const item = e.target.dataset.item;
-
       // history.pushState({ item: item }, '', `item-${item}`)
       showItem(item);
     };

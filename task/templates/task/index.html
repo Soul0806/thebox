@@ -11,5 +11,8 @@
 {% endblock %}
 
 {% block script %}
+<script>
+  const url_delete_item = "{% url 'task:delete_item' %}";
+</script>
 <script type="module" src="{% static 'task/js/base.js' %}"></script>
 {% endblock %}

@@ -1,4 +1,4 @@
-<main class="flex flex-row-center">
+<main class="flex">
   <div class="sidebar">
     <form action="{% url 'task:index' %}" method="POST">
       {% csrf_token %}
@@ -7,15 +7,16 @@
     </form>
 
     <div class="sort">
-      <ol>
+      <ul>
         {% for s in sort %}
-          <li id="div{{ s.id }}" data-item="{{ s.item }}" data-sort="{{ s.order }}" class="sort__item">{{ s.item }}
-            <!-- <span class="material-icons md-16">edit</span> -->
+          <li id="{{ s.id }}" data-item="{{ s.item }}" data-sort="{{ s.order }}" class="sort__item flex-row-center">{{ s.item }}
+            <!-- <span data-id="{{ s.id }}" class="material-icons icon-delete">delete</span> -->
           </li>
         {% endfor %}
-      </ol>
+      </ul>
     </div>   
   </div>
   <section>
+    <h1></h1>
   </section>
 </main>

@@ -1,7 +1,7 @@
 let sortElmnts = document.querySelectorAll('.sort__item');
-sortElmnts.forEach((elmnt, index) => {
-  dragElement(elmnt);
-})
+// sortElmnts.forEach((elmnt, index) => {
+//   dragElement(elmnt);
+// })
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -13,13 +13,13 @@ function dragElement(elmnt) {
     // get the mouse cursor position at startup:
     // pos3 = e.clientX;
     pos4 = e.clientY;
-    
+
     sortElmnts.forEach((e, index) => {
       // console.log(e, 123);
       let top = e.offsetTop;
       e.style.position = 'relative';
     })
-    
+
     document.onmouseup = closeDragElement;
     // call a function whenever the cursor moves:
     document.onmousemove = elementDrag;
@@ -42,14 +42,14 @@ function dragElement(elmnt) {
     const nextElmnt = document.querySelector(`[data-sort="${next}"]`);
 
     if (nextElmnt != null) {
- 
+
       if (e.target.offsetTop >= nextElmnt.offsetTop) {
         nextElmnt.style.position = 'relative';
         nextElmnt.style.top = '-52px';
-  
+
         nextElmnt.dataset.sort--;
         e.target.dataset.sort++;
-  
+
       }
     }
 
@@ -62,7 +62,7 @@ function dragElement(elmnt) {
 
         previousElmnt.dataset.sort++;
         e.target.dataset.sort--;
-      }      
+      }
     }
 
 

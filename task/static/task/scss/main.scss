@@ -2,52 +2,46 @@ main {
   @extend %layout-padding;
   
   .sidebar {
-    flex-grow: 1;
-    flex-shrink: 3;
+    // flex-grow: 1;
+    // flex-shrink: 3;
+    white-space: nowrap;
     .input-item {
       @extend %input-search
     }
     .sort {   
       position: relative;
-      margin-top: 1rem;
-      width: 250px;
-      // li {
-      //   position: relative;
-      //   margin: 1rem;
-      //   border: 1px solid $black;
-      //   border-radius: 10px;
-      //   padding: 0.8rem 1.6rem;        
-      //   cursor: pointer; 
-      //   text-align: center;      
-      //   .material-icons {
-      //     position: absolute;
-      //     right: 0;
-      //     visibility: hidden;
-      //     margin-left: 5px;
-      //   }
-      //   &:hover {
-      //     .material-icons {
-      //       visibility: visible;
-      //     }
-      //   }
-      // }
+      width: 100%;
+      padding: .8rem;
       &__item {
+        width: 70%;
+        margin-bottom: .5rem;
         border: 1px solid $black;
-        padding: 0.8rem 1.2rem;
-    
+        padding: .8rem;
+        &.hide {
+          // animation: hide 2000ms;
+        animation: hide 1s forwards ease-in-out;
+        } 
         &:hover {
-          // cursor: move;
-        }
+          animation: hover-enhence .2s ease-in-out forwards;
+          .icon-delete {
+            display: block;
+            cursor: pointer;
+          }
+        }       
+        .icon-delete {
+          display: none;
+          color: red;
+          position: absolute;
+          right: 0;
+          padding: 5px;         
+        }        
       }
     }
   }
 
   section {
-    position: relative;
-    flex-grow: 3;
-    flex-shrink: 1;
-    .mydiv {
-      position: absolute;
-    }
+    // flex-shrink: 1;
+    flex-grow: 1;
+    margin: 0 1rem;
   }
 }

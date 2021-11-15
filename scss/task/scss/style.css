@@ -10,14 +10,41 @@ main .sidebar .input-item {
   padding: 8px;
   font-size: 24px; }
 
+@keyframes hide {
+  0% {
+    opacity: 1;
+    height: 100%;
+    line-height: 100%;
+    margin-bottom: .5rem;
+    padding: .8rem; }
+  50% {
+    opacity: 0;
+    height: 100%;
+    line-height: 100%;
+    margin-bottom: .5rem;
+    padding: .8rem; }
+  100% {
+    opacity: 0;
+    height: 0px;
+    line-height: 0px;
+    margin-bottom: 0px;
+    padding: 0px; } }
+
+@keyframes hover-enhence {
+  from {
+    font-size: 20px; }
+  to {
+    font-size: 24px; } }
+
 * {
   box-sizing: border-box; }
 
 html {
   font-size: 20px;
   line-height: 1 !important; }
-  html ol {
-    list-style: none; }
+  html ul {
+    margin: 0;
+    padding: 0; }
 
 .flex {
   display: flex; }
@@ -47,22 +74,33 @@ nav {
   text-align: right; }
 
 main .sidebar {
-  flex-grow: 1;
-  flex-shrink: 3; }
+  white-space: nowrap; }
   main .sidebar .sort {
     position: relative;
-    margin-top: 1rem;
-    width: 250px; }
+    width: 100%;
+    padding: .8rem; }
     main .sidebar .sort__item {
+      width: 70%;
+      margin-bottom: .5rem;
       border: 1px solid black;
-      padding: 0.8rem 1.2rem; }
+      padding: .8rem; }
+      main .sidebar .sort__item.hide {
+        animation: hide 1s forwards ease-in-out; }
+      main .sidebar .sort__item:hover {
+        animation: hover-enhence .2s ease-in-out forwards; }
+        main .sidebar .sort__item:hover .icon-delete {
+          display: block;
+          cursor: pointer; }
+      main .sidebar .sort__item .icon-delete {
+        display: none;
+        color: red;
+        position: absolute;
+        right: 0;
+        padding: 5px; }
 
 main section {
-  position: relative;
-  flex-grow: 3;
-  flex-shrink: 1; }
-  main section .mydiv {
-    position: absolute; }
+  flex-grow: 1;
+  margin: 0 1rem; }
 
 .drag {
   position: absolute;

@@ -1,0 +1,28 @@
+@keyframes hide {
+  0% {
+    opacity: 1;
+    height: 100%;
+    line-height: 100%;
+    margin-bottom: .5rem;
+    padding: .8rem;
+  }
+  50% {
+    opacity: 0;
+    height: 100%;
+    line-height: 100%;
+    margin-bottom: .5rem;
+    padding: .8rem;
+  }
+  100% {
+    opacity: 0;
+    height: 0px;
+    line-height: 0px;
+    margin-bottom: 0px;
+    padding: 0px;
+  }
+}
+
+@keyframes hover-enhence  {
+  from { font-size: 20px }
+  to { font-size: 24px }
+}

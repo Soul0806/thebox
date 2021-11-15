@@ -3,16 +3,17 @@
 }
 
 html {
-
   font-size: 20px;
   line-height: 1 !important;
-  ol {
-    list-style: none;
+  ul {
+    margin: 0;
+    padding: 0;
   }
 }
 
 .flex {
   display: flex;
+  // flex-direction: row;
 }
 
 .flex-col-center {

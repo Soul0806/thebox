@@ -18,7 +18,7 @@ window.onpopstate = e => {
 function showItem(item) {
   fetch(`show/${item}`)
     .then(response => response.text())
-    .then(text => { section.innerHTML = text });
+    .then(text => { section.innerHtml = text });
 }
 
 document.addEventListener("DOMContentLoaded", () => {

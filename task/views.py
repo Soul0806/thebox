@@ -27,7 +27,6 @@ def index(request, item = ''):
   })
 
 def show_item(request, item):
-  print(render_to_string('task/section.html'))
   return render(request, 'task/section.html', {
     item: item
   })

@@ -1,6 +1,6 @@
 main {
   @extend %layout-padding;
-  
+  height: 80%;
   .sidebar {
     // flex-grow: 1;
     // flex-shrink: 3;
@@ -9,11 +9,12 @@ main {
       @extend %input-search
     }
     .sort {   
-      position: relative;
+      
       width: 100%;
       padding: .8rem;
       &__item {
-        width: 70%;
+        position: relative;
+        width: 80%;
         margin-bottom: .5rem;
         border: 1px solid $black;
         padding: .8rem;
@@ -23,6 +24,7 @@ main {
         } 
         &:hover {
           animation: hover-enhence .2s ease-in-out forwards;
+          cursor: pointer;
           .icon-delete {
             display: block;
             cursor: pointer;
@@ -41,6 +43,24 @@ main {
 
   section {
     // flex-shrink: 1;
+    height: 80%;
+    .heading {
+      text-align: center;
+      margin-top: 0px;
+    }
+    .tool {
+      display: flex;
+      align-items: center;   
+    }
+    #content {
+      height: 100%;
+      textarea {
+        width: 80%;
+        height: 80%;
+        border: 1px solid $gray-light;
+        border-radius: 5px;
+      }
+    }
     flex-grow: 1;
     margin: 0 1rem;
   }

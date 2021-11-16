@@ -1,6 +1,10 @@
 import ajax from './ajax.js';
 
 const iconDelete = document.querySelectorAll('.icon-delete');
+
+const section = document.querySelector('section');
+
+
 iconDelete.forEach(elmnt => {
   elmnt.onclick = e => {
     if (confirm('是否要刪除?')) {
@@ -15,3 +19,12 @@ iconDelete.forEach(elmnt => {
     }
   }
 })
+
+
+section.ondblclick = e => {
+  if (e.target.id == "content") {
+    console.log(e.target);
+    const textarea = '<textarea></textarea>';
+    e.target.innerHTML = textarea;
+  }
+}

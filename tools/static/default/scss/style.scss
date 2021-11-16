@@ -8,6 +8,7 @@
 
 */
 
+@import "reset";
 @import "variables";
 @import "extends";
 @import "mixins";
@@ -16,8 +17,6 @@
 @import "globals";
 @import "icons";
 @import "nav";
-// @import "term";
-// @import "layout";
 @import "knowledge";
 
 .dev {

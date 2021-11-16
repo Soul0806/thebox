@@ -10,6 +10,7 @@ from .models import Sort
 
 def index(request, item = ''):
   sort = Sort.objects.all()
+  default_item = sort.first().item
   form = SortModelForm()
   if request.method == 'POST':
     # request.POST['order'] = 5;
@@ -19,16 +20,17 @@ def index(request, item = ''):
     if form.is_valid():
       form.save()
       return HttpResponseRedirect(reverse('task:index'))
-      
+  
   
   return render(request, 'task/index.html', {
     'form' : form,
-    'sort' : sort
+    'sort' : sort,
+    'item': sort.first().item
   })
 
 def show_item(request, item):
   return render(request, 'task/section.html', {
-    item: item
+    'item': item
   })
 
 def delete_item(request):

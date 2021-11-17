@@ -38,5 +38,10 @@ def delete_item(request):
   Sort.objects.get(pk=pk).delete()
   return HttpResponse(f'Delete {pk}')
 
+def insert_content(request):
+  print(request.POST)
+  return HttpResponse(123)
+  
+
 # def to_index(request, item):
 #   return redirect('task:index')

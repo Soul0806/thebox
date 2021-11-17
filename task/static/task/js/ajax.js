@@ -9,6 +9,7 @@ const ajax = {
     });
   },
   post: (url, data, callback) => {
+    console.log(data);
     $.ajax({
       url: url,
       method: "POST",

@@ -14,7 +14,6 @@ class Sort(models.Model):
     return f'{self.item}({self.order})'
 
 class Detail(models.Model):
-  sorts = models.ForeignKey(Sort, on_delete=models.CASCADE, related_name="sort")
   content = models.TextField()
   created_at = models.DateTimeField(auto_now_add=True)
   modified_at = models.DateTimeField(auto_now=True)

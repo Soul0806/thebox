@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.template.loader import render_to_string
 from .form import SortModelForm
-from .models import Sort
+from .models import Sort, Detail
 # Create your views here.
 
 
@@ -39,8 +39,9 @@ def delete_item(request):
   return HttpResponse(f'Delete {pk}')
 
 def insert_content(request):
+  # detail = Detail.objects.create()
   print(request.POST)
-  return HttpResponse(123)
+  
   
 
 # def to_index(request, item):

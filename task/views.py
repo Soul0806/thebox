@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.template.loader import render_to_string
 from .form import SortModelForm
-from .models import Sort, Detail
+from .models import Sort
 # Create your views here.
 
 
@@ -28,9 +28,10 @@ def index(request, item = ''):
     'item': sort.first().item
   })
 
-def show_item(request, item):
+def show_item(request, pk):
+  sort = Sort.objects.get(pk=pk)
   return render(request, 'task/section.html', {
-    'item': item
+    'sort': sort
   })
 
 def delete_item(request):
@@ -39,8 +40,11 @@ def delete_item(request):
   return HttpResponse(f'Delete {pk}')
 
 def insert_content(request):
-  # detail = Detail.objects.create()
-  print(request.POST)
+  sort = Sort.objects.get(pk=request.POST['pk'])
+  sort.detail = request.POST['html']
+  sort.save()
+  return HttpResponse(sort)
+  # print(request.POST)
   
   
 

@@ -29,8 +29,8 @@ window.onpopstate = e => {
 
 
 
-function showItem(item) {
-  fetch(`show/${item}`)
+function showItem(pk) {
+  fetch(`show/${pk}`)
     .then(response => response.text())
     .then(text => { section.innerHTML = text });
 }
@@ -38,20 +38,23 @@ function showItem(item) {
 document.addEventListener("DOMContentLoaded", () => {
   sortItem.forEach((elmnt, index) => {
     elmnt.onclick = function () {
-      console.log(this);
       const item = this.dataset.item;
+      const pk = this.id;
       history.pushState({ item: item }, '', '')
-      showItem(item);
+      showItem(pk);
     };
   });
 
   section.onclick = e => {
-    const content = main.querySelector('#content');
+    const textarea = main.querySelector('textarea');
+    const pk = e.target.dataset.pk;
     if (e.target.classList.contains('confirm')) {
       const data = {
-        'html': content.innerHTML,
+        'pk': pk,
+        'html': textarea.innerHTML,
         'csrfmiddlewaretoken': csrf
       }
+      console.log(data);
       ajax.post(url_insert_content, data, result => {
         console.log(result);
       });

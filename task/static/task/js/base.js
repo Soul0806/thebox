@@ -1,7 +1,6 @@
 import './drap.js';
 import './test.js';
 
-import j from './ajax.js';
 import './dom.js';
 import ajax from './ajax.js';
 
@@ -10,8 +9,6 @@ const main = document.querySelector('main');
 const sortLi = main.querySelectorAll('li');
 const sortItem = main.querySelectorAll('.sort__item');
 const section = main.querySelector('section');
-
-
 
 window.onpopstate = e => {
   const item = e?.state?.item;
@@ -25,9 +22,6 @@ window.onpopstate = e => {
 // } else {
 //   console.log(4444);
 // }
-
-
-
 
 function showItem(pk) {
   fetch(`show/${pk}`)
@@ -51,14 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target.classList.contains('confirm')) {
       const data = {
         'pk': pk,
-        'html': textarea.innerHTML,
+        'html': textarea.value,
         'csrfmiddlewaretoken': csrf
       }
-      console.log(data);
       ajax.post(url_insert_content, data, result => {
-        console.log(result);
+        showItem(data.pk)
       });
-      // console.log(content.innerHTML);
     }
   }
 });

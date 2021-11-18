@@ -4,7 +4,6 @@ const iconDelete = document.querySelectorAll('.icon-delete');
 
 const section = document.querySelector('section');
 
-
 iconDelete.forEach(elmnt => {
   elmnt.onclick = function () {
     if (confirm('是否要刪除?')) {
@@ -19,7 +18,6 @@ iconDelete.forEach(elmnt => {
     }
   }
 })
-
 
 section.ondblclick = e => {
   if (e.target.id == "content") {

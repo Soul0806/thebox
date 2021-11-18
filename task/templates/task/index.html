@@ -12,6 +12,7 @@
 
 {% block script %}
 <script>
+  const url_index = "{% url 'task:index' %}";
   const url_delete_item = "{% url 'task:delete_item' %}";
   const url_insert_content = "{% url 'task:insert_content' %}";
   const csrf = '{{ csrf_token }}';

@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   section.onclick = e => {
     const textarea = main.querySelector('textarea');
+    console.log(textarea);
     const pk = e.target.dataset.pk;
     if (e.target.classList.contains('confirm')) {
       const data = {

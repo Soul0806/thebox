@@ -25,7 +25,7 @@ section.ondblclick = e => {
     btnConfim.classList.add('show');
     const html = e.target.innerHTML;
     const textarea =
-      `<textarea>${html}</textarea>`;
+      `<textarea spellcheck="false">${html}</textarea>`;
     e.target.innerHTML = textarea;
   }
 }

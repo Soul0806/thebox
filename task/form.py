@@ -8,6 +8,6 @@ class SortModelForm(ModelForm):
   class Meta:
     model = Sort
     fields = ('item', )
-    widgets = { 'item': TextInput(attrs={ 'class': 'input-item', 'autofocus': 'True'})}
+    widgets = { 'item': TextInput(attrs={ 'class': 'input-item', 'autofocus': 'True', 'autocomplete': 'off'})}
       # { 'order': forms.HiddenInput()}
     

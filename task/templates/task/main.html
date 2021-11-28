@@ -1,5 +1,5 @@
 <main class="flex">
-  <div class="sidebar">
+  <aside class="sidebar">
     <form action="{% url 'task:index' %}" method="POST">
       {% csrf_token %}
       {{ form.item }}
@@ -15,7 +15,7 @@
         {% endfor %}
       </ul>
     </div>   
-  </div>
+  </asidev>
   <section>
     {% include 'task/section.html' %}
   </section>

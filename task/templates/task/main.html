@@ -1,22 +1,21 @@
-<main class="flex">
-  <aside class="sidebar">
-    <form action="{% url 'task:index' %}" method="POST">
-      {% csrf_token %}
-      {{ form.item }}
-      <input type="submit" value="新增">
-    </form>
 
-    <div class="sort">
-      <ul>
-        {% for s in sort %}
-          <li id="{{ s.id }}" data-item="{{ s.item }}" data-sort="{{ s.order }}" class="sort__item flex-row-center">{{ s.item }}
-            <span data-id="{{ s.id }}" class="material-icons icon-delete">delete</span>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>   
-  </asidev>
-  <section>
-    {% include 'task/section.html' %}
-  </section>
-</main>
+<aside class="sidebar">    
+  <form action="{% url 'task:index' %}" method="POST">
+    {% csrf_token %}
+    {{ form.item }}
+    <input type="submit" value="新增">
+  </form>
+
+  <div class="sort">
+    <ul>
+      {% for s in sort %}
+        <li id="{{ s.id }}" data-item="{{ s.item }}" data-sort="{{ s.order }}" class="sort__item flex-row-center">{{ s.item }}
+          <span data-id="{{ s.id }}" class="material-icons icon-delete">delete</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>   
+</aside>
+<section>
+  {% include 'task/section.html' %}
+</section>

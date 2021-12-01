@@ -1,78 +1,75 @@
-main {
-  @extend %layout-padding;
-  height: 80%;
-  .sidebar {
-    // flex-grow: 1;
-    // flex-shrink: 3;
-    white-space: nowrap;
-    .input-item {
-      @extend %input-search
-    }
-    .sort {   
-      
-      width: 100%;
+aside {
+  @extend %flex-col;
+  grid-area: as;
+  white-space: nowrap;    
+  min-width: 30%;
+  .input-item {
+    @extend %input-search;
+    min-width: 16rem;
+  }
+  .sort {         
+    width: 80%;
+    padding: .8rem;
+    &__item {
+      position: relative;
+      margin-bottom: .5rem;
+      border: 1px solid $black;
       padding: .8rem;
-      &__item {
-        position: relative;
-        width: 80%;
-        margin-bottom: .5rem;
-        border: 1px solid $black;
-        padding: .8rem;
-        &.hide {
-          // animation: hide 2000ms;
-        animation: hide 1s forwards ease-in-out;
-        } 
-        &:hover {
-          // animation: hover-enhence .2s ease-in-out forwards;
-          cursor: pointer;
-          transform: scale(1.05);
-          .icon-delete {
-            display: block;
-            cursor: pointer;
-          }
-        }       
+      &.hide {
+        // animation: hide 2000ms;
+      animation: hide 1s forwards ease-in-out;
+      } 
+      &:hover {
+        // animation: hover-enhence .2s ease-in-out forwards;
+        cursor: pointer;
+        transform: scale(1.05);
         .icon-delete {
-          display: none;
-          color: red;
-          position: absolute;
-          right: 0;
-          padding: 5px;         
-        }        
-      }
+          display: block;
+          cursor: pointer;
+        }
+      }       
+      .icon-delete {
+        display: none;
+        color: red;
+        position: absolute;
+        right: 0;
+        padding: 5px;         
+      }        
     }
   }
+}
 
-  section {
-    // flex-shrink: 1;
-    height: 80%;
-    flex-grow: 1;
-    margin: 0 1rem;
-    .heading {
-      text-align: center;
-      margin-top: 0px;
-    }
-    .tool {
-      display: flex;
-      align-items: center;   
-    }
-    #content {
+section {
+  grid-area: se;
+  // flex-shrink: 1;
+  height: 80%;
+  flex-grow: 1;
+  margin: 0 1rem;
+  .heading {
+    text-align: center;
+    margin-top: 0px;
+  }
+  .tool {
+    display: flex;
+    align-items: center;   
+  }
+  #content {
+    height: 100%;
+    white-space: pre-wrap;
+    textarea {
+      width: 100%;
       height: 100%;
-      white-space: pre-wrap;
-      textarea {
-        width: 100%;
-        height: 100%;
-        border: 1px solid $gray-light;
-        border-radius: 5px;
-      }
+      border: 1px solid $gray-light;
+      border-radius: 5px;
     }
-    .operate {
-      text-align: right;
-      .confirm {
-        display: none;
-        @extend %button-confirm;
-        &.show {
-          display: inline-block;
-        }
+  }
+  .operate {
+    text-align: right;
+    .confirm {
+      display: none;
+      @extend %button-confirm;
+      &.show {
+        display: inline-block;
       }
     }
   }

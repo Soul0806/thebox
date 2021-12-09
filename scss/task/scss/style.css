@@ -29,11 +29,6 @@ textarea {
 header nav {
   padding: 1rem 1rem; }
 
-aside .input-item {
-  border-radius: 10px;
-  border: 1px solid black;
-  padding: 8px; }
-
 section .operate .confirm {
   margin: 10px;
   padding: 0.4rem 0.8rem;
@@ -76,7 +71,7 @@ aside {
   width: 100vw;
   display: grid;
   grid-template-columns: 30% 70%;
-  grid-template-rows: 10% 80% auto;
+  grid-template-rows: 10% auto 5%;
   grid-template-areas: "hd hd" "as se" "ft ft"; }
 
 header {
@@ -85,7 +80,9 @@ header {
     text-align: right; }
 
 footer {
-  grid-area: ft; }
+  font-size: .5rem;
+  grid-area: ft;
+  text-align: center; }
 
 .flex {
   display: flex; }
@@ -113,26 +110,47 @@ footer {
 
 aside {
   grid-area: as;
-  white-space: nowrap;
-  min-width: 30%; }
+  white-space: nowrap; }
+  aside form {
+    position: relative; }
+    aside form::before {
+      position: absolute;
+      content: '';
+      height: 2px;
+      width: 0;
+      bottom: 0;
+      left: 10px;
+      background-color: red;
+      transition: width 500ms; }
+    aside form:hover::before, aside form:focus::before {
+      width: 14rem; }
   aside .input-item {
-    min-width: 16rem; }
+    min-width: 14rem;
+    font-size: 1.25rem;
+    border: 0;
+    padding: 10px; }
+    aside .input-item::-webkit-input-placeholder {
+      font-size: 1rem;
+      font-style: italic; }
+    aside .input-item:focus {
+      outline: none; }
   aside .sort {
-    width: 80%;
     padding: .8rem; }
     aside .sort__item {
       position: relative;
       margin-bottom: .5rem;
       border: 1px solid black;
-      padding: .8rem; }
+      border-radius: 20px;
+      padding: .8rem;
+      color: rgba(0, 0, 0, 0.5); }
       aside .sort__item.hide {
         animation: hide 1s forwards ease-in-out; }
-      aside .sort__item:hover {
+      aside .sort__item[data-active], aside .sort__item:hover {
         cursor: pointer;
-        transform: scale(1.05); }
-        aside .sort__item:hover .icon-delete {
-          display: block;
-          cursor: pointer; }
+        transform: scale(1.05);
+        color: black; }
+      aside .sort__item:hover .icon-delete {
+        display: block; }
       aside .sort__item .icon-delete {
         display: none;
         color: red;
@@ -153,7 +171,8 @@ section {
     align-items: center; }
   section #content {
     height: 100%;
-    white-space: pre-wrap; }
+    white-space: pre-wrap;
+    font: 15px monospace; }
     section #content textarea {
       width: 100%;
       height: 100%;

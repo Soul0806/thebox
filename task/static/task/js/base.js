@@ -6,9 +6,20 @@ import ajax from './ajax.js';
 
 const aside = document.querySelector('aside');
 
+const sort = aside.querySelector('[data-sort-item]');
 const sortLi = aside.querySelectorAll('li');
-const sortItem = aside.querySelectorAll('.sort__item');
+// const sortItem = aside.querySelectorAll('.sort__item');
+
 const section = document.querySelector('section');
+
+/* Add element attrs */
+sortLi[0].dataset.active = true;
+
+function focusEffect(li) {
+  const activeSort = sort.querySelector('[data-active]');
+  delete activeSort.dataset.active;
+  li.dataset.active = true;
+}
 
 window.onpopstate = e => {
   const item = e?.state?.item;
@@ -30,8 +41,9 @@ function showItem(pk) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  sortItem.forEach((elmnt, index) => {
-    elmnt.onclick = function () {
+  sortLi.forEach((li, index) => {
+    li.onclick = function () {
+      focusEffect(li);
       const item = this.dataset.item;
       const pk = this.id;
       history.pushState({ item: item }, '', '')

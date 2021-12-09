@@ -1,33 +1,61 @@
 aside {
   @extend %flex-col;
   grid-area: as;
-  white-space: nowrap;    
-  min-width: 30%;
-  .input-item {
-    @extend %input-search;
-    min-width: 16rem;
+  white-space: nowrap;      
+  // min-width: 30%;   
+  form {
+    position: relative;
+    &::before {
+      position: absolute;
+      content: '';
+      height: 2px;
+      width: 0;
+      bottom: 0;
+      left: 10px;
+      background-color: red;      
+      transition: width 500ms;
+    }
+    &:hover {
+      &::before {
+        width: 14rem;
+      }
+    }
   }
-  .sort {         
-    width: 80%;
-    padding: .8rem;
+  .input-item {
+    min-width: 14rem;
+    font-size: 1.25rem;
+    border: 0;
+    // border-left: 5px solid red;
+    padding: 10px;
+    &::-webkit-input-placeholder {
+      font-size: 1rem;
+      font-style: italic;  
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  .sort {             
+    padding: .8rem; 
     &__item {
       position: relative;
       margin-bottom: .5rem;
       border: 1px solid $black;
+      border-radius: 20px;
       padding: .8rem;
+      color: rgba(0, 0, 0, .5);
       &.hide {
-        // animation: hide 2000ms;
-      animation: hide 1s forwards ease-in-out;
+        animation: hide 1s forwards ease-in-out;
       } 
+      &[data-active],
       &:hover {
-        // animation: hover-enhence .2s ease-in-out forwards;
         cursor: pointer;
         transform: scale(1.05);
-        .icon-delete {
-          display: block;
-          cursor: pointer;
-        }
-      }       
+        color: rgba(0, 0, 0, 1);
+      }
+      &:hover .icon-delete {
+        display: block;        
+      }  
       .icon-delete {
         display: none;
         color: red;
@@ -56,6 +84,7 @@ section {
   #content {
     height: 100%;
     white-space: pre-wrap;
+    font: 15px monospace;
     textarea {
       width: 100%;
       height: 100%;

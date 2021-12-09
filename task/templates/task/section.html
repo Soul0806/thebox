@@ -1,9 +1,9 @@
-<h1 class="heading">{{ sort.item }}</h1>
+<h1 class="heading">{% firstof sort.item default.item  %}</h1>
 <!-- <div class="tool">編輯<span class="material-icons icon-edit">edit</span></div> -->
-<div id="content">{{ sort.detail }}</div>
+<div id="content">{% firstof sort.detail default.detail  %}</div>
 
 <div class="operate">
   {% csrf_token %}
-  <a data-pk="{{ sort.pk }}" href="#" class="confirm">確定</a>
+  <a data-pk="{% firstof sort.pk default.pk  %}" href="#" class="confirm">確定</a>
 </div>
 

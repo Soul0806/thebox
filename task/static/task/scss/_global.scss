@@ -3,7 +3,7 @@
   width: 100vw;
   display: grid;
   grid-template-columns: 30% 70%;
-  grid-template-rows: 10% 80% auto;
+  grid-template-rows: 10% auto 5%;
   grid-template-areas: 
     "hd hd"
     "as se"
@@ -19,7 +19,9 @@ header {
 }
 
 footer {
+  font-size: .5rem;
   grid-area: ft;
+  text-align: center;
 }
 
 .flex {

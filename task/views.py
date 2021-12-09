@@ -25,7 +25,7 @@ def index(request, item = ''):
   return render(request, 'task/index.html', {
     'form' : form,
     'sort' : sort,
-    'item': sort.first().item
+    'default': sort.first()
   })
 
 def show_item(request, pk):

@@ -34,10 +34,15 @@ case $1 in
             git push origin main
             exit 1
             ;;
+        r )             
+            # python3 manage.py startapp $2
+            python3 ./django_auto.py $2
+            exit 1
+            ;;
         test ) 
             echo 'test'
             exit 1
-            ;;
+            ;;            
 esac
 
  

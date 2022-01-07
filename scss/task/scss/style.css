@@ -122,7 +122,7 @@ aside {
       left: 10px;
       background-color: red;
       transition: width 500ms; }
-    aside form:hover::before, aside form:focus::before {
+    aside form:hover::before {
       width: 14rem; }
   aside .input-item {
     min-width: 14rem;

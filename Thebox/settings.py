@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'tools',
     'task',
+    'myptt',
     'sass_processor',
     'django.contrib.admin',
     'django.contrib.auth',

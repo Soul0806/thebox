@@ -1,6 +1,10 @@
 @import 'global';
 
 nav {
+    margin: 20px auto;
+    a {
+        padding: 3px 10px;
+    }
     .app {
         a {
             width: 5rem;

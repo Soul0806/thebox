@@ -11,21 +11,10 @@
 }
 
 header {
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
   grid-area: hd;
   position: fixed;
   top: 0px;
-  height: 100px;
   width: 100%;
-  // position: fixed;
-  // top: 0;
-  // overflow: auto;
-  // nav {
-  //   text-align: right;
-  //   @extend %layout-padding;
-  // }
 }
 
 footer {

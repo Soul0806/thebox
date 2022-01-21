@@ -10,7 +10,6 @@ header {
   grid-area: hd;
   position: fixed;
   top: 0px;
-  height: 100px;
   width: 100%; }
 
 footer {
@@ -46,10 +45,14 @@ footer {
   -webkit-user-select: none;
   -ms-user-select: none; }
 
-nav .app a {
-  width: 5rem;
-  text-align: center; }
-  nav .app a:nth-child(n+2) {
-    border-left: 1px solid black; }
+nav {
+  margin: 20px auto; }
+  nav a {
+    padding: 3px 10px; }
+  nav .app a {
+    width: 5rem;
+    text-align: center; }
+    nav .app a:nth-child(n+2) {
+      border-left: 1px solid black; }
 
 /*# sourceMappingURL=nav.css.map */

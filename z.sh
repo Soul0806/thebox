@@ -1,25 +1,19 @@
 #!/bin/bash
 
-# if [ $1 == 'activate' ]; then
-#     source ./venv/Scripts/activate
-#     exit 1
-# fi
-
-# if [ $1 == 'run' ]; then
-#     python3 manage.py runserver
-#     exit 1
-# fi
-
 case $1 in
+        path )
+            cp z.sh /usr/local/bin/
+            ls -l /usr/local/bin/z.sh
+            exit 0
+            ;;
         v ) 
             source ./venv/bin/activate
             # source ./venv/Scripts/activate
             exit 1
             ;;
         run )
-            python -m webbrowser http://127.0.0.1:8000/task
-            python manage.py runserver             
-            echo 'running...'
+            python3 -m webbrowser http://127.0.0.1:8000/$2
+            python3 manage.py runserver             
             exit 1 
             ;;
         -m ) 
@@ -34,42 +28,20 @@ case $1 in
             git push origin main
             exit 1
             ;;
-        r )             
-            # python3 manage.py startapp $2
-            python3 ./django_auto.py $2
-            exit 1
+        create-app )             
+            if [ -d "./$2" ]; then 
+                echo $2 already exists.
+            else    
+                python3 manage.py startapp $2
+                python3 ./django_setting_init.py $2
+                python3 ./django_asset_init.py $2
+            fi
+            python3 -m webbrowser http://127.0.0.1:8000/$2
+            python3 manage.py runserver            
+            exit 0   
             ;;
         test ) 
             echo 'test'
-            exit 1
+            exit 0
             ;;            
 esac
-
- 
-
-
-# if [ $# -eq 0 ]; then
-#     git add . 
-#     git commit -m "fast commit"
-#     git push origin main
-# else
-#     git add . 
-#     git commit -m $1
-#     git push origin $2
-# fi
-
-# echo 'Push successfully !'
-
-# while test $# -gt 0; do
-#       case "$1" in
-#           -i)
-#               shift
-#               first_argument=$1
-#               shift
-#               ;;
-#           *)
-#               echo "$1 is not a recognized flag!"
-#               exit 1
-#               ;;
-#       esac
-# done 

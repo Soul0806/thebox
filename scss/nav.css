@@ -1,0 +1,51 @@
+#container {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 10% auto 5%;
+  grid-template-areas: "hd hd" "as se" "ft ft"; }
+
+header {
+  grid-area: hd; }
+
+footer {
+  font-size: .5rem;
+  grid-area: ft;
+  text-align: center; }
+
+.flex {
+  display: flex; }
+
+.flex-col-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.flex-row-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+
+.flex-sb {
+  display: flex;
+  justify-content: space-between; }
+
+[draggable="true"] {
+  /*
+	 To prevent user selecting inside the drag source
+	*/
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none; }
+
+nav .app a {
+  width: 5rem;
+  text-align: center; }
+  nav .app a:nth-child(n+2) {
+    border-left: 1px solid black; }
+
+/*# sourceMappingURL=nav.css.map */

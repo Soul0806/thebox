@@ -1,0 +1,4 @@
+aside {
+    @extend %flex-col;
+    grid-area: as;
+}

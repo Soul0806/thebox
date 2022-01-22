@@ -49,10 +49,12 @@ nav {
   margin: 20px auto; }
   nav a {
     padding: 3px 10px; }
+  nav .app li {
+    display: inline-block; }
+    nav .app li:nth-child(n+2) a {
+      border-left: 1px solid black; }
   nav .app a {
     width: 5rem;
     text-align: center; }
-    nav .app a:nth-child(n+2) {
-      border-left: 1px solid black; }
 
 /*# sourceMappingURL=nav.css.map */

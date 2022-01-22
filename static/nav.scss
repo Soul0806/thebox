@@ -6,12 +6,17 @@ nav {
         padding: 3px 10px;
     }
     .app {
+        li {
+            display: inline-block;
+            &:nth-child(n+2) {
+                a {
+                    border-left: 1px solid black;
+                }
+            }
+        }
         a {
             width: 5rem;
             text-align: center;
-            &:nth-child(n+2) {
-                border-left: 1px solid black;
-            }
         }
     }
 }

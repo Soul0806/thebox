@@ -1,9 +1,13 @@
 <nav class="flex-sb">
     <div class="logo"></div>
-    <div class="app">
-        <a href="{% url 'task:index' %}">Task</a>
-        <a href="{% url 'stock:index' %}">Stock</a>
-    </div>
+    <ul class="app">
+        <li>
+            <a href="{% url 'task:index' %}">Task</a>
+        </li>
+        <li>
+            <a href="{% url 'stock:index' %}">Stock</a>
+        </li>
+    </ul>
     <div class="admin">
         <a href="{% url 'admin:index' %}">後台管理</a>
     </div>

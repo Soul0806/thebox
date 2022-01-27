@@ -1,6 +1,9 @@
 #!/bin/bash
 
 case $1 in
+        open )
+            python -m webbrowser http://127.0.0.1:8000/$2
+            ;;
         path )
             cp z.sh /usr/local/bin/
             ls -l /usr/local/bin/z.sh
@@ -12,8 +15,8 @@ case $1 in
             exit 1
             ;;
         run )
-            python3 -m webbrowser http://127.0.0.1:8000/$2
-            python3 manage.py runserver             
+            python -m webbrowser http://127.0.0.1:8000/$2
+            python manage.py runserver             
             exit 1 
             ;;
         -m ) 

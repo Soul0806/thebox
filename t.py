@@ -32,6 +32,8 @@ with open('/Users/soul/Documents/tires.csv', newline='') as f:
                 else:
                     tires[inch].append(item)
 
+keys = list(tires.keys())
+pprint(sorted(keys))
 f.close()
 
 dict = {}
@@ -40,8 +42,9 @@ tires_key = sorted(list(tires.keys()), reverse=True)
 for index, key in enumerate(tires_key):
     dict[key] = tires[key]
 
-print(dict)
-# df = pd.DataFrame.from_dict(dict, orient='index')
+# pprint(dict)
+
+# f = pd.DataFrame.from_dict(dict, orient='index')
 # df.to_csv('/Users/soul/Documents/test.csv')
 
 # subprocess.run(["open", "/Users/soul/Documents/test.csv"])

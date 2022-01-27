@@ -27,9 +27,15 @@ html_default_files = [
     'nav',
     'section'
 ]
+
+# form_default_files = [
+#     'form'
+# ]
+
 template_path = f'./{app}/templates/{app}'
 staic_js_path = f'./{app}/static/{app}/js'
 staic_scss_path = f'./{app}/static/{app}/scss'
+# form_path = f'./{app}'
 
 all_path = [
     {template_path: {'html': html_default_files}},

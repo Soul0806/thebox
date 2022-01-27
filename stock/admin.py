@@ -2,6 +2,8 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Inch
+from .models import TireInch, Tire
 
-admin.site.register(Inch)
+admin.site.site_url = '/stock'
+admin.site.register(TireInch)
+admin.site.register(Tire)

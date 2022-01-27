@@ -1,0 +1,15 @@
+{% extends 'stock/layout.html' %}
+{% load static %}
+
+{% block main %}
+<form action="">
+    <input type="file" name="uplaoded_file" class="fileUploader">
+    <input type="submit" value="Read file">
+</form>
+
+<div id="fileContent"></div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'stock/js/file.js' %}"></script>
+{% endblock%}

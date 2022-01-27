@@ -3,5 +3,6 @@ from . import views
 
 app_name = 'stock'
 urlpatterns = [
-    path('', views.index, name='index')
+    path('', views.index, name='index'),
+    path('file', views.file, name='file'),    
 ]

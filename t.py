@@ -32,8 +32,8 @@ with open('/Users/soul/Documents/tires.csv', newline='') as f:
                 else:
                     tires[inch].append(item)
 
-keys = list(tires.keys())
-pprint(sorted(keys))
+# keys = list(tires.keys())
+# pprint(sorted(keys))
 f.close()
 
 dict = {}

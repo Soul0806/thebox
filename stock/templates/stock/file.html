@@ -11,5 +11,9 @@
 {% endblock %}
 
 {% block script %}
-<script src="{% static 'stock/js/file.js' %}"></script>
+<script>
+    const url_file = "{% url 'stock:file' %}"
+    const url_test = "{% url 'stock:test' %}"
+</script>
+<script type="module" src="{% static 'stock/js/file.js' %}"></script>
 {% endblock%}

@@ -1,11 +1,18 @@
+import ajax from './ajax.js'
 
-fileInput = document.querySelector('.fileUploader');
-content = document.querySelector('#fileContent')
+const fileInput = document.querySelector('.fileUploader');
+const content = document.querySelector('#fileContent')
 
-readFile = function (e) {
-    let reader = new FileReader();
+let readFile = function (e) {
+    const reader = new FileReader();
     reader.onload = e => {
         content.innerHTML = reader.result;
+        const data = {
+            'csv': reader.result
+        }
+        ajax.get(url_test, data, res => {
+            console.log(res)
+        })
     }
     reader.readAsBinaryString(fileInput.files[0]);
 }

@@ -1,6 +1,9 @@
 #!/bin/bash
 
 case $1 in
+        gh )
+            python -m webbrowser https://github.com/Soul0806/thebox/tree/$2
+            ;;
         open )
             python -m webbrowser http://127.0.0.1:8000/$2
             ;;

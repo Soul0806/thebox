@@ -1,5 +1,6 @@
 import csv
 import re
+import json
 from django.core.files.utils import FileProxyMixin
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
@@ -15,7 +16,6 @@ def parse_csv_string(csv_string):
     parsed_csv = list(reader)
     tire_dict = {}
     for row in parsed_csv:
-        print(row)
         for item in row:
             if len(item) >= 3 and re.findall(r'-', item):
                 inch = item[-2:]
@@ -53,6 +53,8 @@ def file(request):
 
 def test(request):
     csv_string = request.GET['csv']
-    tire_dict = parse_csv_string(csv_string)
-    return HttpResponse(tire_dict)
+    result = parse_csv_string(csv_string)
+    return HttpResponse( json.dumps(result) )
+    # tire_dict = parse_csv_string(csv_string)
+    # return HttpResponse(tire_dict)
 

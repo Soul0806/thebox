@@ -18,6 +18,7 @@ def parse_csv_string(csv_string):
     for row in parsed_csv:
         for item in row:
             if len(item) >= 3 and re.findall(r'-', item):
+                item  = re.sub(r'(\d+)[-|/](\d+)[-|/](\d+)', r'\1/\2-\3', item)    
                 inch = item[-2:]
                 if(tire_dict.get(inch) is None):
                     tire_dict[inch] = [item]
@@ -42,9 +43,9 @@ def index(request):
     tires = Tire.objects.all()
     form = TireModelForm()
     return render(request, 'stock/index.html', {
-        'inches': inches,
-        'tires': tires,
-        'form': form
+        "inche": inches,
+        "tires": tires,
+        "form": form
     })
 
 def file(request):
@@ -54,7 +55,7 @@ def file(request):
 def test(request):
     csv_string = request.GET['csv']
     result = parse_csv_string(csv_string)
-    return HttpResponse( json.dumps(result) )
+    return HttpResponse( json.dumps(result, indent=4) )
     # tire_dict = parse_csv_string(csv_string)
     # return HttpResponse(tire_dict)
 

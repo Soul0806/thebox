@@ -6,6 +6,7 @@ from django.core.files.utils import FileProxyMixin
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
+from django.core import serializers
 # Create your views here.
 
 from .models import Tire, TireInch
@@ -55,15 +56,15 @@ def file(request):
     })
 
 def test(request):
-    csv_string = request.GET['csv']
-    result = parse_csv_string(csv_string)
-    return HttpResponse( json.dumps(result, indent=4) )
+    csv_string = request.GET['csv'] 
+    results = parse_csv_string(csv_string)
+    return HttpResponse( json.dumps(results, indent=4) )
     # tire_dict = parse_csv_string(csv_string)
     # return HttpResponse(tire_dict)
 
 
 def insert_tire(request):
-    csv_string = request.GET['csv']
+    csv_string = request.GET['csv'] 
     tire_dict = parse_csv_string(csv_string)
     for k, v_list in tire_dict.items():
         for v in v_list:   
@@ -71,5 +72,13 @@ def insert_tire(request):
             t = Tire.objects.create(spec=v, tire_inch=ti, quantity="null")
 
         print(k, v)
-
     return HttpResponse('ok')
+
+def db_read_tire(request):
+    inch_id = request.GET['inch_id']
+    ti = TireInch.objects.get(pk=inch_id)
+    # tires = ti.tire_inch.values_list('spec', flat=True)
+    tires = ti.tire_inch.all()
+
+    res = serializers.serialize("json", tires)
+    return HttpResponse(res, content_type="application/json" )

@@ -8,8 +8,9 @@ const inserTire = document.querySelector('.js-insert-tire');
 
 let readFile = e => {
     reader.onload = e => {
-        const data = { 'csv': reader.result }
-        ajax.get(url_test, data, res => {
+        const data = { 'csv': reader.result }    
+        const url = fileInput.dataset.url;
+        ajax.get(url, data, res => {
             content.innerHTML = res;
         })
     }
@@ -20,8 +21,9 @@ fileInput.addEventListener('change', readFile)
 
 inserTire.addEventListener('click', e => {
   const data = { 'csv': reader.result }
-  ajax.get(url_insert_tire, data, res => {
-      alert(res);
+  const url = e.target.dataset.url;
+  ajax.get(url, data, res => {
+     
   })
 })
 // file.onchange = e => {

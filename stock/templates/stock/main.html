@@ -10,8 +10,8 @@
         {% csrf_token %}
         {{ form.tire_inch.label }}
         {{ form.tire_inch }}
-        <div class="spec">
-
+        <div class="tire">
+            
         </div>
         <label>{{ form.spec.label }}</label>
         {{ form.spec }}
@@ -19,7 +19,7 @@
         {{ form.quantity}}
         <input type="submit" value="新增">
     </form>
-    <div class="tire">
+    <!-- <div class="tire">
         <ul>
             {% for tire in tires %}
             <li>
@@ -28,5 +28,5 @@
             </li>
             {% endfor%}
         </ul>
-    </div>
+    </div> -->
 </section>

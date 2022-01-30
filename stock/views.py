@@ -1,4 +1,5 @@
 import csv
+from os import kill
 import re
 import json
 from django.core.files.utils import FileProxyMixin
@@ -43,11 +44,12 @@ def index(request):
     tires = Tire.objects.all()
     form = TireModelForm()
     return render(request, 'stock/index.html', {
-        "inche": inches,
+        "inches": inches,
         "tires": tires,
         "form": form
     })
 
+# stock/file
 def file(request):
     return render(request, 'stock/file.html', {
     })
@@ -59,3 +61,15 @@ def test(request):
     # tire_dict = parse_csv_string(csv_string)
     # return HttpResponse(tire_dict)
 
+
+def insert_tire(request):
+    csv_string = request.GET['csv']
+    tire_dict = parse_csv_string(csv_string)
+    for k, v_list in tire_dict.items():
+        for v in v_list:   
+            ti = TireInch.objects.get(inch=k)
+            t = Tire.objects.create(spec=v, tire_inch=ti, quantity="null")
+
+        print(k, v)
+
+    return HttpResponse('ok')

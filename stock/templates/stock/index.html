@@ -1,6 +1,9 @@
 {% extends 'stock/layout.html' %}
 {% load static %} {% load sass_tags %}
-
+{% block css %}
+<link rel="stylesheet" href="{% sass_src 'task/scss/style.scss' %}" type="text/css">
+<link rel="stylesheet" href="{% sass_src 'nav.scss' %}" type="text/css">
+{% endblock %}
 
 {% block nav %}
 {% include 'nav.html' %}

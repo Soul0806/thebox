@@ -35,6 +35,6 @@ class Tire(models.Model):
     created_at = models.DateTimeField(auto_now=True)
     modified_at = models.DateTimeField(auto_now_add=True)
 
-    # def __str__(self):
-    #     return f'{self.spec}  {self.quantity}'
+    def __str__(self):
+        return f'{self.spec} : {self.quantity}'
 

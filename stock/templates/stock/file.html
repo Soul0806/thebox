@@ -4,9 +4,8 @@
 {% block main %}
 <form action="">
     <input type="file" name="uplaoded_file" class="fileUploader">
-    <input type="submit" value="Read file">
 </form>
-
+<button class="js-insert-tire">新增</button>
 <pre>
     <div id="fileContent"></div>
 </pre>
@@ -16,6 +15,7 @@
 <script>
     const url_file = "{% url 'stock:file' %}"
     const url_test = "{% url 'stock:test' %}"
+    const url_insert_tire = "{% url 'stock:insert_tire' %}"
 </script>
 <script type="module" src="{% static 'stock/js/file.js' %}"></script>
 {% endblock%}

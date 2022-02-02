@@ -31,11 +31,10 @@ body {
   background-color: #181818; }
 
 section .tire ul {
-  width: max-content; }
+  display: flex;
+  flex-wrap: wrap;
+  width: fit-content; }
   section .tire ul li {
     width: max-content; }
-    section .tire ul li .spec {
-      display: inline-block;
-      width: 85px; }
 
 /*# sourceMappingURL=style.css.map */

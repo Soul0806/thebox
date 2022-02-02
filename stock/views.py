@@ -2,7 +2,6 @@ import csv
 from os import kill
 import re
 import json
-from django.core.files.utils import FileProxyMixin
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
@@ -75,8 +74,14 @@ def insert_tire(request):
 def db_read_tire(request):
     inch_id = request.GET['inch_id']
     ti = TireInch.objects.get(pk=inch_id)
-    # tires = ti.tire_inch.values_list('spec', flat=True)
     tires = ti.tire_inch.all()
-
     res = serializers.serialize("json", tires)
     return HttpResponse(res, content_type="application/json" )
+
+
+# delete duplicate row from db
+def f(request):
+    for row in Tire.objects.all().reverse():
+        if(Tire.objects.filter(spec=row.spec).count() > 1):
+            row.delete()
+    return HttpResponse('ok')

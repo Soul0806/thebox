@@ -27,6 +27,8 @@ class TireInch(models.Model):
 
 class Tire(models.Model):
     # TIRE_CHOICES = ((0, 0), (1, 1), (2, 2))
+    class Meta:
+        ordering = ('spec',)
     spec = models.CharField(max_length=64)
     tire_inch = models.ForeignKey(
         TireInch, on_delete=models.CASCADE, related_name='tire_inch')

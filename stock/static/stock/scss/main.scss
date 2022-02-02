@@ -5,18 +5,20 @@ aside {
 section {
     .tire {
         ul {
-            width: max-content;
+            display: flex;
+            flex-wrap: wrap;
+            width: fit-content;
             li {
                 width: max-content;
-                .spec {
-                    display: inline-block;
-                    width: 85px;
-                }
-                .quantity {  
-                    &::before {
+                // .spec {
+                //     display: inline-block;
+                   
+                // }
+                // .quantity {  
+                //     &::before {
                         
-                    }
-                }            
+                //     }
+                // }            
             }
         }
     }

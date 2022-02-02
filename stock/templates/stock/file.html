@@ -5,12 +5,15 @@
 <form action="">
     <input type="file" name="uplaoded_file" class="fileUploader" data-url="{% url 'stock:test' %}">
 </form>
-<button class="js-insert-tire" data-url="{% url 'stock:test' %}">新增</button>
+<button class="js-insert-tire" data-url="{% url 'stock:insert_tire' %}">新增</button>
 <pre>
     <div id="fileContent"></div>
 </pre>
 {% endblock %}
 
 {% block script %}
-<script type="module" src="{% static 'stock/js/file.js' %}"></script>
+
+<script type="module" src="{% static 'stock/js/file.js' %}">
+  
+</script>
 {% endblock%}

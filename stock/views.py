@@ -18,14 +18,16 @@ def parse_csv_string(csv_string):
     parsed_csv = list(reader)
     tire_dict = {}
     for row in parsed_csv:
-        for item in row:
+        for key, item in enumerate(row):
             if len(item) >= 3 and re.findall(r'-', item):
                 item  = re.sub(r'(\d+)[-|/](\d+)[-|/](\d+)', r'\1/\2-\3', item)    
                 inch = item[-2:]
+                num =  row[key+1] or 'null'
+                spec_tuple = (item, num)
                 if(tire_dict.get(inch) is None):
-                    tire_dict[inch] = [item]
+                    tire_dict[inch] = [spec_tuple]
                 else:
-                    tire_dict[inch].append(item)
+                    tire_dict[inch].append(spec_tuple)
 
     # tire_dict = {}
 
@@ -59,8 +61,6 @@ def test(request):
     csv_string = request.GET['csv'] 
     results = parse_csv_string(csv_string)
     return HttpResponse( json.dumps(results, indent=4) )
-    # tire_dict = parse_csv_string(csv_string)
-    # return HttpResponse(tire_dict)
 
 
 def insert_tire(request):
@@ -68,10 +68,8 @@ def insert_tire(request):
     tire_dict = parse_csv_string(csv_string)
     for k, v_list in tire_dict.items():
         for v in v_list:   
-            ti = TireInch.objects.get(inch=k)
-            t = Tire.objects.create(spec=v, tire_inch=ti, quantity="null")
-
-        print(k, v)
+            # ti = TireInch.objects.get(inch=k)
+            t = Tire.objects.filter(spec=v[0]).update(quantity=v[1])
     return HttpResponse('ok')
 
 def db_read_tire(request):

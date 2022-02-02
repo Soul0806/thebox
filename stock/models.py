@@ -4,7 +4,7 @@ from django.db import models
 
 TIRE_CHOICES = [('null', 'null')]
 for n in range(20):
-    TIRE_CHOICES.append(('n', n))
+    TIRE_CHOICES.append((n, n))
 tuple(TIRE_CHOICES)
 
 class TireManager(models.Manager):

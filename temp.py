@@ -1,17 +1,18 @@
-INSTALLED_APPS = [
-    'abc'
-    'abc'
-    'abc'
-    'tools',
-    'task',
-    'myptt',
-    'sass_processor',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-]
+# import random
+# from pprint import pprint 
+hash_t = { 11: 0, 3: 1 }
 
-abc = ['111']
+arr = [ 1 , 2, 3, 5 ,11]
+
+for key, n in enumerate(arr):
+    if(n in hash_t):
+        print(key)
+
+# for index in range(1, 9999):
+#     arr.append(index)
+# random.shuffle(arr)
+
+# with open('test.txt', 'w') as f:
+#     f.write(str(arr))
+
+# f.close()

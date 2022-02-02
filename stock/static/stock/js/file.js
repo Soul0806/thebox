@@ -23,7 +23,7 @@ inserTire.addEventListener('click', e => {
   const data = { 'csv': reader.result }
   const url = e.target.dataset.url;
   ajax.get(url, data, res => {
-     
+    console.log(res);
   })
 })
 // file.onchange = e => {

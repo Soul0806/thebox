@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  line-height: 1 !important;
+  height: 100vh; }
+  body ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+  body a {
+    display: inline-block;
+    font-size: 16px;
+    text-decoration: none; }
+
+textarea {
+  border: none;
+  overflow: auto;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  resize: none;
+  /*remove the resize handle on the bottom right*/ }
+
+body {
+  color: white;
+  background-color: #181818; }
+
+section .tire ul {
+  width: max-content; }
+  section .tire ul li {
+    width: max-content; }
+    section .tire ul li .spec {
+      display: inline-block;
+      width: 85px; }
+
+/*# sourceMappingURL=style.css.map */

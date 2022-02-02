@@ -1,0 +1,9 @@
+section .tire ul {
+  width: max-content; }
+  section .tire ul li {
+    width: max-content; }
+    section .tire ul li .spec {
+      display: inline-block;
+      width: 85px; }
+
+/*# sourceMappingURL=main.css.map */

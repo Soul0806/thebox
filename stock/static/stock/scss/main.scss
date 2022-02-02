@@ -1,4 +1,23 @@
 aside {
-    @extend %flex-col;
-    grid-area: as;
+
+}
+
+section {
+    .tire {
+        ul {
+            width: max-content;
+            li {
+                width: max-content;
+                .spec {
+                    display: inline-block;
+                    width: 85px;
+                }
+                .quantity {  
+                    &::before {
+                        
+                    }
+                }            
+            }
+        }
+    }
 }

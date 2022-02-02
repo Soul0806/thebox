@@ -11,7 +11,13 @@ selectInch.addEventListener('change', e => {
     ajax.get(url, data, res => {
         let html = '';
         for(let prop in res) {
-            html += `<li>${res[prop]['fields']['spec']}:${res[prop]['fields']['quantity']}</li>`
+            html += `
+            <li>
+                <span class="spec">${res[prop]['fields']['spec']}</span> 
+                <span class="quantity">${res[prop]['fields']['quantity']}</span>
+            </li>
+            
+            `
         }
         html = `<ul>${html}</ul>`;
         tap.innerHTML = html

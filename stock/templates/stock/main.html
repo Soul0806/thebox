@@ -1,51 +1,38 @@
 <aside>
-    <ul>
+    <!-- <ul>
         {% for inch in inches %}
         <li>{{ inch }}</li>
         {% endfor %}
-    </ul>
+    </ul> -->
 </aside>
 <section>
-
         {% csrf_token %}
         <!-- {{ form.tire_inch.label }}
         {{ form.tire_inch }} -->
-        <ul class="ul_inch">
-            {% for inch in inches %}
-            <li data-id="{{ inch.id }}" 
-                data-url="{% url 'stock:db_read_tire' %}"
-                data-tap=".tire__spec">
-                {{ inch.inch }}
-            </li>
-            {% endfor %}
-        </ul>
+        <div>
+            <ul class="ul_inch">
+                {% for inch in inches %}
+                <li data-id="{{ inch.id }}"
+                    data-url="{% url 'stock:db_read_tire' %}"
+                    data-tap=".tire__spec">
+                    {{ inch.inch }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
         <div class="tire">
             <div class="tire__spec"></div>
             <div class="modify">
                 <form class="modifyform" action="" method="GET">
                     <div class="modifyform__close">X</div>
-                    <div class="modifyform__spec">123</div>                    
+                    <div class="modifyform__spec"></div>                    
+                    <div>修改前:<span class="modify__form_before"></span></div>
                     <div>
-                        <input type="text" name="" id="" class="modifyform__quantity">
+                        <label for="modifyform__quantity">修改後</label>
+                        <input type="text" name="modifyform__quantity" id="" class="modifyform__quantity">
                         <input type="submit" value="修改">
                     </div>
                 </form>
             </div>
         </div>
-        <!-- <label>{{ form.spec.label }}</label>
-        {{ form.spec }}
-        <label>{{ form.quantity.label }}</label>
-        {{ form.quantity}}
-        <input type="submit" value="新增"> -->
-
-    <!-- <div class="tire">
-        <ul>
-            {% for tire in tires %}
-            <li>
-                {{ tire.spec }}
-                {{ tire.quantity }}
-            </li>
-            {% endfor%}
-        </ul>
-    </div> -->
 </section>

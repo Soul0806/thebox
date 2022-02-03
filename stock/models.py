@@ -26,7 +26,6 @@ class TireInch(models.Model):
         return self.inch
 
 class Tire(models.Model):
-    # TIRE_CHOICES = ((0, 0), (1, 1), (2, 2))
     class Meta:
         ordering = ('spec',)
     spec = models.CharField(max_length=64)

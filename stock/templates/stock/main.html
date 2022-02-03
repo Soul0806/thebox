@@ -6,19 +6,38 @@
     </ul>
 </aside>
 <section>
-    <form action="{% url 'stock:index' %}" method="POST">
+
         {% csrf_token %}
-        {{ form.tire_inch.label }}
-        {{ form.tire_inch }}
+        <!-- {{ form.tire_inch.label }}
+        {{ form.tire_inch }} -->
+        <ul class="ul_inch">
+            {% for inch in inches %}
+            <li data-id="{{ inch.id }}" 
+                data-url="{% url 'stock:db_read_tire' %}"
+                data-tap=".tire__spec">
+                {{ inch.inch }}
+            </li>
+            {% endfor %}
+        </ul>
         <div class="tire">
-            
+            <div class="tire__spec"></div>
+            <div class="modify">
+                <form class="modifyform" action="" method="GET">
+                    <div class="modifyform__close">X</div>
+                    <div class="modifyform__spec">123</div>                    
+                    <div>
+                        <input type="text" name="" id="" class="modifyform__quantity">
+                        <input type="submit" value="修改">
+                    </div>
+                </form>
+            </div>
         </div>
-        <label>{{ form.spec.label }}</label>
+        <!-- <label>{{ form.spec.label }}</label>
         {{ form.spec }}
         <label>{{ form.quantity.label }}</label>
         {{ form.quantity}}
-        <input type="submit" value="新增">
-    </form>
+        <input type="submit" value="新增"> -->
+
     <!-- <div class="tire">
         <ul>
             {% for tire in tires %}

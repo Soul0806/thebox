@@ -1,7 +1,7 @@
 import csv
 from os import kill
 import re
-import json
+import json 
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
@@ -42,7 +42,7 @@ def index(request):
         if(form.is_valid()):
             form.save()
         return HttpResponseRedirect(reverse('stock:index'))
-    inches = TireInch.objects.values_list('inch', flat=True)
+    inches = TireInch.objects.all()
     tires = Tire.objects.all()
     form = TireModelForm()
     return render(request, 'stock/index.html', {
@@ -79,9 +79,6 @@ def db_read_tire(request):
     return HttpResponse(res, content_type="application/json" )
 
 
-# delete duplicate row from db
 def f(request):
-    for row in Tire.objects.all().reverse():
-        if(Tire.objects.filter(spec=row.spec).count() > 1):
-            row.delete()
+    t = Tire.objects.filter(quantity='null').update(quantity='0')
     return HttpResponse('ok')

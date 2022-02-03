@@ -28,13 +28,74 @@ textarea {
 
 body {
   color: white;
-  background-color: #181818; }
+  background-color: #202124; }
+  body .mask {
+    position: relative;
+    height: 100vh;
+    width: 100vw; }
 
-section .tire ul {
+section .ul_inch {
   display: flex;
-  flex-wrap: wrap;
-  width: fit-content; }
-  section .tire ul li {
-    width: max-content; }
+  gap: 2rem; }
+  section .ul_inch li {
+    border-bottom: 2px;
+    padding: 5px 0;
+    opacity: 0.5;
+    border-bottom: 2px solid transparent; }
+    section .ul_inch li:hover {
+      cursor: pointer;
+      border-bottom: 2px solid limegreen;
+      opacity: 1; }
+
+section .tire {
+  position: relative; }
+  section .tire ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 0;
+    width: fit-content; }
+    section .tire ul li {
+      padding: 2px;
+      min-width: 120px; }
+      section .tire ul li:hover {
+        cursor: pointer; }
+        section .tire ul li:hover .spec {
+          opacity: 1; }
+      section .tire ul li .spec {
+        display: inline-block;
+        border: 2px solid #FFFFFF;
+        border-right: 0;
+        border: 25px 0 0 25px;
+        padding: 5px 10px;
+        border-radius: 20px 0 0 20px;
+        opacity: 0.5; }
+      section .tire ul li .quantity {
+        display: inline-block;
+        border: 2px solid lightgrey;
+        border-left: 0;
+        border-radius: 0 25px 25px 0;
+        padding: 5px 10px;
+        background-color: lightgrey;
+        color: #000000;
+        transform: translateX(-5px); }
+  section .tire .modify {
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    padding: 10px; }
+    section .tire .modify .modifyform {
+      display: flex;
+      flex-direction: column;
+      gap: 10px; }
+      section .tire .modify .modifyform__close {
+        cursor: pointer;
+        color: #000000;
+        text-align: right; }
+      section .tire .modify .modifyform__spec {
+        color: #000000; }
+      section .tire .modify .modifyform__quantity {
+        text-align: right; }
 
 /*# sourceMappingURL=style.css.map */

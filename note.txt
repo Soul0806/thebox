@@ -1,0 +1,6 @@
+# delete duplicate row from db
+def f(request):
+    for row in Tire.objects.all().reverse():
+        if(Tire.objects.filter(spec=row.spec).count() > 1):
+            row.delete()
+    return HttpResponse('ok')

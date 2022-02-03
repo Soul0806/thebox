@@ -3,23 +3,82 @@ aside {
 }
 
 section {
+    .ul_inch {
+        display: flex;
+        gap: 2rem;
+        li { 
+            border-bottom: 2px;            
+            padding: 5px 0;
+            opacity: 0.5;    
+            border-bottom: 2px solid transparent;
+            &:hover {
+                cursor: pointer;
+                border-bottom: 2px solid limegreen;
+                opacity: 1;
+            }
+        }
+    }
     .tire {
+        position: relative;
         ul {
             display: flex;
             flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem 0;
             width: fit-content;
             li {
-                width: max-content;
-                // .spec {
-                //     display: inline-block;
-                   
-                // }
-                // .quantity {  
-                //     &::before {
-                        
-                //     }
-                // }            
+            //    outline: 2px solid limegreen;
+               padding: 2px;
+               min-width: 120px;      
+                &:hover {
+                    cursor: pointer;
+                    .spec {
+                        opacity: 1;
+                    }
+                }
+                .spec {
+                    display: inline-block;
+                    border: 2px solid #FFFFFF;
+                    border-right: 0;
+                    border: 25px 0 0 25px;
+                    padding: 5px 10px;
+                    border-radius: 20px 0 0 20px;
+                    opacity: 0.5; 
+                }
+                .quantity {
+                    display: inline-block;
+                    border: 2px solid lightgrey;
+                    border-left: 0;
+                    border-radius: 0 25px 25px 0;
+                    padding: 5px 10px;
+                    background-color: lightgrey;
+                    color: #000000;
+                    transform: translateX(-5px);
+                }
             }
+        }
+        .modify {
+            .modifyform {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                &__close {
+                    cursor: pointer;
+                    color:#000000;
+                    text-align: right;
+                }
+                &__spec {
+                    color:#000000;
+                }
+                &__quantity {
+                    text-align: right;
+                }
+            }
+            background-color: #FFFFFF;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            padding: 10px;
         }
     }
 }

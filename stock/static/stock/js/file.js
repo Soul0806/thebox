@@ -6,6 +6,7 @@ const content = document.querySelector('#fileContent')
 
 const inserTire = document.querySelector('.js-insert-tire');
 
+
 let readFile = e => {
     reader.onload = e => {
         const data = { 'csv': reader.result }    
@@ -20,12 +21,13 @@ let readFile = e => {
 fileInput.addEventListener('change', readFile)
 
 inserTire.addEventListener('click', e => {
-  const data = { 'csv': reader.result }
+//   const data = { 'csv': reader.result }
   const url = e.target.dataset.url;
-  ajax.get(url, data, res => {
-    console.log(123);
+  ajax.get(url, data={}, res => {
+    console.log('successful');
   })
 })
+
 // file.onchange = e => {
 //     let reader = new FileReader();
 //     file = e.target.files[0];

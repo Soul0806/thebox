@@ -12,18 +12,20 @@ section {
         gap: 2rem;
         li { 
             border-bottom: 2px;            
-            padding: 5px 0;
+            padding: 10px 10px;
             opacity: 0.5;    
             border-bottom: 2px solid transparent;
-            &:hover {
-                cursor: pointer;
+            &:hover {      
+                cursor: pointer;        
+                color: red;
                 border-bottom: 2px solid limegreen;
-                opacity: 1;
+
             }
         }
     }
     .tire {
-        width: 100%;
+        width: 70%;
+        margin: 0 auto;
         position: relative;
         ul {
             display: flex;
@@ -32,11 +34,11 @@ section {
             padding: 1rem 0;
             width: fit-content;
             li {
-            //    outline: 2px solid limegreen;
                padding: 2px;
                min-width: 120px;      
                 &:hover {
                     cursor: pointer;
+                    transform: scale(1.05);
                     .spec {
                         opacity: 1;
                     }

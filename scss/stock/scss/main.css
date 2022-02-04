@@ -8,15 +8,15 @@ section {
     gap: 2rem; }
     section .ul_inch li {
       border-bottom: 2px;
-      padding: 5px 0;
+      padding: 10px 10px;
       opacity: 0.5;
       border-bottom: 2px solid transparent; }
       section .ul_inch li:hover {
-        cursor: pointer;
-        border-bottom: 2px solid limegreen;
-        opacity: 1; }
+        color: red;
+        border-bottom: 2px solid limegreen; }
   section .tire {
-    width: 100%;
+    width: 70%;
+    margin: 0 auto;
     position: relative; }
     section .tire ul {
       display: flex;
@@ -28,7 +28,8 @@ section {
         padding: 2px;
         min-width: 120px; }
         section .tire ul li:hover {
-          cursor: pointer; }
+          cursor: pointer;
+          transform: scale(1.05); }
           section .tire ul li:hover .spec {
             opacity: 1; }
         section .tire ul li .spec {

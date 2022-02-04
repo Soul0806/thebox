@@ -6,6 +6,10 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.core import serializers
+
+from Thebox.components import Components
+
+
 # Create your views here.
 
 from .models import Tire, TireInch
@@ -75,8 +79,17 @@ def db_read_tire(request):
     inch_id = request.GET['inch_id']
     ti = TireInch.objects.get(pk=inch_id)
     tires = ti.tire_inch.all()
-    res = serializers.serialize("json", tires)
-    return HttpResponse(res, content_type="application/json" )
+    html = [
+       {"class": ''},
+       [
+           {"tag": "span", "class": "spec", "key": 'spec'},
+           {"tag": "span", "class": "quantity", "key": 'quantity'}
+       ]     
+    ]
+    elemnt = Components().ul_li(list(tires), *html)
+    return HttpResponse(elemnt)
+    # res = serializers.serialize("json", tires)
+    # return HttpResponse(res, content_type="application/json" )
 
 
 def f(request):

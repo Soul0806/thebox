@@ -1,4 +1,6 @@
+from enum import auto
 from django.db import models
+from django.db.models.fields.related import create_many_to_many_intermediary_model
 
 # Create your models here.
 
@@ -39,3 +41,8 @@ class Tire(models.Model):
     # def __str__(self):
     #     return f'{self.spec} : {self.quantity}'
 
+class Recent(models.Model):
+    tire_spec = models.ForeignKey(Tire, on_delete=models.CASCADE, related_name='tire_spec')
+    before = models.IntegerField()
+    after = models.IntegerField()
+    created_at = models.DateTimeField(auto_now=True)

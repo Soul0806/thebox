@@ -12,7 +12,7 @@ from Thebox.components import Components
 
 # Create your views here.
 
-from .models import Tire, TireInch
+from .models import Tire, TireInch, Recent
 from .form import TireModelForm
 
 def parse_csv_string(csv_string):
@@ -94,10 +94,15 @@ def db_read_tire(request):
 def db_update_tire(request):
     spec = request.GET['spec']
     quantity = request.GET['quantity']
-    t = Tire.objects.filter(spec=spec).update(quantity=quantity)
+    before = request.GET['before']
+    t = Tire.objects.filter(spec=spec)
+    t.update(quantity=quantity)
+    print(t)
+    # r = Recent.objects.create(tire_spec=t, before=before, after=quantity)
     return HttpResponse( json.dumps([spec, quantity]) )
 
 
 def f(request):
     t = Tire.objects.filter(quantity='null').update(quantity='0')
     return HttpResponse('ok')
+

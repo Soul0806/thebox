@@ -43,7 +43,7 @@ tire.addEventListener('click', e => {
         let sibings = e.target.nextElementSibling;
         form.style.display = 'block';
         spec.textContent = e.target.textContent;
-        modifyBefore.textContent = sibings.textContent;
+        modifyBefore.textContent = submit.dataset.before = sibings.textContent;
     }
 })
 close.addEventListener('click', e => {
@@ -54,10 +54,12 @@ close.addEventListener('click', e => {
 submit.addEventListener('click', e => {
     e.preventDefault();
     const tire_quan = document.querySelector('.tire__spec .quantity');
+    const before = e.target.dataset.before;
     const url = e.target.dataset.url;
     const data = {
         spec: spec.textContent,
-        quantity: quantity.value
+        quantity: quantity.value,
+        before: before,
     }
     ajax.get(url, data, res => {
         const result = JSON.parse(res);

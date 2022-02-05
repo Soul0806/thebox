@@ -55,6 +55,7 @@ section {
       opacity: 0.5;
       border-bottom: 2px solid transparent; }
       section .ul_inch li:hover {
+        cursor: pointer;
         color: red;
         border-bottom: 2px solid limegreen; }
   section .tire {

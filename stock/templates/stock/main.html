@@ -6,33 +6,32 @@
     </ul> -->
 </aside>
 <section>
-        {% csrf_token %}
-        <!-- {{ form.tire_inch.label }}
+    {% csrf_token %}
+    <!-- {{ form.tire_inch.label }}
         {{ form.tire_inch }} -->
-        <div>
-            <ul class="ul_inch">
-                {% for inch in inches %}
-                <li data-id="{{ inch.id }}"
-                    data-url="{% url 'stock:db_read_tire' %}"
-                    data-tap=".tire__spec">
-                    {{ inch.inch }}
-                </li>
-                {% endfor %}
-            </ul>
+    <div>
+        <ul class="ul_inch">
+            {% for inch in inches %}
+            <li data-id="{{ inch.id }}" data-url="{% url 'stock:db_read_tire' %}" data-tap=".tire__spec">
+                {{ inch.inch }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="tire">
+        <div class="tire__spec"></div>
+        <div class="modify">
+            <form class="modifyform" action="" method="GET">
+                <div class="modifyform__close">X</div>
+                <div class="modifyform__spec"></div>
+                <div>修改前:<span class="modifyform__before"></span></div>
+                <div>
+                    <label for="modifyform__quantity">修改後</label>
+                    <input type="text" name="modifyform__quantity" class="modifyform__quantity">
+                    <input type="submit" value="修改" data-url="{% url 'stock:db_update_tire' %}"
+                        class="modifyform__submit">
+                </div>
+            </form>
         </div>
-        <div class="tire">
-            <div class="tire__spec"></div>
-            <div class="modify">
-                <form class="modifyform" action="" method="GET">
-                    <div class="modifyform__close">X</div>
-                    <div class="modifyform__spec"></div>                    
-                    <div>修改前:<span class="modify__form_before"></span></div>
-                    <div>
-                        <label for="modifyform__quantity">修改後</label>
-                        <input type="text" name="modifyform__quantity" id="" class="modifyform__quantity">
-                        <input type="submit" value="修改">
-                    </div>
-                </form>
-            </div>
-        </div>
+    </div>
 </section>

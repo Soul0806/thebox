@@ -3,7 +3,7 @@ from os import kill
 import re
 import json 
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, request
 from django.urls import reverse
 from django.core import serializers
 
@@ -90,6 +90,12 @@ def db_read_tire(request):
     return HttpResponse(elemnt)
     # res = serializers.serialize("json", tires)
     # return HttpResponse(res, content_type="application/json" )
+
+def db_update_tire(request):
+    spec = request.GET['spec']
+    quantity = request.GET['quantity']
+    t = Tire.objects.filter(spec=spec).update(quantity=quantity)
+    return HttpResponse( json.dumps([spec, quantity]) )
 
 
 def f(request):

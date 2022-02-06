@@ -1,6 +1,4 @@
 #container {
-  height: 1000px;
-  width: 100vw;
   display: grid;
   grid-template-columns: 30% 70%;
   grid-template-rows: 10% auto 5%;
@@ -23,36 +21,3 @@ footer {
   text-align: center;
 }
 
-.flex {
-  display: flex;
-  // flex-direction: row;
-}
-
-.flex-col-center {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;   
-}
-
-.flex-row-center {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;   
-}
-
-.flex-sb {
-  display: flex;
-  justify-content: space-between;
-}
-
-[draggable="true"] {
-	/*
-	 To prevent user selecting inside the drag source
-	*/
-	user-select: none;
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	-ms-user-select: none;
-}

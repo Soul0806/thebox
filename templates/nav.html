@@ -1,5 +1,5 @@
-<nav class="flex-sb">
-    <div class="logo"></div>
+<nav>
+    <div class="logo">Logo</div>
     <ul class="app">
         <li>
             <a href="{% url 'task:index' %}">Task</a>
@@ -7,8 +7,8 @@
         <li>
             <a href="{% url 'stock:index' %}">Stock</a>
         </li>
+        <li>
+            <a class="admin" href="{% url 'admin:index' %}">後台管理</a>
+        </li>
     </ul>
-    <div class="admin">
-        <a href="{% url 'admin:index' %}">後台管理</a>
-    </div>
 </nav>

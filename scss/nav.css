@@ -1,6 +1,4 @@
 #container {
-  height: 1000px;
-  width: 100vw;
   display: grid;
   grid-template-columns: 30% 70%;
   grid-template-rows: 10% auto 5%;
@@ -17,44 +15,19 @@ footer {
   grid-area: ft;
   text-align: center; }
 
-.flex {
-  display: flex; }
-
-.flex-col-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
-
-.flex-row-center {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center; }
-
-.flex-sb {
-  display: flex;
-  justify-content: space-between; }
-
-[draggable="true"] {
-  /*
-	 To prevent user selecting inside the drag source
-	*/
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none; }
-
 nav {
-  margin: 20px auto; }
+  display: flex;
+  padding: 1rem 3rem; }
+  nav .app {
+    display: flex;
+    flex: 1; }
+    nav .app > li a {
+      color: #FFFFFF; }
+    nav .app > li:first-child {
+      margin-left: auto; }
+    nav .app > li:last-child {
+      margin-left: auto; }
   nav a {
     padding: 3px 10px; }
-  nav .app li {
-    display: inline-block; }
-    nav .app li:nth-child(n+2) a {
-      border-left: 1px solid black; }
-  nav .app a {
-    width: 5rem;
-    text-align: center; }
 
 /*# sourceMappingURL=nav.css.map */

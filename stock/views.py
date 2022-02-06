@@ -49,10 +49,13 @@ def index(request):
     inches = TireInch.objects.all()
     tires = Tire.objects.all()
     form = TireModelForm()
+    recents = Recent.objects.all().order_by('-created_at')
+    print(recents)
     return render(request, 'stock/index.html', {
         "inches": inches,
         "tires": tires,
-        "form": form
+        "form": form,
+        "recents": recents
     })
 
 # stock/file
@@ -95,10 +98,10 @@ def db_update_tire(request):
     spec = request.GET['spec']
     quantity = request.GET['quantity']
     before = request.GET['before']
-    t = Tire.objects.filter(spec=spec)
-    t.update(quantity=quantity)
-    print(t)
-    # r = Recent.objects.create(tire_spec=t, before=before, after=quantity)
+    t = Tire.objects.get(spec=spec)
+    t.quantity = quantity
+    t.save()
+    r = Recent.objects.create(tire_spec=t, before=before, after=quantity)
     return HttpResponse( json.dumps([spec, quantity]) )
 
 

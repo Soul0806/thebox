@@ -25,6 +25,7 @@ section {
     }
     .tire {
         width: 70%;
+        height: 250px;
         margin: 0 auto;
         position: relative;
         ul {
@@ -94,5 +95,8 @@ section {
             padding: 1.5rem;
             border-radius: 20px;
         }
+    }
+    .recent {        
+        // margin-right: auto;
     }
 }

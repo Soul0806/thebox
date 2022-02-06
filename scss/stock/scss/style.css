@@ -60,6 +60,7 @@ section {
         border-bottom: 2px solid limegreen; }
   section .tire {
     width: 70%;
+    height: 250px;
     margin: 0 auto;
     position: relative; }
     section .tire ul {

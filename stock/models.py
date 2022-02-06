@@ -38,11 +38,14 @@ class Tire(models.Model):
     created_at = models.DateTimeField(auto_now=True)
     modified_at = models.DateTimeField(auto_now_add=True)
 
-    # def __str__(self):
-    #     return f'{self.spec} : {self.quantity}'
+    def __str__(self):
+        return f'{self.spec}'
 
 class Recent(models.Model):
     tire_spec = models.ForeignKey(Tire, on_delete=models.CASCADE, related_name='tire_spec')
     before = models.IntegerField()
     after = models.IntegerField()
     created_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.tire_spec} 前: {self.before} 後: {self.after}'

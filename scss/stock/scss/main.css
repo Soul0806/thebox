@@ -1,80 +1,82 @@
-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; }
-  section .ul_inch {
-    display: flex;
-    gap: 2rem; }
-    section .ul_inch li {
-      border-bottom: 2px;
-      padding: 10px 10px;
-      opacity: 0.5;
-      border-bottom: 2px solid transparent; }
-      section .ul_inch li:hover {
+section .nav_inch {
+  text-align: center; }
+
+section .ul_inch li {
+  display: inline-block;
+  border-bottom: 2px;
+  padding: 10px 10px;
+  opacity: 0.5;
+  border-bottom: 2px solid transparent; }
+  section .ul_inch li:hover {
+    cursor: pointer;
+    color: red;
+    border-bottom: 2px solid limegreen; }
+
+section .tire {
+  height: 250px;
+  position: relative; }
+  section .tire__spec {
+    text-align: center; }
+  section .tire ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 10px;
+    gap: 1rem;
+    padding: 1rem 0;
+    min-width: 200px; }
+    section .tire ul li {
+      padding: 2px;
+      min-width: 120px; }
+      section .tire ul li:hover {
         cursor: pointer;
-        color: red;
-        border-bottom: 2px solid limegreen; }
-  section .tire {
-    width: 70%;
-    height: 250px;
-    margin: 0 auto;
-    position: relative; }
-    section .tire ul {
+        transform: scale(1.05); }
+        section .tire ul li:hover .spec {
+          opacity: 1; }
+      section .tire ul li .spec {
+        display: inline-block;
+        border: 2px solid #FFFFFF;
+        border-right: 0;
+        border: 25px 0 0 25px;
+        padding: 5px 10px;
+        border-radius: 20px 0 0 20px;
+        opacity: 0.5; }
+      section .tire ul li .quantity {
+        display: inline-block;
+        border: 2px solid lightgrey;
+        border-left: 0;
+        border-radius: 0 25px 25px 0;
+        padding: 5px 10px;
+        background-color: lightgrey;
+        color: #000000;
+        transform: translateX(-5px); }
+  section .tire .modify {
+    display: none;
+    color: #000000;
+    font-size: 1.2rem;
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1.5rem;
+    border-radius: 20px; }
+    section .tire .modify .modifyform {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      padding: 1rem 0;
-      width: fit-content; }
-      section .tire ul li {
-        padding: 2px;
-        min-width: 120px; }
-        section .tire ul li:hover {
-          cursor: pointer;
-          transform: scale(1.05); }
-          section .tire ul li:hover .spec {
-            opacity: 1; }
-        section .tire ul li .spec {
-          display: inline-block;
-          border: 2px solid #FFFFFF;
-          border-right: 0;
-          border: 25px 0 0 25px;
-          padding: 5px 10px;
-          border-radius: 20px 0 0 20px;
-          opacity: 0.5; }
-        section .tire ul li .quantity {
-          display: inline-block;
-          border: 2px solid lightgrey;
-          border-left: 0;
-          border-radius: 0 25px 25px 0;
-          padding: 5px 10px;
-          background-color: lightgrey;
-          color: #000000;
-          transform: translateX(-5px); }
-    section .tire .modify {
-      display: none;
-      color: #000000;
-      font-size: 1.2rem;
-      background-color: #FFFFFF;
-      position: absolute;
-      top: 50px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 1.5rem;
-      border-radius: 20px; }
-      section .tire .modify .modifyform {
+      flex-direction: column;
+      gap: 10px; }
+      section .tire .modify .modifyform__close {
+        cursor: pointer;
+        text-align: right; }
+      section .tire .modify .modifyform__quantity {
+        max-width: 3rem;
+        text-align: right; }
+      section .tire .modify .modifyform > div:last-child {
         display: flex;
-        flex-direction: column;
-        gap: 10px; }
-        section .tire .modify .modifyform__close {
-          cursor: pointer;
-          text-align: right; }
-        section .tire .modify .modifyform__quantity {
-          max-width: 3rem;
-          text-align: right; }
-        section .tire .modify .modifyform > div:last-child {
-          display: flex;
-          align-items: center;
-          gap: 4px; }
+        align-items: center;
+        gap: 4px; }
+
+section .recent {
+  width: 80%;
+  margin: 0 auto; }
 
 /*# sourceMappingURL=main.css.map */

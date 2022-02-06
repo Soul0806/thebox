@@ -9,7 +9,7 @@
     {% csrf_token %}
     <!-- {{ form.tire_inch.label }}
         {{ form.tire_inch }} -->
-    <div>
+    <div class="nav_inch">
         <ul class="ul_inch">
             {% for inch in inches %}
             <li data-id="{{ inch.id }}" data-url="{% url 'stock:db_read_tire' %}" data-tap=".tire__spec">

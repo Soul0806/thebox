@@ -3,14 +3,12 @@ aside {
 }
 
 section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    .nav_inch {
+        text-align: center;
+    }
     .ul_inch {
-        display: flex;
-        gap: 2rem;
         li { 
+            display: inline-block;
             border-bottom: 2px;            
             padding: 10px 10px;
             opacity: 0.5;    
@@ -24,17 +22,20 @@ section {
         }
     }
     .tire {
-        width: 70%;
+        // width: 70%;
         height: 250px;
-        margin: 0 auto;
         position: relative;
+        &__spec {
+            text-align: center;
+        }
         ul {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-gap: 10px;          
             gap: 1rem;
             padding: 1rem 0;
-            width: fit-content;
-            li {
+            min-width: 200px;            
+            li {            
                padding: 2px;
                min-width: 120px;      
                 &:hover {
@@ -96,7 +97,8 @@ section {
             border-radius: 20px;
         }
     }
-    .recent {        
-        // margin-right: auto;
+    .recent { 
+        width: 80%;
+        margin: 0 auto;
     }
 }

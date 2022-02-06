@@ -38,6 +38,8 @@
         <h2>最近更新</h2>
         {% for recent in recents %}
         <p>{{ recent }}</p>
+        {% empty %}
+        <p>No recent record</p>
         {% endfor %}
     </div>
 </section>

@@ -1,0 +1,36 @@
+#container {
+  display: grid;
+  grid-template-rows: 10% auto 5%;
+  grid-template-areas: "hd" "main" "ft"; }
+  #container header {
+    grid-area: hd;
+    position: fixed;
+    top: 0px;
+    width: 100%; }
+  #container main {
+    grid-area: main; }
+  #container footer {
+    font-size: .5rem;
+    grid-area: ft;
+    text-align: center; }
+
+nav {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem; }
+  nav a {
+    color: white; }
+  nav .navbar {
+    display: flex;
+    justify-content: center; }
+    nav .navbar li {
+      padding: 0 1.5rem; }
+      nav .navbar li:nth-child(n+2) {
+        border-left: 1px solid white; }
+  nav .manage {
+    position: absolute;
+    right: 1rem; }
+
+/*# sourceMappingURL=global.css.map */

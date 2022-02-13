@@ -1,0 +1,26 @@
+#container {
+    display: grid;
+    grid-template-rows: 10% auto 5%;
+    grid-template-areas: 
+    "hd"
+    "main"
+    "ft";
+
+    header {
+        grid-area: hd;
+        position: fixed;
+        top: 0px;
+        width: 100%;
+    }
+
+    main {
+        grid-area: main;
+    }
+
+    footer {
+        font-size: .5rem;
+        grid-area: ft;
+        text-align: center;
+    }
+}
+

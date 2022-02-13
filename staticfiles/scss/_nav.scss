@@ -1,0 +1,24 @@
+nav {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    a {
+        color: white;
+    }
+    .navbar {
+        display: flex;
+        justify-content: center;  
+        li {
+            padding: 0 1.5rem;
+            &:nth-child(n+2) {
+                border-left: 1px solid white;
+            }
+        }
+    }
+    .manage {
+        position: absolute;
+        right: 1rem;
+    }
+}

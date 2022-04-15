@@ -23,5 +23,6 @@ urlpatterns = [
     # path('test', include('tools.urls')),
     path('task/', include('task.urls')),
     path('ptt/', include('myptt.urls')),
-    path('stock/', include('stock.urls'))
+    path('stock/', include('stock.urls')),
+    path('spider/', include('spider.urls'))
 ]

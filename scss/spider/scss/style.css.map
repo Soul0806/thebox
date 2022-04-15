@@ -1,0 +1,17 @@
+{
+	"version": 3,
+	"file": "style.css",
+	"sources": [
+		"style.scss",
+		"_reset.scss",
+		"_googleicons.scss",
+		"_variables.scss",
+		"_extends.scss",
+		"_mixins.scss",
+		"_animations.scss",
+		"_global.scss",
+		"_main.scss"
+	],
+	"names": [],
+	"mappings": "AQAA,AAAA,GAAG,CAAC;EACA,KAAK,EAAE,IAAI,GACd"
+}

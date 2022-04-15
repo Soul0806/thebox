@@ -1,0 +1,18 @@
+{% extends '{}/layout.html' %}
+{% load static %} {% load sass_tags %}
+{% block css %}
+<!-- <link rel="stylesheet" href="{% sass_src 'scss/global.scss' %}" type="text/css"> -->
+<link rel="stylesheet" href="{% sass_src '{}/scss/style.scss' %}" type="text/css">
+{% endblock %}
+
+{% block nav %}
+{% include '{}/nav.html' %}
+{% endblock %}
+
+{% block main %}
+{% include '{}/main.html' %}
+{% endblock %}
+
+{% block script %}
+<script type="module" src="{% static '{}/js/index.js' %}?version=1"></script>
+{% endblock %}

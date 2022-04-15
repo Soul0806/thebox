@@ -51,7 +51,8 @@ case $1 in
             exit 0   
             ;;
         test ) 
-            echo 'test123123'
+            python3 ./django_test_init.py $2
+            # echo 'test1111123123222'
             exit 0
             ;;            
 esac
